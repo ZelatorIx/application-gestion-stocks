@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Negosud.dataaccess;
 
@@ -11,9 +12,11 @@ using Negosud.dataaccess;
 namespace Negosud.dataaccess.Migrations
 {
     [DbContext(typeof(NegosudContext))]
-    partial class NegosudContextModelSnapshot : ModelSnapshot
+    [Migration("20221206131618_UpdateDB")]
+    partial class UpdateDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -6,12 +6,12 @@
         {
             NegosudContext.initDataDb();
 
-            using (NegosudContext context = new NegosudContext())
-            {
-                Family family = context.Families.First();
-                family.Name = "rienàvoir";
-                context.SaveChanges();
-            }
+            //using (NegosudContext context = new NegosudContext())
+            //{
+            //    Family family = context.Families.First();
+            //    family.Name = "rienàvoir";
+            //    context.SaveChanges();
+            //}
         }
     }
 }
