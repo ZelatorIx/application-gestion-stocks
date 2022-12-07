@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            NegosudContext.initDataDb();
+            NegosudContext.InitDataDb();
 
             //using (NegosudContext context = new NegosudContext())
             //{
