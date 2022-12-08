@@ -8,9 +8,9 @@
 
             //using (NegosudContext context = new NegosudContext())
             //{
-            //    Family family = context.Families.First();
-            //    family.Name = "rienàvoir";
-            //    context.SaveChanges();
+            //Family family = context.Families.First();
+            //family.Name = "rienàvoir";
+            //context.SaveChanges();
             //}
         }
     }
