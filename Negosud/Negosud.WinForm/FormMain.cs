@@ -30,7 +30,7 @@ namespace Negosud.WinForm
             //Affichage de la réponse
             MessageBox.Show(response);
 
-            List<FamilyDTO> responseDeserialize = JsonConvert.DeserializeObject<List<FamilyDTO>>(response);
+            List<FamilyDTO>? responseDeserialize = JsonConvert.DeserializeObject<List<FamilyDTO>>(response);
 
             dataGrid.DataSource = responseDeserialize;
 
