@@ -35,5 +35,11 @@ namespace Negosud.WinForm
             dataGrid.DataSource = responseDeserialize;
 
         }
+
+        private void BtnItems_Click(object sender, EventArgs e)
+        {
+            FormItems  formItems = new FormItems();
+            formItems.ShowDialog();   
+        }
     }
 }

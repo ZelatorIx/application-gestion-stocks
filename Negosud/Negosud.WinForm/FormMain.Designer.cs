@@ -31,6 +31,7 @@
             this.buttonTestApi = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.BtnItems = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
@@ -66,11 +67,22 @@
             this.dataGrid.Size = new System.Drawing.Size(960, 100);
             this.dataGrid.TabIndex = 0;
             // 
+            // BtnItems
+            // 
+            this.BtnItems.Location = new System.Drawing.Point(389, 216);
+            this.BtnItems.Name = "BtnItems";
+            this.BtnItems.Size = new System.Drawing.Size(75, 23);
+            this.BtnItems.TabIndex = 3;
+            this.BtnItems.Text = "Articles";
+            this.BtnItems.UseVisualStyleBackColor = true;
+            this.BtnItems.Click += new System.EventHandler(this.BtnItems_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 493);
+            this.Controls.Add(this.BtnItems);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonTestApi);
             this.Name = "FormMain";
@@ -86,5 +98,6 @@
         private Button buttonTestApi;
         private Panel panel1;
         private DataGridView dataGrid;
+        private Button BtnItems;
     }
 }
