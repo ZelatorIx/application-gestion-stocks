@@ -26,7 +26,7 @@ namespace Negosud.dataaccess
         public DbSet<Item> Items { get; set; }
         public DbSet<Family> Families { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<Client> Clients { get; set; }
+        public DbSet<Customer> Clients { get; set; }
 
         public static void InitDataDb()
         {
