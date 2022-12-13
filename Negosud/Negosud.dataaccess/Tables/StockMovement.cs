@@ -8,5 +8,6 @@ namespace Negosud.dataaccess.Tables
 {
     internal class StockMovement
     {
+        public int Quantity { get; set; }
     }
 }
