@@ -8,8 +8,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Negosud.dataaccess", "Negosud.dataaccess\Negosud.dataaccess.csproj", "{9B74F9B3-FFD8-4C00-B591-DAFAFEE09427}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{7E122CF0-3A2D-4243-A3D6-A2E7FC06C175}"
+<<<<<<< HEAD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negosud.WinForm", "Negosud.WinForm\Negosud.WinForm.csproj", "{9AE2BCF6-96C5-462D-B01F-FBF02495B57A}"
+=======
+>>>>>>> 74190e0 (ok)
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
