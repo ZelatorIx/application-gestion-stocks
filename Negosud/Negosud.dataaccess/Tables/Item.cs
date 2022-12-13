@@ -10,7 +10,7 @@
         public string? Image { get; set;  }
         public Family? Family { get; set; }
         public int Year { get; set; }
-        public Client[]? Clients { get; set; }
+        public Customer[]? Clients { get; set; }
         public Supplier[]? Suppliers { get; set; }
     }
 }
