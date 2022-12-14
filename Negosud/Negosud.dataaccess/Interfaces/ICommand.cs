@@ -8,5 +8,8 @@ namespace Negosud.dataaccess.Interfaces
 {
     public interface ICommand
     {
+        int Number { get; set; }
+        DateTime Date { get; set; }
+        string Status { get; set; }
     }
 }
