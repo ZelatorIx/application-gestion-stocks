@@ -10,7 +10,6 @@ namespace Negosud.dataaccess.Tables
     {
         public int Quantity { get; set; }
         public float BeforePriceTax { get; set; }
-        public float Vat { get; set; }
-
+        public float VAT { get; set; }
     }
 }

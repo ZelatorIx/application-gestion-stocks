@@ -9,6 +9,6 @@ namespace Negosud.dataaccess.Tables
     public class Regularization
     {
         public DateTime Date { get; set; }
-        public string Inventorist { get; set; }
+        public string Inventorist { get; set; } = "";
     }
 }
