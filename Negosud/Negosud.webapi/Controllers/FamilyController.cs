@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Negosud.dataaccess;
 using Negosud.dataaccess.Tables;
 using Negosud.webapi.Models;
+using System.Data;
 
 namespace Negosud.webapi.Controllers
 {
@@ -12,9 +13,9 @@ namespace Negosud.webapi.Controllers
     {
         private readonly NegosudContext _context;
 
-        public FamilyController(NegosudContext context)
+        public FamilyController()
         {
-            _context = context;
+            _context = new NegosudContext();
         }
 
         /**
@@ -77,11 +78,6 @@ namespace Negosud.webapi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] FamilyDTO familyDTO)
         {
-            if (id != familyDTO.Id)
-            {
-                return BadRequest();
-            }
-
             Family? family = await _context.Families.FindAsync(id);
             if (family == null)
             {
@@ -99,7 +95,7 @@ namespace Negosud.webapi.Controllers
                 return NotFound();
             }
 
-            return NoContent();
+            return StatusCode(304);
         }
 
         /// <summary>
@@ -124,7 +120,7 @@ namespace Negosud.webapi.Controllers
             _context.Families.Remove(family);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok();
         }
 
         /// <summary>
