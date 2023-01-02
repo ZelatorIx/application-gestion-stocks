@@ -11,6 +11,6 @@
         public string Picture { get; set; } = "";
         public int MinLimit { get; set; }
         public int YearItem { get; set; }
-        public Family ItemFamily { get; set; } = new Family();
+        public Family? ItemFamily { get; set; }
     }
 }

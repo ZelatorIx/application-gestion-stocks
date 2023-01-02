@@ -11,6 +11,6 @@
         public string Picture { get; set; } = "";
         public int MinLimit { get; set; }
         public int YearItem { get; set; }
-        public FamilyDTO ItemFamily { get; set; } = new FamilyDTO();
+        public FamilyDTO? ItemFamily { get; set; }
     }
 }
