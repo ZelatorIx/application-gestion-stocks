@@ -18,11 +18,10 @@ namespace Negosud.webapi.Controllers
             _context = new NegosudContext();
         }
 
-        /**
-         * Retourne une liste de familles
-         * 
-         * @returns Liste de familles
-         */
+        /// <summary>
+        /// Retourne la liste des familles
+        /// </summary>
+        /// <returns>Liste des familles</returns>
         [HttpGet]
         public async Task<List<FamilyDTO>> GetAll()
         {
@@ -31,12 +30,11 @@ namespace Negosud.webapi.Controllers
                 .ToListAsync();
         }
 
-        /**
-         * Retourne une famille par son identifiant
-         * 
-         * @param id Identifiant de la famille
-         * @return Famille
-         */
+        /// <summary>
+        /// Retourne une famille par son identifiant
+        /// </summary>
+        /// <param name="id">Identifiant de la famille</param>
+        /// <returns>Famille</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<FamilyDTO>> GetById(int id)
         {
