@@ -39,7 +39,6 @@
             this.LabelName = new System.Windows.Forms.Label();
             this.LabelDescription = new System.Windows.Forms.Label();
             this.LabelFamily = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,20 +135,11 @@
             this.LabelFamily.TabIndex = 10;
             this.LabelFamily.Text = "Famille";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(110, 299);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 11;
-            // 
             // FormItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.LabelFamily);
             this.Controls.Add(this.LabelDescription);
             this.Controls.Add(this.LabelName);
@@ -182,6 +172,5 @@
         private Label LabelName;
         private Label LabelDescription;
         private Label LabelFamily;
-        private ComboBox comboBox1;
     }
 }

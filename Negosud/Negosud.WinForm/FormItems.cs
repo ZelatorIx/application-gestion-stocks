@@ -19,9 +19,11 @@ namespace Negosud.WinForm
             InitializeComponent();
         }
 
+        public FamilyDTO? ItemFamily { get; private set; }
+
         private async void BtnNouveau_Click(object sender, EventArgs e)
         {
-            //Evoyer le nouvel ObjetDTO à l'API
+            //Envoyer le nouvel ObjetDTO à l'API
             // 1 Récupérer les valeurs des Textboxs
 
                 // 4 Propriétés pour rendre opérationelle la combo 
@@ -36,7 +38,7 @@ namespace Negosud.WinForm
             ItemDTO itemResult = new ItemDTO();
             // 3 Remplir ce nouovel Objet avec les valeurs de Etape 1
          
-            itemResult.Family = Family; 
+            itemResult.ItemFamily = ItemFamily; 
             itemResult.Description = Description;   
             itemResult.Name = Name;
 
