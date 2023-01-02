@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Negosud.dataaccess.Tables;
 using Negosud.dataaccess;
-using Negosud.webapi.Models
+using Negosud.webapi.Models;
 
 namespace Negosud.webapi.Controllers
 {
