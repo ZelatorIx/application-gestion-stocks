@@ -19,30 +19,52 @@ namespace Negosud.webapi.Controllers
         {
             using (NegosudContext context = new NegosudContext())
             {
-                return context.Families.ToList().Select(f => convert(f)).ToList();
+                return context.Families.ToList().Select(f => Convert(f)).ToList();
             }
         }
 
+        /**
+         * Retourne une famille par son identifiant
+         * 
+         * @param id Identifiant de la famille
+         * @returns Famille
+         */
         [HttpGet("{id}")]
         public ActionResult<FamilyDTO> GetById(int id)
         {
             using (NegosudContext context = new NegosudContext())
             {
                 Family? family = context.Families.FirstOrDefault(f => f.Id == id);
-                FamilyDTO familyDTO = convert(family);
+                FamilyDTO familyDTO = Convert(family);
                 return familyDTO != null ? Ok(familyDTO) : NotFound();
             }
         }
 
-        private FamilyDTO convert(Family family)
+        /**
+         * Convertie une Family en FamilyDTO
+         * 
+         * @param family Famille à caster
+         * @returns Famille castée en DTO
+         */
+        private FamilyDTO Convert(Family? family)
         {
             FamilyDTO familyDTO = new FamilyDTO();
-            familyDTO.Id = family.Id;
-            familyDTO.Name = family.Name;
+
+            if (family != null)
+            {
+                familyDTO.Id = family.Id;
+                familyDTO.Name = family.Name;
+            }
 
             return familyDTO;
         }
 
+        /**
+         * Crée une famille
+         * 
+         * @param familyDTO Famille à créer
+         * @returns Résultat de la requête
+         */
         [HttpPost]
         public IActionResult Post([FromBody] FamilyDTO familyDTO)
         {
