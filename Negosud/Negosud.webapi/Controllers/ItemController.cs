@@ -22,8 +22,6 @@ namespace Negosud.webapi.Controllers
                 itemResult.Description = itemDTO.Description;
                 itemResult.Family = context.Families.Where(i => i.Id == itemDTO.Family).Single();
 
-
-
                 context.Items.Add(itemResult);
                 context.SaveChanges();
                 return Ok();
