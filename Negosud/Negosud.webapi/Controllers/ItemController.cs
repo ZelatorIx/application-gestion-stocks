@@ -6,8 +6,8 @@ using Negosud.webapi.Models;
 namespace Negosud.webapi.Controllers
 {
     [ApiController]
-    [Route("Items")]
-    public class ItemController : Controller
+    [Route("items")]
+    public class ItemController : Microsoft.AspNetCore.Mvc.Controller
     {
 
 
