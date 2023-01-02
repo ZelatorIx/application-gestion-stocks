@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Negosud.webapi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("commands-order-content")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class CommandOrderContentController : ControllerBase
     {
     }
 }

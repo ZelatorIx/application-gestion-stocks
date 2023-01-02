@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Negosud.webapi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("regularizations")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class RegularizationController : ControllerBase
     {
     }
 }

@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Negosud.webapi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("stock-movements")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class StockMovementController : ControllerBase
     {
     }
 }
