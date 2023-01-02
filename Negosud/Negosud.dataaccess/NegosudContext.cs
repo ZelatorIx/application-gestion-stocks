@@ -23,10 +23,17 @@ namespace Negosud.dataaccess
         {
         }
         //entities
-        public DbSet<Item> Items { get; set; }
+        public DbSet<CommandCustomer> CommandCustomers { get; set; }
+        public DbSet<CommandSupplier> CommandSuppliers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerOrderContent> CustomerOrderContents { get; set; }
         public DbSet<Family> Families { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<ReasonRegularization> ReasonRegularizations { get; set; }
+        public DbSet<Regularization> Regularizations { get; set; }
+        public DbSet<StockMovement> StockMovements { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<Customer> Clients { get; set; }
+        public DbSet<SupplierOrderContent> SupplierOrderContents { get; set; }
 
         public static void InitDataDb()
         {

@@ -1,4 +1,4 @@
-﻿namespace Negosud.webapi.Models
+﻿namespace Negosud.dataaccess.Tables
 {
     public class CustomerOrderContent
     {
@@ -6,6 +6,6 @@
         public int Quantity { get; set; }   
         public float BeforePriceTax { get; set; }   
         public float Vat { get; set; }
-        public ItemDTO[]? Items { get; set; }
+        public Item[]? Items { get; set; }
     }
 }
