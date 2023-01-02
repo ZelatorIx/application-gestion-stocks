@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Negosud.dataaccess.Tables
+﻿namespace Negosud.webapi.Models
 {
     public class CustomerOrderContent
     {
@@ -12,6 +6,6 @@ namespace Negosud.dataaccess.Tables
         public int Quantity { get; set; }   
         public float BeforePriceTax { get; set; }   
         public float Vat { get; set; }
-        public Item[]? Items { get; set; }
+        public ItemDTO[]? Items { get; set; }
     }
 }
