@@ -1,5 +1,6 @@
 namespace Negosud.WinForm
 {
+    // hello :)
     internal static class Program
     {
         /// <summary>

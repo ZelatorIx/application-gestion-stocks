@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Negosud.dataaccess", "Negos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{7E122CF0-3A2D-4243-A3D6-A2E7FC06C175}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Negosud.WinForm", "Negosud.WinForm\Negosud.WinForm.csproj", "{982FD472-3A36-4D25-8115-9C74D95C2971}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7E122CF0-3A2D-4243-A3D6-A2E7FC06C175}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E122CF0-3A2D-4243-A3D6-A2E7FC06C175}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E122CF0-3A2D-4243-A3D6-A2E7FC06C175}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982FD472-3A36-4D25-8115-9C74D95C2971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982FD472-3A36-4D25-8115-9C74D95C2971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982FD472-3A36-4D25-8115-9C74D95C2971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982FD472-3A36-4D25-8115-9C74D95C2971}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
