@@ -1,4 +1,4 @@
-﻿namespace Negosud.dataaccess.Tables
+﻿namespace Negosud.webapi.Models
 {
     public class ItemDTO
     {

@@ -1,13 +1,6 @@
-﻿using Negosud.dataaccess.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Negosud.dataaccess.Tables
+﻿namespace Negosud.webapi.Models
 {
-    public class CommandCustomerDTO : ICommand
+    public class CommandCustomerDTO
     {
         public int Id { get; set; }
         public int Number { get; set; } 
