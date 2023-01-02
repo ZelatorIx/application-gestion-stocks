@@ -13,5 +13,7 @@ namespace Negosud.dataaccess.Tables
         public int Number { get; set; } 
         public DateTime Date { get; set; }
         public string Status { get; set; } = "";
+        public Customer[]? Customers { get; set; }
+        public CustomerOrderContent[]? CustomerOrderContents { get; set; }
     }
 }
