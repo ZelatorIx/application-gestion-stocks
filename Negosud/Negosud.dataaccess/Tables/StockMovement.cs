@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Negosud.dataaccess.Tables
 {
-    internal class StockMovement
+    public class StockMovement
     {
+        public int Id { get; set; }
         public int Quantity { get; set; }
     }
 }
