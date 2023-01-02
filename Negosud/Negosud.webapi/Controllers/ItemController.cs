@@ -16,7 +16,7 @@ namespace Negosud.webapi.Controllers
         {
             using (NegosudContext context = new NegosudContext())
             {
-                Item itemResult = new Item();
+                ItemDTO itemResult = new ItemDTO();
 
                 itemResult.Name = itemDTO.Name;
                 itemResult.Description = itemDTO.Description;

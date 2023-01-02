@@ -9,6 +9,11 @@ namespace Negosud.webapi.Controllers
     [Route("families")]
     public class FamilyController : ControllerBase
     {
+        /**
+         * Retourne une liste de familles
+         * 
+         * @returns Liste de familles
+         */
         [HttpGet]
         public IEnumerable<FamilyDTO> GetAll()
         {
