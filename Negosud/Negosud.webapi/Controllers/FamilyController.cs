@@ -26,7 +26,7 @@ namespace Negosud.webapi.Controllers
         public async Task<List<FamilyDTO>> GetAll()
         {
             return await _context.Families
-                .Select((Family family) => ConvertToFamilyDTO(family))
+                .Select((Family family) => ConvertFamilyToDTO(family))
                 .ToListAsync();
         }
 
@@ -46,15 +46,14 @@ namespace Negosud.webapi.Controllers
                 return NotFound();
             }
 
-            return Ok(ConvertToFamilyDTO(family));
+            return Ok(ConvertFamilyToDTO(family));
         }
 
-        /**
-         * Crée une famille
-         * 
-         * @param familyDTO Famille à créer
-         * @return Etat de la requête
-         */
+        /// <summary>
+        /// Crée une famille
+        /// </summary>
+        /// <param name="familyDTO">Famille à créer</param>
+        /// <returns>Résultat de la requête POST</returns>
         [HttpPost]
         public async Task<ActionResult<FamilyDTO>> Post([FromBody] FamilyDTO familyDTO)
         {
@@ -65,10 +64,16 @@ namespace Negosud.webapi.Controllers
             return CreatedAtAction(
                 nameof(GetById),
                 new { id = familyDTO.Id },
-                ConvertToFamilyDTO(familyResult)
+                ConvertFamilyToDTO(familyResult)
             );
         }
 
+        /// <summary>
+        /// Modifie une famille par son identifiant
+        /// </summary>
+        /// <param name="id">Identifiant de la famille</param>
+        /// <param name="familyDTO">Informations de la famille</param>
+        /// <returns>Status de la requête PUT</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] FamilyDTO familyDTO)
         {
@@ -97,6 +102,11 @@ namespace Negosud.webapi.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Supprime une famille par son identifiant
+        /// </summary>
+        /// <param name="id">Identifiant de la famille</param>
+        /// <returns>Status de la requête DELETE</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -117,18 +127,22 @@ namespace Negosud.webapi.Controllers
             return NoContent();
         }
 
-        private bool FamilyExist(long id)
+        /// <summary>
+        /// Retourne vrai si la famille existe dans la base de données
+        /// </summary>
+        /// <param name="id">Identifiant de la famille</param>
+        /// <returns>Vrai si la famille existe</returns>
+        private bool FamilyExist(int id)
         {
             return _context.Families.Any((Family family) => family.Id == id);
         }
 
-        /**
-         * Caste une famille en DTO
-         * 
-         * @param family Famille à caster
-         * @return Famille DTO
-         */
-        internal static FamilyDTO ConvertToFamilyDTO(Family? family)
+        /// <summary>
+        /// Caste une famille en DTO
+        /// </summary>
+        /// <param name="family">Famille à caster</param>
+        /// <returns>Famille DTO</returns>
+        internal static FamilyDTO ConvertFamilyToDTO(Family? family)
         {
             FamilyDTO familyDTO = new FamilyDTO();
 
