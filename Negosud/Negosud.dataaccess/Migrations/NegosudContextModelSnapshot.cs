@@ -22,6 +22,81 @@ namespace Negosud.dataaccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CommandCustomerCustomerOrderContent", b =>
+                {
+                    b.Property<int>("CommandCustomersId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CustomerOrderContentsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CommandCustomersId", "CustomerOrderContentsId");
+
+                    b.HasIndex("CustomerOrderContentsId");
+
+                    b.ToTable("CommandCustomerCustomerOrderContent");
+                });
+
+            modelBuilder.Entity("CommandSupplierSupplierOrderContent", b =>
+                {
+                    b.Property<int>("CommandSuppliersId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SupplierOrderContentsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CommandSuppliersId", "SupplierOrderContentsId");
+
+                    b.HasIndex("SupplierOrderContentsId");
+
+                    b.ToTable("CommandSupplierSupplierOrderContent");
+                });
+
+            modelBuilder.Entity("CustomerOrderContentItem", b =>
+                {
+                    b.Property<int>("CustomerOrderContentsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ItemsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CustomerOrderContentsId", "ItemsId");
+
+                    b.HasIndex("ItemsId");
+
+                    b.ToTable("CustomerOrderContentItem");
+                });
+
+            modelBuilder.Entity("ItemStockMovement", b =>
+                {
+                    b.Property<int>("ItemsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StockMovementsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ItemsId", "StockMovementsId");
+
+                    b.HasIndex("StockMovementsId");
+
+                    b.ToTable("ItemStockMovement");
+                });
+
+            modelBuilder.Entity("ItemSupplierOrderContent", b =>
+                {
+                    b.Property<int>("ItemsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SupplierOrderContentsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ItemsId", "SupplierOrderContentsId");
+
+                    b.HasIndex("SupplierOrderContentsId");
+
+                    b.ToTable("ItemSupplierOrderContent");
+                });
+
             modelBuilder.Entity("Negosud.dataaccess.Tables.CommandCustomer", b =>
                 {
                     b.Property<int>("Id")
@@ -29,6 +104,9 @@ namespace Negosud.dataaccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -41,6 +119,8 @@ namespace Negosud.dataaccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("CommandCustomers");
                 });
@@ -63,7 +143,12 @@ namespace Negosud.dataaccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("SupplierId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("SupplierId");
 
                     b.ToTable("CommandSuppliers");
                 });
@@ -75,9 +160,6 @@ namespace Negosud.dataaccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CommandCustomerId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -107,8 +189,6 @@ namespace Negosud.dataaccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CommandCustomerId");
-
                     b.ToTable("Customers");
                 });
 
@@ -123,9 +203,6 @@ namespace Negosud.dataaccess.Migrations
                     b.Property<float>("BeforePriceTax")
                         .HasColumnType("real");
 
-                    b.Property<int?>("CommandCustomerId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -133,8 +210,6 @@ namespace Negosud.dataaccess.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CommandCustomerId");
 
                     b.ToTable("CustomerOrderContents");
                 });
@@ -164,17 +239,11 @@ namespace Negosud.dataaccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CustomerOrderContentId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ItemFamilyId")
+                    b.Property<int>("FamilyId")
                         .HasColumnType("int");
 
                     b.Property<int>("MinLimit")
@@ -194,15 +263,6 @@ namespace Negosud.dataaccess.Migrations
                     b.Property<float>("SellingPriceBT")
                         .HasColumnType("real");
 
-                    b.Property<int?>("StockMovementId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SupplierId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SupplierOrderContentId")
-                        .HasColumnType("int");
-
                     b.Property<float>("Vat")
                         .HasColumnType("real");
 
@@ -211,17 +271,7 @@ namespace Negosud.dataaccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId");
-
-                    b.HasIndex("CustomerOrderContentId");
-
-                    b.HasIndex("ItemFamilyId");
-
-                    b.HasIndex("StockMovementId");
-
-                    b.HasIndex("SupplierId");
-
-                    b.HasIndex("SupplierOrderContentId");
+                    b.HasIndex("FamilyId");
 
                     b.ToTable("Items");
                 });
@@ -261,17 +311,12 @@ namespace Negosud.dataaccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ReasonRegularizationId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("StockMovementId")
+                    b.Property<int>("ReasonRegularizationId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ReasonRegularizationId");
-
-                    b.HasIndex("StockMovementId");
 
                     b.ToTable("Regularizations");
                 });
@@ -300,9 +345,6 @@ namespace Negosud.dataaccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CommandSupplierId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -327,8 +369,6 @@ namespace Negosud.dataaccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CommandSupplierId");
-
                     b.ToTable("Suppliers");
                 });
 
@@ -343,9 +383,6 @@ namespace Negosud.dataaccess.Migrations
                     b.Property<float>("BeforePriceTax")
                         .HasColumnType("real");
 
-                    b.Property<int?>("CommandSupplierId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -354,103 +391,161 @@ namespace Negosud.dataaccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CommandSupplierId");
-
                     b.ToTable("SupplierOrderContents");
                 });
 
-            modelBuilder.Entity("Negosud.dataaccess.Tables.Customer", b =>
+            modelBuilder.Entity("RegularizationStockMovement", b =>
                 {
-                    b.HasOne("Negosud.dataaccess.Tables.CommandCustomer", null)
-                        .WithMany("Customers")
-                        .HasForeignKey("CommandCustomerId");
+                    b.Property<int>("RegularizationsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StockMovementsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RegularizationsId", "StockMovementsId");
+
+                    b.HasIndex("StockMovementsId");
+
+                    b.ToTable("RegularizationStockMovement");
                 });
 
-            modelBuilder.Entity("Negosud.dataaccess.Tables.CustomerOrderContent", b =>
+            modelBuilder.Entity("CommandCustomerCustomerOrderContent", b =>
                 {
                     b.HasOne("Negosud.dataaccess.Tables.CommandCustomer", null)
-                        .WithMany("CustomerOrderContents")
-                        .HasForeignKey("CommandCustomerId");
-                });
-
-            modelBuilder.Entity("Negosud.dataaccess.Tables.Item", b =>
-                {
-                    b.HasOne("Negosud.dataaccess.Tables.Customer", null)
-                        .WithMany("Items")
-                        .HasForeignKey("CustomerId");
+                        .WithMany()
+                        .HasForeignKey("CommandCustomersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Negosud.dataaccess.Tables.CustomerOrderContent", null)
-                        .WithMany("Items")
-                        .HasForeignKey("CustomerOrderContentId");
+                        .WithMany()
+                        .HasForeignKey("CustomerOrderContentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                    b.HasOne("Negosud.dataaccess.Tables.Family", "ItemFamily")
-                        .WithMany("Items")
-                        .HasForeignKey("ItemFamilyId")
+            modelBuilder.Entity("CommandSupplierSupplierOrderContent", b =>
+                {
+                    b.HasOne("Negosud.dataaccess.Tables.CommandSupplier", null)
+                        .WithMany()
+                        .HasForeignKey("CommandSuppliersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Negosud.dataaccess.Tables.SupplierOrderContent", null)
+                        .WithMany()
+                        .HasForeignKey("SupplierOrderContentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CustomerOrderContentItem", b =>
+                {
+                    b.HasOne("Negosud.dataaccess.Tables.CustomerOrderContent", null)
+                        .WithMany()
+                        .HasForeignKey("CustomerOrderContentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Negosud.dataaccess.Tables.Item", null)
+                        .WithMany()
+                        .HasForeignKey("ItemsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ItemStockMovement", b =>
+                {
+                    b.HasOne("Negosud.dataaccess.Tables.Item", null)
+                        .WithMany()
+                        .HasForeignKey("ItemsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Negosud.dataaccess.Tables.StockMovement", null)
-                        .WithMany("Items")
-                        .HasForeignKey("StockMovementId");
+                        .WithMany()
+                        .HasForeignKey("StockMovementsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                    b.HasOne("Negosud.dataaccess.Tables.Supplier", null)
-                        .WithMany("Items")
-                        .HasForeignKey("SupplierId");
+            modelBuilder.Entity("ItemSupplierOrderContent", b =>
+                {
+                    b.HasOne("Negosud.dataaccess.Tables.Item", null)
+                        .WithMany()
+                        .HasForeignKey("ItemsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Negosud.dataaccess.Tables.SupplierOrderContent", null)
-                        .WithMany("Items")
-                        .HasForeignKey("SupplierOrderContentId");
-
-                    b.Navigation("ItemFamily");
-                });
-
-            modelBuilder.Entity("Negosud.dataaccess.Tables.Regularization", b =>
-                {
-                    b.HasOne("Negosud.dataaccess.Tables.ReasonRegularization", null)
-                        .WithMany("Regularizations")
-                        .HasForeignKey("ReasonRegularizationId");
-
-                    b.HasOne("Negosud.dataaccess.Tables.StockMovement", null)
-                        .WithMany("Regularizations")
-                        .HasForeignKey("StockMovementId");
-                });
-
-            modelBuilder.Entity("Negosud.dataaccess.Tables.Supplier", b =>
-                {
-                    b.HasOne("Negosud.dataaccess.Tables.CommandSupplier", null)
-                        .WithMany("Suppliers")
-                        .HasForeignKey("CommandSupplierId");
-                });
-
-            modelBuilder.Entity("Negosud.dataaccess.Tables.SupplierOrderContent", b =>
-                {
-                    b.HasOne("Negosud.dataaccess.Tables.CommandSupplier", null)
-                        .WithMany("SupplierOrderContents")
-                        .HasForeignKey("CommandSupplierId");
+                        .WithMany()
+                        .HasForeignKey("SupplierOrderContentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Negosud.dataaccess.Tables.CommandCustomer", b =>
                 {
-                    b.Navigation("CustomerOrderContents");
+                    b.HasOne("Negosud.dataaccess.Tables.Customer", "Customer")
+                        .WithMany("CommandCustomers")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Customers");
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("Negosud.dataaccess.Tables.CommandSupplier", b =>
                 {
-                    b.Navigation("SupplierOrderContents");
+                    b.HasOne("Negosud.dataaccess.Tables.Supplier", "Supplier")
+                        .WithMany("CommandSuppliers")
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Suppliers");
+                    b.Navigation("Supplier");
+                });
+
+            modelBuilder.Entity("Negosud.dataaccess.Tables.Item", b =>
+                {
+                    b.HasOne("Negosud.dataaccess.Tables.Family", "Family")
+                        .WithMany("Items")
+                        .HasForeignKey("FamilyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Family");
+                });
+
+            modelBuilder.Entity("Negosud.dataaccess.Tables.Regularization", b =>
+                {
+                    b.HasOne("Negosud.dataaccess.Tables.ReasonRegularization", "ReasonRegularization")
+                        .WithMany("Regularizations")
+                        .HasForeignKey("ReasonRegularizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ReasonRegularization");
+                });
+
+            modelBuilder.Entity("RegularizationStockMovement", b =>
+                {
+                    b.HasOne("Negosud.dataaccess.Tables.Regularization", null)
+                        .WithMany()
+                        .HasForeignKey("RegularizationsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Negosud.dataaccess.Tables.StockMovement", null)
+                        .WithMany()
+                        .HasForeignKey("StockMovementsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Negosud.dataaccess.Tables.Customer", b =>
                 {
-                    b.Navigation("Items");
-                });
-
-            modelBuilder.Entity("Negosud.dataaccess.Tables.CustomerOrderContent", b =>
-                {
-                    b.Navigation("Items");
+                    b.Navigation("CommandCustomers");
                 });
 
             modelBuilder.Entity("Negosud.dataaccess.Tables.Family", b =>
@@ -463,21 +558,9 @@ namespace Negosud.dataaccess.Migrations
                     b.Navigation("Regularizations");
                 });
 
-            modelBuilder.Entity("Negosud.dataaccess.Tables.StockMovement", b =>
-                {
-                    b.Navigation("Items");
-
-                    b.Navigation("Regularizations");
-                });
-
             modelBuilder.Entity("Negosud.dataaccess.Tables.Supplier", b =>
                 {
-                    b.Navigation("Items");
-                });
-
-            modelBuilder.Entity("Negosud.dataaccess.Tables.SupplierOrderContent", b =>
-                {
-                    b.Navigation("Items");
+                    b.Navigation("CommandSuppliers");
                 });
 #pragma warning restore 612, 618
         }
