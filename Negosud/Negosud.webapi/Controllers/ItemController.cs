@@ -172,14 +172,14 @@ namespace Negosud.webapi.Controllers
 
             if (item != null)
             {
-                item.Name = itemDTO.Name;
-                item.Description = itemDTO.Description;
-                item.PurchasePriceBT = itemDTO.PurchasePriceBT;
-                item.SellingPriceBT = itemDTO.SellingPriceBT;
-                item.Vat = itemDTO.Vat;
-                item.Picture = itemDTO.Picture;
-                item.MinLimit = itemDTO.MinLimit;
-                item.YearItem = itemDTO.YearItem;
+                itemDTO.Name = item.Name;
+                itemDTO.Description = item.Description;
+                itemDTO.PurchasePriceBT = item.PurchasePriceBT;
+                itemDTO.SellingPriceBT = item.SellingPriceBT;
+                itemDTO.Vat = item.Vat;
+                itemDTO.Picture = item.Picture;
+                itemDTO.MinLimit = item.MinLimit;
+                itemDTO.YearItem = item.YearItem;
                 itemDTO.Family = FamilyController.ConvertFamilyToDTO(item.Family);
             }
 

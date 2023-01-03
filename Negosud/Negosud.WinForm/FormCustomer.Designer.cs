@@ -36,9 +36,8 @@
             this.BtnSupOrders = new System.Windows.Forms.Button();
             this.BtnSuppliers = new System.Windows.Forms.Button();
             this.textBoxStocks = new System.Windows.Forms.TextBox();
-            this.textBoxVentes = new System.Windows.Forms.TextBox();
-            this.textBoxAchats = new System.Windows.Forms.TextBox();
-            this.textBoxAccueil = new System.Windows.Forms.TextBox();
+            this.textBoxSellings = new System.Windows.Forms.TextBox();
+            this.textBoxPurchases = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TextBoxCustName = new System.Windows.Forms.TextBox();
             this.TextBoxCustFirstName = new System.Windows.Forms.TextBox();
@@ -63,6 +62,7 @@
             this.ButtonAddNewCustomer = new System.Windows.Forms.Button();
             this.ButtonSaveCustomer = new System.Windows.Forms.Button();
             this.ButtonDeleteCustomer = new System.Windows.Forms.Button();
+            this.ButtonHomePage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,35 +130,25 @@
             this.textBoxStocks.TabIndex = 13;
             this.textBoxStocks.Text = "STOCKS";
             // 
-            // textBoxVentes
+            // textBoxSellings
             // 
-            this.textBoxVentes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxVentes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxVentes.Location = new System.Drawing.Point(12, 270);
-            this.textBoxVentes.Name = "textBoxVentes";
-            this.textBoxVentes.Size = new System.Drawing.Size(100, 22);
-            this.textBoxVentes.TabIndex = 12;
-            this.textBoxVentes.Text = "VENTES";
+            this.textBoxSellings.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSellings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxSellings.Location = new System.Drawing.Point(12, 270);
+            this.textBoxSellings.Name = "textBoxSellings";
+            this.textBoxSellings.Size = new System.Drawing.Size(100, 22);
+            this.textBoxSellings.TabIndex = 12;
+            this.textBoxSellings.Text = "VENTES";
             // 
-            // textBoxAchats
+            // textBoxPurchases
             // 
-            this.textBoxAchats.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxAchats.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxAchats.Location = new System.Drawing.Point(12, 180);
-            this.textBoxAchats.Name = "textBoxAchats";
-            this.textBoxAchats.Size = new System.Drawing.Size(100, 22);
-            this.textBoxAchats.TabIndex = 11;
-            this.textBoxAchats.Text = "ACHATS";
-            // 
-            // textBoxAccueil
-            // 
-            this.textBoxAccueil.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxAccueil.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxAccueil.Location = new System.Drawing.Point(12, 63);
-            this.textBoxAccueil.Name = "textBoxAccueil";
-            this.textBoxAccueil.Size = new System.Drawing.Size(100, 22);
-            this.textBoxAccueil.TabIndex = 10;
-            this.textBoxAccueil.Text = "ACCUEIL";
+            this.textBoxPurchases.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPurchases.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxPurchases.Location = new System.Drawing.Point(12, 180);
+            this.textBoxPurchases.Name = "textBoxPurchases";
+            this.textBoxPurchases.Size = new System.Drawing.Size(100, 22);
+            this.textBoxPurchases.TabIndex = 11;
+            this.textBoxPurchases.Text = "ACHATS";
             // 
             // dataGridView1
             // 
@@ -367,12 +357,22 @@
             this.ButtonDeleteCustomer.Text = "Supprimer";
             this.ButtonDeleteCustomer.UseVisualStyleBackColor = false;
             // 
+            // ButtonHomePage
+            // 
+            this.ButtonHomePage.Location = new System.Drawing.Point(22, 61);
+            this.ButtonHomePage.Name = "ButtonHomePage";
+            this.ButtonHomePage.Size = new System.Drawing.Size(90, 23);
+            this.ButtonHomePage.TabIndex = 44;
+            this.ButtonHomePage.Text = "Accueil";
+            this.ButtonHomePage.UseVisualStyleBackColor = true;
+            // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ButtonHomePage);
             this.Controls.Add(this.ButtonDeleteCustomer);
             this.Controls.Add(this.ButtonSaveCustomer);
             this.Controls.Add(this.ButtonAddNewCustomer);
@@ -404,9 +404,8 @@
             this.Controls.Add(this.BtnSupOrders);
             this.Controls.Add(this.BtnSuppliers);
             this.Controls.Add(this.textBoxStocks);
-            this.Controls.Add(this.textBoxVentes);
-            this.Controls.Add(this.textBoxAchats);
-            this.Controls.Add(this.textBoxAccueil);
+            this.Controls.Add(this.textBoxSellings);
+            this.Controls.Add(this.textBoxPurchases);
             this.Name = "FormCustomer";
             this.Text = "FormCustomer";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -424,9 +423,8 @@
         private Button BtnSupOrders;
         private Button BtnSuppliers;
         private TextBox textBoxStocks;
-        private TextBox textBoxVentes;
-        private TextBox textBoxAchats;
-        private TextBox textBoxAccueil;
+        private TextBox textBoxSellings;
+        private TextBox textBoxPurchases;
         private DataGridView dataGridView1;
         private TextBox TextBoxCustName;
         private TextBox TextBoxCustFirstName;
@@ -451,5 +449,6 @@
         private Button ButtonAddNewCustomer;
         private Button ButtonSaveCustomer;
         private Button ButtonDeleteCustomer;
+        private Button ButtonHomePage;
     }
 }
