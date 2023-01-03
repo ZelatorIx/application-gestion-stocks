@@ -58,7 +58,6 @@ namespace Negosud.webapi.Controllers
         public async Task<ActionResult<CustomerDTO>> Post([FromBody] CustomerDTO customerDTO)
         {
             Customer customerResult = new Customer()
-
             {
                 FirstName = customerDTO.FirstName,
                 LastName = customerDTO.LastName,
@@ -69,13 +68,17 @@ namespace Negosud.webapi.Controllers
                 Town = customerDTO.Town
             };
 
-            _context.Customers.Add(customerResult);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = customerDTO.Id },
-                ConvertCustomerToDTO(customerResult)
-            );
+            try
+            {
+                _context.Customers.Add(customerResult);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(customerResult.Id);
         }
 
         /// <summary>
