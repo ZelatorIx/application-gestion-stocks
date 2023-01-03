@@ -46,12 +46,12 @@
             this.ScrollBarCustomers = new System.Windows.Forms.VScrollBar();
             this.LabelCustName = new System.Windows.Forms.Label();
             this.TextBoxFamilyName = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DataGridViewFamilyList = new System.Windows.Forms.DataGridView();
             this.ButtonDeleteFamily = new System.Windows.Forms.Button();
             this.ButtonSaveFamily = new System.Windows.Forms.Button();
             this.ButtonAddNewFamily = new System.Windows.Forms.Button();
             this.ButtonHomePage = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewFamilyList)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonFamilies
@@ -210,14 +210,14 @@
             this.TextBoxFamilyName.Size = new System.Drawing.Size(259, 23);
             this.TextBoxFamilyName.TabIndex = 57;
             // 
-            // dataGridView1
+            // DataGridViewFamilyList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(152, 227);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(623, 220);
-            this.dataGridView1.TabIndex = 56;
+            this.DataGridViewFamilyList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewFamilyList.Location = new System.Drawing.Point(152, 227);
+            this.DataGridViewFamilyList.Name = "DataGridViewFamilyList";
+            this.DataGridViewFamilyList.RowTemplate.Height = 25;
+            this.DataGridViewFamilyList.Size = new System.Drawing.Size(623, 220);
+            this.DataGridViewFamilyList.TabIndex = 56;
             // 
             // ButtonDeleteFamily
             // 
@@ -248,7 +248,6 @@
             this.ButtonAddNewFamily.TabIndex = 72;
             this.ButtonAddNewFamily.Text = "Créer";
             this.ButtonAddNewFamily.UseVisualStyleBackColor = false;
-            this.ButtonAddNewFamily.Click += new System.EventHandler(this.ButtonAddNewFamily_Click);
             // 
             // ButtonHomePage
             // 
@@ -272,7 +271,7 @@
             this.Controls.Add(this.ScrollBarCustomers);
             this.Controls.Add(this.LabelCustName);
             this.Controls.Add(this.TextBoxFamilyName);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DataGridViewFamilyList);
             this.Controls.Add(this.TextBoxMapFamilies);
             this.Controls.Add(this.TextBoxMapProducts);
             this.Controls.Add(this.ButtonFamilies);
@@ -289,7 +288,7 @@
             this.Controls.Add(this.textBoxPurchases);
             this.Name = "FormFamilies";
             this.Text = "FormFamilies";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewFamilyList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,7 +313,7 @@
         private VScrollBar ScrollBarCustomers;
         private Label LabelCustName;
         private TextBox TextBoxFamilyName;
-        private DataGridView dataGridView1;
+        private DataGridView DataGridViewFamilyList;
         private Button ButtonDeleteFamily;
         private Button ButtonSaveFamily;
         private Button ButtonAddNewFamily;
