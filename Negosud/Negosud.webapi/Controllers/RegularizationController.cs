@@ -57,11 +57,18 @@ namespace Negosud.webapi.Controllers
         [HttpPost]
         public async Task<ActionResult<RegularizationDTO>> Post([FromBody] RegularizationDTO regularizationDTO)
         {
+            ReasonRegularization? reasonRegularization = await _context.ReasonRegularizations.FindAsync(regularizationDTO.ReasonRegularization.Id);
+            if (reasonRegularization == null)
+            {
+                return NotFound("This reason does not exist.");
+            }
+
             Regularization regularizationResult = new Regularization()
 
             {
                 Date = regularizationDTO.Date,
                 Inventorist = regularizationDTO.Inventorist,
+                ReasonRegularization = reasonRegularization
             };
 
             _context.Regularizations.Add(regularizationResult);
@@ -88,8 +95,15 @@ namespace Negosud.webapi.Controllers
                 return NotFound("Selected regularization items does not exist");
             }
 
+            ReasonRegularization? reasonRegularization = await _context.ReasonRegularizations.FindAsync(regularizationDTO.ReasonRegularization.Id);
+            if (reasonRegularization == null)
+            {
+                return NotFound("This reason does not exist.");
+            }
+
             regularization.Date = regularizationDTO.Date;
             regularization.Inventorist = regularizationDTO.Inventorist;
+            regularization.ReasonRegularization = reasonRegularization;
 
             try
             {

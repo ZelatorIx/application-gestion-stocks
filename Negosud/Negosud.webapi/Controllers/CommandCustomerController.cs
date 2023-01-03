@@ -56,12 +56,18 @@ namespace Negosud.webapi.Controllers
         [HttpPost]
         public async Task<ActionResult<CommandCustomerDTO>> Post([FromBody] CommandCustomerDTO commandCustomerDTO)
         {
-            CommandCustomer commandCustomerResult = new CommandCustomer()
+            Customer? customer = await _context.Customers.FindAsync(commandCustomerDTO.Customer.Id);
+            if (customer == null)
+            {
+                return NotFound("This customer does not exist.");
+            }
 
+            CommandCustomer commandCustomerResult = new CommandCustomer()
             {
                 Number = commandCustomerDTO.Number,
                 Date = commandCustomerDTO.Date,
-                Status = commandCustomerDTO.Status
+                Status = commandCustomerDTO.Status,
+                Customer = customer
             };
 
             _context.CommandCustomers.Add(commandCustomerResult);
@@ -88,9 +94,16 @@ namespace Negosud.webapi.Controllers
                 return NotFound("Selected command supplier items does not exist");
             }
 
+            Customer? customer = await _context.Customers.FindAsync(commandCustomer.Customer.Id);
+            if (customer == null)
+            {
+                return NotFound("This customer does not exist.");
+            }
+
             commandCustomer.Number = commandCustomerDTO.Number;
             commandCustomer.Date = commandCustomerDTO.Date;
             commandCustomer.Status = commandCustomerDTO.Status;
+            commandCustomer.Customer = customer;
 
             try
             {
