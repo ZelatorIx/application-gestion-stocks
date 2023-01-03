@@ -11,7 +11,7 @@
         public string Picture { get; set; } = "";
         public int MinLimit { get; set; }
         public int YearItem { get; set; }
-        public FamilyDTO Family { get; set; } = new FamilyDTO();
+        public FamilyDTO Family { get; set; }
         public List<StockMovementDTO>? StockMovements { get; set; }
         public List<SupplierOrderContentDTO>? SupplierOrderContents { get; set; }
         public List<CustomerOrderContentDTO>? CustomerOrderContents { get; set; }
