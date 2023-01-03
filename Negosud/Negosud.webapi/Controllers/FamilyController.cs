@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Negosud.dataaccess;
 using Negosud.dataaccess.Tables;
 using Negosud.webapi.Models;
@@ -54,17 +55,13 @@ namespace Negosud.webapi.Controllers
         /// <param name="familyDTO">Famille à créer</param>
         /// <returns>Résultat de la requête POST</returns>
         [HttpPost]
-        public async Task<ActionResult<FamilyDTO>> Post([FromBody] FamilyDTO familyDTO)
+        public async Task<ActionResult<int>> Post([FromBody] FamilyDTO familyDTO)
         {
             Family familyResult = new Family() { Name = familyDTO.Name };
 
-            _context.Families.Add(familyResult);
+            int familyId = _context.Families.Add(familyResult).Entity.Id;
             await _context.SaveChangesAsync();
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = familyDTO.Id },
-                ConvertFamilyToDTO(familyResult)
-            );
+            return Ok(familyId);
         }
 
         /// <summary>
@@ -144,10 +141,25 @@ namespace Negosud.webapi.Controllers
             {
                 familyDTO.Id = family.Id;
                 familyDTO.Name = family.Name;
-                familyDTO.Items = family.Items?.Select((Item item) => ItemController.ConvertItemToDTO(item)).ToArray();
             }
 
             return familyDTO;
+        }
+
+        internal static FamilyDTO ConvertFamilyToDTO(int familyId)
+        {
+            Family? family;
+
+            using (NegosudContext context = new NegosudContext())
+            {
+                family = context.Families.Find(familyId);
+            }
+            if (family == null)
+            {
+                throw new Exception("Family can't be null.");
+            }
+
+            return ConvertFamilyToDTO(family);
         }
     }
 }

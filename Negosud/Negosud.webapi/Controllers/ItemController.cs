@@ -62,7 +62,7 @@ namespace Negosud.webapi.Controllers
                 return NotFound("This family does not exist.");
             }
 
-            Item itemResult = new Item()
+            Item item = new Item()
             {
                 Name = itemDTO.Name,
                 Description = itemDTO.Description,
@@ -72,16 +72,19 @@ namespace Negosud.webapi.Controllers
                 Picture = itemDTO.Picture,
                 MinLimit = itemDTO.MinLimit,
                 YearItem = itemDTO.YearItem,
-                FamilyId = family.Id
+                Family = family
             };
 
-            _context.Items.Add(itemResult);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = itemDTO.Id },
-                ConvertItemToDTO(itemResult)
-            );
+            try {
+                _context.Items.Add(item);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(item.Id);
         }
 
         /// <summary>
@@ -172,6 +175,7 @@ namespace Negosud.webapi.Controllers
 
             if (item != null)
             {
+                itemDTO.Id = item.Id;
                 itemDTO.Name = item.Name;
                 itemDTO.Description = item.Description;
                 itemDTO.PurchasePriceBT = item.PurchasePriceBT;
@@ -180,7 +184,7 @@ namespace Negosud.webapi.Controllers
                 itemDTO.Picture = item.Picture;
                 itemDTO.MinLimit = item.MinLimit;
                 itemDTO.YearItem = item.YearItem;
-                itemDTO.Family = FamilyController.ConvertFamilyToDTO(item.Family);
+                itemDTO.Family = FamilyController.ConvertFamilyToDTO(item.FamilyId);
             }
 
             return itemDTO;
