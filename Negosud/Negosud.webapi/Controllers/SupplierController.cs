@@ -134,7 +134,7 @@ namespace Negosud.webapi.Controllers
                 return NotFound();
             }
 
-            if (supplier.CommandSuppliers != null && supplier.CommandSuppliers.Length > 0)
+            if (supplier.CommandSuppliers != null && supplier.CommandSuppliers.Count > 0)
             {
                 return Forbid();
             }
