@@ -42,7 +42,7 @@ namespace Negosud.webapi.Controllers
 
             if (item == null)
             {
-                return NotFound();
+                return NotFound("This item does not exist.");
             }
 
             return Ok(ConvertItemToDTO(item));
@@ -59,7 +59,7 @@ namespace Negosud.webapi.Controllers
             Family? family = await _context.Families.FindAsync(itemDTO.ItemFamily.Id);
             if (family == null)
             {
-                return BadRequest();
+                return NotFound("This family does not exist.");
             }
 
             Item itemResult = new Item()
@@ -96,20 +96,25 @@ namespace Negosud.webapi.Controllers
             Item? item = await _context.Items.FindAsync(id);
             if (item == null)
             {
-                return NotFound();
+                return NotFound("This item does not exist.");
             }
 
-            Family family = new Family() { Name = item.ItemFamily.Name };
+            Family? family = await _context.Families.FindAsync(itemDTO.ItemFamily.Id);
+            if (family == null)
+            {
+                return NotFound("Selected family does not exist.");
+            }
+
             var a = _context.Items
                 .Select((Item item) => item.ItemFamily)
                 .Where((Family family) => family.Id == item.ItemFamily.Id);
 
-            item.Name = itemDTO.Name ?? item.Name;
-            item.Description = itemDTO.Description ?? item.Description;
+            item.Name = itemDTO.Name;
+            item.Description = itemDTO.Description;
             item.PurchasePriceBT = itemDTO.PurchasePriceBT;
             item.SellingPriceBT = itemDTO.SellingPriceBT;
             item.Vat = itemDTO.Vat;
-            item.Picture = itemDTO.Picture ?? item.Picture;
+            item.Picture = itemDTO.Picture;
             item.MinLimit = itemDTO.MinLimit;
             item.YearItem = itemDTO.YearItem;
             item.ItemFamily = family;
@@ -120,10 +125,34 @@ namespace Negosud.webapi.Controllers
             }
             catch (DbUpdateConcurrencyException) when (!ItemExist(id))
             {
-                return NotFound();
+                return NotFound("This item does not exist.");
             }
 
             return StatusCode(304);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Item? item = await _context.Items.FindAsync(id);
+            if (item == null)
+            {
+                return NotFound("This item does not exist.");
+            }
+
+            if (
+                item.CustomerOrderContents != null ||
+                item.SupplierOrderContents != null ||
+                item.StockMovements != null
+               )
+            {
+                return Forbid("You can't delete item wich have one or more references.");
+            }
+
+            _context.Items.Remove(item);
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
 
         /// <summary>
