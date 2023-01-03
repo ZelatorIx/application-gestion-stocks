@@ -18,6 +18,6 @@ namespace Negosud.dataaccess.Tables
         public string Town { get; set; } = "";
         [Required]
         public string Email { get; set; } = "";
-        public Item[]? Items { get; set; }
+        public CommandSupplier[]? CommandSuppliers { get; set; }
     }
 }
