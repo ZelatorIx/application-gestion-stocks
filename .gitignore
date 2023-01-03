@@ -396,3 +396,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Ignored files manuyally added
+
+# Ignored directories manually added
+Negosud/Negosud.dataaccess/Migrations

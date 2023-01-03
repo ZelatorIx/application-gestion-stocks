@@ -1,11 +1,18 @@
-﻿namespace Negosud.dataaccess.Tables
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Negosud.dataaccess.Tables
 {
     public class CustomerOrderContent
     {
+        [Key]
         public int Id { get; set; }
-        public int Quantity { get; set; }   
-        public float BeforePriceTax { get; set; }   
+        [Required]
+        public int Quantity { get; set; }
+        [Required]
+        public float BeforePriceTax { get; set; }
+        [Required]
         public float Vat { get; set; }
         public Item[]? Items { get; set; }
+        public CommandCustomer[]? CommandCustomers { get; set; }
     }
 }
