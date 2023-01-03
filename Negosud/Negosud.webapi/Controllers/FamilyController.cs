@@ -110,7 +110,7 @@ namespace Negosud.webapi.Controllers
                 return NotFound("This family does not exist.");
             }
 
-            if (family.Items != null && family.Items.Length > 0)
+            if (family.Items != null && family.Items.Count > 0)
             {
                 return Forbid("You can't delete family which have one or more item.");
             }
