@@ -7,6 +7,6 @@
         public DateTime Date { get; set; }
         public string Status { get; set; } = "";
         public SupplierDTO Suppliers { get; set; } = new SupplierDTO();
-        public SupplierOrderContentDTO[]? SupplierOrderContents { get; set; }
+        public List<SupplierOrderContentDTO>? SupplierOrderContents { get; set; }
     }
 }

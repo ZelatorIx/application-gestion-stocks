@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public int Quantity { get; set; }
-        public ItemDTO[]? Items { get; set; }
-        public RegularizationDTO[]? Regularizations { get; set; }
+        public List<ItemDTO>? Items { get; set; }
+        public List<RegularizationDTO>? Regularizations { get; set; }
     }
 }

@@ -12,8 +12,8 @@
         public int MinLimit { get; set; }
         public int YearItem { get; set; }
         public FamilyDTO Family { get; set; } = new FamilyDTO();
-        public StockMovementDTO[]? StockMovements { get; set; }
-        public SupplierOrderContentDTO[]? SupplierOrderContents { get; set; }
-        public CustomerOrderContentDTO[]? CustomerOrderContents { get; set; }
+        public List<StockMovementDTO>? StockMovements { get; set; }
+        public List<SupplierOrderContentDTO>? SupplierOrderContents { get; set; }
+        public List<CustomerOrderContentDTO>? CustomerOrderContents { get; set; }
     }
 }

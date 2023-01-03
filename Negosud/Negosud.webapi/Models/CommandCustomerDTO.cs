@@ -6,7 +6,7 @@
         public int Number { get; set; } 
         public DateTime Date { get; set; }
         public string Status { get; set; } = "";
-        public CustomerDTO Customer { get; set; } = new CustomerDTO();
-        public CustomerOrderContentDTO[]? CustomerOrderContents { get; set; }
+        public CustomerDTO Customer { get; set; }
+        public List<CustomerOrderContentDTO>? CustomerOrderContents { get; set; }
     }
 }
