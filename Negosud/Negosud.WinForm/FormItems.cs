@@ -38,7 +38,7 @@ namespace Negosud.WinForm
             ItemDTO itemResult = new ItemDTO();
             // 3 Remplir ce nouovel Objet avec les valeurs de Etape 1
          
-            itemResult.ItemFamily = ItemFamily; 
+            itemResult.Family = ItemFamily; 
             itemResult.Description = Description;   
             itemResult.Name = Name;
 

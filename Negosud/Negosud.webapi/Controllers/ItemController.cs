@@ -56,7 +56,7 @@ namespace Negosud.webapi.Controllers
         [HttpPost]
         public async Task<ActionResult<ItemDTO>> Post([FromBody] ItemDTO itemDTO)
         {
-            Family? family = await _context.Families.FindAsync(itemDTO.ItemFamily.Id);
+            Family? family = await _context.Families.FindAsync(itemDTO.Family.Id);
             if (family == null)
             {
                 return NotFound("This family does not exist.");
@@ -72,7 +72,7 @@ namespace Negosud.webapi.Controllers
                 Picture = itemDTO.Picture,
                 MinLimit = itemDTO.MinLimit,
                 YearItem = itemDTO.YearItem,
-                ItemFamily = family
+                FamilyId = family.Id
             };
 
             _context.Items.Add(itemResult);
@@ -99,15 +99,11 @@ namespace Negosud.webapi.Controllers
                 return NotFound("This item does not exist.");
             }
 
-            Family? family = await _context.Families.FindAsync(itemDTO.ItemFamily.Id);
+            Family? family = await _context.Families.FindAsync(itemDTO.Family.Id);
             if (family == null)
             {
                 return NotFound("Selected family does not exist.");
             }
-
-            var a = _context.Items
-                .Select((Item item) => item.ItemFamily)
-                .Where((Family family) => family.Id == item.ItemFamily.Id);
 
             item.Name = itemDTO.Name;
             item.Description = itemDTO.Description;
@@ -117,7 +113,7 @@ namespace Negosud.webapi.Controllers
             item.Picture = itemDTO.Picture;
             item.MinLimit = itemDTO.MinLimit;
             item.YearItem = itemDTO.YearItem;
-            item.ItemFamily = family;
+            item.Family = family;
 
             try
             {
@@ -176,9 +172,15 @@ namespace Negosud.webapi.Controllers
 
             if (item != null)
             {
-                itemDTO.Name = item.Name;
-                itemDTO.Description = item.Description;
-                itemDTO.ItemFamily = FamilyController.ConvertFamilyToDTO(item.ItemFamily);
+                item.Name = itemDTO.Name;
+                item.Description = itemDTO.Description;
+                item.PurchasePriceBT = itemDTO.PurchasePriceBT;
+                item.SellingPriceBT = itemDTO.SellingPriceBT;
+                item.Vat = itemDTO.Vat;
+                item.Picture = itemDTO.Picture;
+                item.MinLimit = itemDTO.MinLimit;
+                item.YearItem = itemDTO.YearItem;
+                itemDTO.Family = FamilyController.ConvertFamilyToDTO(item.Family);
             }
 
             return itemDTO;

@@ -21,7 +21,8 @@ namespace Negosud.dataaccess.Tables
         [Required]
         public int YearItem { get; set; }
         [Required]
-        public Family ItemFamily { get; set; } = new Family();
+        public int FamilyId { get; set; }
+        public Family Family { get; set; }
         public StockMovement[]? StockMovements { get; set; }
         public CustomerOrderContent[]? CustomerOrderContents { get; set; }
         public SupplierOrderContent[]? SupplierOrderContents { get; set; }
