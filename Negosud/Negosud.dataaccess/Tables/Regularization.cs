@@ -11,7 +11,8 @@ namespace Negosud.dataaccess.Tables
         [Required]
         public string Inventorist { get; set; } = "";
         [Required]
-        public ReasonRegularization ReasonRegularization { get; set; } = new ReasonRegularization();
-        public StockMovement[]? StockMovements { get; set; }
+        public int ReasonRegularizationId { get; set; }
+        public ReasonRegularization ReasonRegularization { get; set; }
+        public List<StockMovement>? StockMovements { get; set; }
     }
 }

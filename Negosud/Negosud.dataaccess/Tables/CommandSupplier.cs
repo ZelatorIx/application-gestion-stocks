@@ -14,7 +14,8 @@ namespace Negosud.dataaccess.Tables
         [Required]
         public string Status { get; set; } = "";
         [Required]
-        public Supplier Supplier { get; set; } = new Supplier();
-        public SupplierOrderContent[]? SupplierOrderContents { get; set; }
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
+        public List<SupplierOrderContent>? SupplierOrderContents { get; set; }
     }
 }

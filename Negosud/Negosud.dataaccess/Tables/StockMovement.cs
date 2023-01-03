@@ -9,6 +9,6 @@ namespace Negosud.dataaccess.Tables
         [Required]
         public int Quantity { get; set; }
         public Item[]? Items { get; set; }
-        public Regularization[]? Regularizations { get; set; }
+        public List<Regularization>? Regularizations { get; set; }
     }
 }

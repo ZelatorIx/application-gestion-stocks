@@ -14,7 +14,8 @@ namespace Negosud.dataaccess.Tables
         [Required]
         public string Status { get; set; } = "";
         [Required]
-        public Customer Customer { get; set; } = new Customer();
-        public CustomerOrderContent[]? CustomerOrderContents { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
+        public List<CustomerOrderContent>? CustomerOrderContents { get; set; }
     }
 }
