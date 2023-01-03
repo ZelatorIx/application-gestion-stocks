@@ -19,9 +19,9 @@ namespace Negosud.WinForm
             InitializeComponent();
         }
 
-        private async Task ButtonAddNewFamily_ClickAsync(object sender, EventArgs e)
-        {
             // But envoyer le nouvel objet DTO à l'API
+        private async void ButtonAddNewFamily_Click(object sender, EventArgs e)
+        {
             // 1 Récupérer les valeurs de(s) textBox
             string Name = TextBoxFamilyName.Text;
             // 2 Créer l'objet DTO
@@ -48,9 +48,7 @@ namespace Negosud.WinForm
 
             //Affichage de la réponse
             MessageBox.Show(response);
-
-
-
         }
+
     }
 }

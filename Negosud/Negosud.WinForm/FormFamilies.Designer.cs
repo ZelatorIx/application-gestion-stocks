@@ -248,6 +248,7 @@
             this.ButtonAddNewFamily.TabIndex = 72;
             this.ButtonAddNewFamily.Text = "Créer";
             this.ButtonAddNewFamily.UseVisualStyleBackColor = false;
+            this.ButtonAddNewFamily.Click += new System.EventHandler(this.ButtonAddNewFamily_Click);
             // 
             // ButtonHomePage
             // 
