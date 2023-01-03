@@ -131,6 +131,30 @@ namespace Negosud.webapi.Controllers
             return StatusCode(304);
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Item? item = await _context.Items.FindAsync(id);
+            if (item == null)
+            {
+                return NotFound("This item does not exist.");
+            }
+
+            if (
+                item.CustomerOrderContents != null ||
+                item.SupplierOrderContents != null ||
+                item.StockMovements != null
+               )
+            {
+                return Forbid("You can't delete item wich have one or more references.");
+            }
+
+            _context.Items.Remove(item);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
         /// <summary>
         /// Retourne vrai si l'article existe dans la base de données
         /// </summary>
