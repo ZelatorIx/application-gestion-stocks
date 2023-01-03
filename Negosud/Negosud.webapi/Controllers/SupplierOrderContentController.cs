@@ -11,7 +11,6 @@ namespace Negosud.webapi.Controllers
     public class SupplierOrderContentController : ControllerBase
     {
 
-
         private readonly NegosudContext _context;
 
         public SupplierOrderContentController()

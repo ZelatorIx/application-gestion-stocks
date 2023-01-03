@@ -118,8 +118,8 @@ namespace Negosud.webapi.Controllers
         /// <summary>
         /// Caste une commande fournisseur en DTO
         /// </summary>
-        /// <param name="supplier">Commande Fournisseur à caster</param>
-        /// <returns>Commande Fournisseur DTO</returns>
+        /// <param name="commandSupplier">Commande Fournisseur à caster</param>
+        /// <returns>Commande Client DTO</returns>
         internal static CommandSupplierDTO ConvertCommandSupplierToDTO(CommandSupplier? commandSupplier)
         {
             CommandSupplierDTO commandSupplierDTO = new CommandSupplierDTO();
@@ -134,7 +134,7 @@ namespace Negosud.webapi.Controllers
             }
             return commandSupplierDTO;
         }
-
+        
 
     }
 }
