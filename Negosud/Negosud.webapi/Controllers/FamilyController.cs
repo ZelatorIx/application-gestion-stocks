@@ -42,7 +42,7 @@ namespace Negosud.webapi.Controllers
 
             if (family == null)
             {
-                return NotFound();
+                return NotFound("This family does not exist.");
             }
 
             return Ok(ConvertFamilyToDTO(family));
@@ -79,7 +79,7 @@ namespace Negosud.webapi.Controllers
             Family? family = await _context.Families.FindAsync(id);
             if (family == null)
             {
-                return NotFound();
+                return NotFound("This family does not exist.");
             }
 
             family.Name = familyDTO.Name;
@@ -90,7 +90,7 @@ namespace Negosud.webapi.Controllers
             }
             catch (DbUpdateConcurrencyException) when (!FamilyExist(id))
             {
-                return NotFound();
+                return NotFound("This family does not exist.");
             }
 
             return StatusCode(304);
@@ -107,12 +107,12 @@ namespace Negosud.webapi.Controllers
             Family? family = await _context.Families.FindAsync(id);
             if (family == null)
             {
-                return NotFound();
+                return NotFound("This family does not exist.");
             }
 
             if (family.Items != null && family.Items.Length > 0)
             {
-                return Forbid();
+                return Forbid("You can't delete family which have one or more item.");
             }
 
             _context.Families.Remove(family);
