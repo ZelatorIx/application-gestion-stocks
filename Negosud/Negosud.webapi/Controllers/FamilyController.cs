@@ -146,6 +146,11 @@ namespace Negosud.webapi.Controllers
             return familyDTO;
         }
 
+        /// <summary>
+        /// Caste une famille en DTO
+        /// </summary>
+        /// <param name="familyId">Identifiant de la famille à caster</param>
+        /// <returns>Famille DTO</returns>
         internal static FamilyDTO ConvertFamilyToDTO(int familyId)
         {
             Family? family;

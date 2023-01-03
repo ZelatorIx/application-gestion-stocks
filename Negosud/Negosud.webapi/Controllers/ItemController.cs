@@ -184,7 +184,14 @@ namespace Negosud.webapi.Controllers
                 itemDTO.Picture = item.Picture;
                 itemDTO.MinLimit = item.MinLimit;
                 itemDTO.YearItem = item.YearItem;
-                itemDTO.Family = FamilyController.ConvertFamilyToDTO(item.FamilyId);
+                if (item.Family == null)
+                {
+                    itemDTO.Family = FamilyController.ConvertFamilyToDTO(item.FamilyId);
+                }
+                else
+                {
+                    itemDTO.Family = FamilyController.ConvertFamilyToDTO(item.Family);
+                }
             }
 
             return itemDTO;
