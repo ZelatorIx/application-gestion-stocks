@@ -18,10 +18,10 @@ namespace Negosud.webapi.Controllers
         }
 
         /// <summary>
-        /// Retourne une liste d'items
+        /// Retourne une liste d'articles
         /// </summary>
         /// <returns>
-        /// Liste d'items</returns>
+        /// Liste d'articles</returns>
         [HttpGet]
         public async Task<List<ItemDTO>> GetAll()
         {
@@ -31,10 +31,10 @@ namespace Negosud.webapi.Controllers
         }
 
         /// <summary>
-        /// Retourne un item par son identifiant
+        /// Retourne un article par son identifiant
         /// </summary>
-        /// <param name="id">Identifiant de l'item</param>
-        /// <returns>Item</returns>
+        /// <param name="id">Identifiant de l'article</param>
+        /// <returns>Article</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<ItemDTO>> GetById(int id)
         {
@@ -49,14 +49,18 @@ namespace Negosud.webapi.Controllers
         }
 
         /// <summary>
-        /// Crée un item
+        /// Crée un article
         /// </summary>
-        /// <param name="itemDTO">Informations de l'item</param>
+        /// <param name="itemDTO">Informations de l'article</param>
         /// <returns>Résultat de la requête POST</returns>
         [HttpPost]
         public async Task<ActionResult<ItemDTO>> Post([FromBody] ItemDTO itemDTO)
         {
-            Family family = new Family() { Name = itemDTO.ItemFamily.Name };
+            Family? family = await _context.Families.FindAsync(itemDTO.ItemFamily.Id);
+            if (family == null)
+            {
+                return BadRequest();
+            }
 
             Item itemResult = new Item()
             {
@@ -81,10 +85,62 @@ namespace Negosud.webapi.Controllers
         }
 
         /// <summary>
-        /// Caste un item en DTO
+        /// Modifie un article
         /// </summary>
-        /// <param name="item">Item à caster</param>
-        /// <returns>Item DTO</returns>
+        /// <param name="id">Identifiant de l'article</param>
+        /// <param name="itemDTO">Informations de l'article</param>
+        /// <returns>Status de la requête PUT</returns>
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] ItemDTO itemDTO)
+        {
+            Item? item = await _context.Items.FindAsync(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            Family family = new Family() { Name = item.ItemFamily.Name };
+            var a = _context.Items
+                .Select((Item item) => item.ItemFamily)
+                .Where((Family family) => family.Id == item.ItemFamily.Id);
+
+            item.Name = itemDTO.Name ?? item.Name;
+            item.Description = itemDTO.Description ?? item.Description;
+            item.PurchasePriceBT = itemDTO.PurchasePriceBT;
+            item.SellingPriceBT = itemDTO.SellingPriceBT;
+            item.Vat = itemDTO.Vat;
+            item.Picture = itemDTO.Picture ?? item.Picture;
+            item.MinLimit = itemDTO.MinLimit;
+            item.YearItem = itemDTO.YearItem;
+            item.ItemFamily = family;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException) when (!ItemExist(id))
+            {
+                return NotFound();
+            }
+
+            return StatusCode(304);
+        }
+
+        /// <summary>
+        /// Retourne vrai si l'article existe dans la base de données
+        /// </summary>
+        /// <param name="id">Identifiant de l'article</param>
+        /// <returns>Vrai si l'article existe</returns>
+        private bool ItemExist(int id)
+        {
+            return _context.Items.Any((Item item) => item.Id == id);
+        }
+
+        /// <summary>
+        /// Caste un article en DTO
+        /// </summary>
+        /// <param name="item">Article à caster</param>
+        /// <returns>Article DTO</returns>
         internal static ItemDTO ConvertItemToDTO(Item? item)
         {
             ItemDTO itemDTO = new ItemDTO();

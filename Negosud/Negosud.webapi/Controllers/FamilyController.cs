@@ -126,7 +126,7 @@ namespace Negosud.webapi.Controllers
         /// </summary>
         /// <param name="id">Identifiant de la famille</param>
         /// <returns>Vrai si la famille existe</returns>
-        private bool FamilyExist(int id)
+        internal bool FamilyExist(int id)
         {
             return _context.Families.Any((Family family) => family.Id == id);
         }
