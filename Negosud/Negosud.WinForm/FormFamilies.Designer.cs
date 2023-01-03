@@ -39,18 +39,18 @@
             this.BtnSupOrders = new System.Windows.Forms.Button();
             this.BtnSuppliers = new System.Windows.Forms.Button();
             this.textBoxStocks = new System.Windows.Forms.TextBox();
-            this.textBoxVentes = new System.Windows.Forms.TextBox();
-            this.textBoxAchats = new System.Windows.Forms.TextBox();
-            this.textBoxAccueil = new System.Windows.Forms.TextBox();
+            this.textBoxSellings = new System.Windows.Forms.TextBox();
+            this.textBoxPurchases = new System.Windows.Forms.TextBox();
             this.TextBoxMapFamilies = new System.Windows.Forms.TextBox();
             this.TextBoxMapProducts = new System.Windows.Forms.TextBox();
             this.ScrollBarCustomers = new System.Windows.Forms.VScrollBar();
             this.LabelCustName = new System.Windows.Forms.Label();
-            this.TextBoxCustName = new System.Windows.Forms.TextBox();
+            this.TextBoxFamilyName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ButtonDeleteFamily = new System.Windows.Forms.Button();
             this.ButtonSaveFamily = new System.Windows.Forms.Button();
             this.ButtonAddNewFamily = new System.Windows.Forms.Button();
+            this.ButtonHomePage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,35 +146,25 @@
             this.textBoxStocks.TabIndex = 44;
             this.textBoxStocks.Text = "STOCKS";
             // 
-            // textBoxVentes
+            // textBoxSellings
             // 
-            this.textBoxVentes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxVentes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxVentes.Location = new System.Drawing.Point(12, 270);
-            this.textBoxVentes.Name = "textBoxVentes";
-            this.textBoxVentes.Size = new System.Drawing.Size(100, 22);
-            this.textBoxVentes.TabIndex = 43;
-            this.textBoxVentes.Text = "VENTES";
+            this.textBoxSellings.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSellings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxSellings.Location = new System.Drawing.Point(12, 270);
+            this.textBoxSellings.Name = "textBoxSellings";
+            this.textBoxSellings.Size = new System.Drawing.Size(100, 22);
+            this.textBoxSellings.TabIndex = 43;
+            this.textBoxSellings.Text = "VENTES";
             // 
-            // textBoxAchats
+            // textBoxPurchases
             // 
-            this.textBoxAchats.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxAchats.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxAchats.Location = new System.Drawing.Point(12, 180);
-            this.textBoxAchats.Name = "textBoxAchats";
-            this.textBoxAchats.Size = new System.Drawing.Size(100, 22);
-            this.textBoxAchats.TabIndex = 42;
-            this.textBoxAchats.Text = "ACHATS";
-            // 
-            // textBoxAccueil
-            // 
-            this.textBoxAccueil.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxAccueil.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxAccueil.Location = new System.Drawing.Point(12, 63);
-            this.textBoxAccueil.Name = "textBoxAccueil";
-            this.textBoxAccueil.Size = new System.Drawing.Size(100, 22);
-            this.textBoxAccueil.TabIndex = 41;
-            this.textBoxAccueil.Text = "ACCUEIL";
+            this.textBoxPurchases.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPurchases.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxPurchases.Location = new System.Drawing.Point(12, 180);
+            this.textBoxPurchases.Name = "textBoxPurchases";
+            this.textBoxPurchases.Size = new System.Drawing.Size(100, 22);
+            this.textBoxPurchases.TabIndex = 42;
+            this.textBoxPurchases.Text = "ACHATS";
             // 
             // TextBoxMapFamilies
             // 
@@ -213,12 +203,12 @@
             this.LabelCustName.TabIndex = 64;
             this.LabelCustName.Text = "Nom";
             // 
-            // TextBoxCustName
+            // TextBoxFamilyName
             // 
-            this.TextBoxCustName.Location = new System.Drawing.Point(165, 79);
-            this.TextBoxCustName.Name = "TextBoxCustName";
-            this.TextBoxCustName.Size = new System.Drawing.Size(259, 23);
-            this.TextBoxCustName.TabIndex = 57;
+            this.TextBoxFamilyName.Location = new System.Drawing.Point(165, 79);
+            this.TextBoxFamilyName.Name = "TextBoxFamilyName";
+            this.TextBoxFamilyName.Size = new System.Drawing.Size(259, 23);
+            this.TextBoxFamilyName.TabIndex = 57;
             // 
             // dataGridView1
             // 
@@ -258,6 +248,16 @@
             this.ButtonAddNewFamily.TabIndex = 72;
             this.ButtonAddNewFamily.Text = "Créer";
             this.ButtonAddNewFamily.UseVisualStyleBackColor = false;
+            this.ButtonAddNewFamily.Click += new System.EventHandler(this.ButtonAddNewFamily_Click);
+            // 
+            // ButtonHomePage
+            // 
+            this.ButtonHomePage.Location = new System.Drawing.Point(22, 61);
+            this.ButtonHomePage.Name = "ButtonHomePage";
+            this.ButtonHomePage.Size = new System.Drawing.Size(90, 23);
+            this.ButtonHomePage.TabIndex = 75;
+            this.ButtonHomePage.Text = "Accueil";
+            this.ButtonHomePage.UseVisualStyleBackColor = true;
             // 
             // FormFamilies
             // 
@@ -265,12 +265,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ButtonHomePage);
             this.Controls.Add(this.ButtonDeleteFamily);
             this.Controls.Add(this.ButtonSaveFamily);
             this.Controls.Add(this.ButtonAddNewFamily);
             this.Controls.Add(this.ScrollBarCustomers);
             this.Controls.Add(this.LabelCustName);
-            this.Controls.Add(this.TextBoxCustName);
+            this.Controls.Add(this.TextBoxFamilyName);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.TextBoxMapFamilies);
             this.Controls.Add(this.TextBoxMapProducts);
@@ -284,9 +285,8 @@
             this.Controls.Add(this.BtnSupOrders);
             this.Controls.Add(this.BtnSuppliers);
             this.Controls.Add(this.textBoxStocks);
-            this.Controls.Add(this.textBoxVentes);
-            this.Controls.Add(this.textBoxAchats);
-            this.Controls.Add(this.textBoxAccueil);
+            this.Controls.Add(this.textBoxSellings);
+            this.Controls.Add(this.textBoxPurchases);
             this.Name = "FormFamilies";
             this.Text = "FormFamilies";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -307,17 +307,17 @@
         private Button BtnSupOrders;
         private Button BtnSuppliers;
         private TextBox textBoxStocks;
-        private TextBox textBoxVentes;
-        private TextBox textBoxAchats;
-        private TextBox textBoxAccueil;
+        private TextBox textBoxSellings;
+        private TextBox textBoxPurchases;
         private TextBox TextBoxMapFamilies;
         private TextBox TextBoxMapProducts;
         private VScrollBar ScrollBarCustomers;
         private Label LabelCustName;
-        private TextBox TextBoxCustName;
+        private TextBox TextBoxFamilyName;
         private DataGridView dataGridView1;
         private Button ButtonDeleteFamily;
         private Button ButtonSaveFamily;
         private Button ButtonAddNewFamily;
+        private Button ButtonHomePage;
     }
 }
