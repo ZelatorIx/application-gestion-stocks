@@ -7,5 +7,6 @@
         public float BeforePriceTax { get; set; }
         public float VAT { get; set; }
         public ItemDTO[]? Items { get; set; }
+        public CommandSupplierDTO[]? CommandSuppliers { get; set; }
     }
 }

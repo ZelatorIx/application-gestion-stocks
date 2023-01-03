@@ -9,6 +9,6 @@
         public int PostalCode { get; set; }
         public string Town { get; set; } = "";
         public string Email { get; set; } = "";
-        public ItemDTO[]? Items { get; set; }
+        public CommandSupplierDTO[]? CommandSuppliers { get; set; }
     }
 }
