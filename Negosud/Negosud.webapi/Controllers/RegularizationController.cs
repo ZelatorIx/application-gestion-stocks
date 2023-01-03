@@ -127,7 +127,7 @@ namespace Negosud.webapi.Controllers
                 regularizationDTO.Id = regularization.Id;
                 regularizationDTO.Date = regularization.Date;
                 regularizationDTO.Inventorist = regularization.Inventorist;
-                regularizationDTO.ReasonRegularization = ReasonRegularization.ConvertReasonRegularizationToDTO(regularization.ReasonRegularization);
+                regularizationDTO.ReasonRegularization = ReasonRegularizationController.ConvertReasonRegularizationToDTO(regularization.ReasonRegularization);
 
             }
             return regularizationDTO;
