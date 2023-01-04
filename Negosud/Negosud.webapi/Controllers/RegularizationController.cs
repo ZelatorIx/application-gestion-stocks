@@ -71,13 +71,17 @@ namespace Negosud.webapi.Controllers
                 ReasonRegularization = reasonRegularization
             };
 
-            _context.Regularizations.Add(regularizationResult);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = regularizationDTO.Id },
-                ConvertRegularizationToDTO(regularizationResult)
-            );
+            try
+            {
+                _context.Regularizations.Add(regularizationResult);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(regularizationResult.Id);
         }
 
         /// <summary>

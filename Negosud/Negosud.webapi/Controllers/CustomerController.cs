@@ -172,6 +172,7 @@ namespace Negosud.webapi.Controllers
                 customerDTO.Town = customer.Town;
 
             }
+
             return customerDTO;
         }
 

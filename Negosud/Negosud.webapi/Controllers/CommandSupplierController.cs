@@ -71,13 +71,17 @@ namespace Negosud.webapi.Controllers
                 Supplier = supplier
             };
 
-            _context.CommandSuppliers.Add(commandSupplierResult);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = commandSupplierDTO.Id },
-                ConvertCommandSupplierToDTO(commandSupplierResult)
-            );
+            try
+            {
+                _context.CommandSuppliers.Add(commandSupplierResult);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(commandSupplierResult.Id);
         }
 
         /// <summary>

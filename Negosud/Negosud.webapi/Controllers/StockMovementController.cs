@@ -61,13 +61,17 @@ namespace Negosud.webapi.Controllers
                 Quantity = stockMovementDTO.Quantity,
             };
 
-            _context.StockMovements.Add(stockMovementResult);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = stockMovementDTO.Id },
-                ConvertStockMovementToDTO(stockMovementResult)
-            );
+            try
+            {
+                _context.StockMovements.Add(stockMovementResult);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(stockMovementResult.Id);
         }
 
         /// <summary>

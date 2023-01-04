@@ -64,13 +64,17 @@ namespace Negosud.webapi.Controllers
                 VAT = supplierOrderContentDTO.VAT
             };
 
-            _context.SupplierOrderContents.Add(supplierOrderContentResult);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = supplierOrderContentDTO.Id },
-                ConvertSupplierOrderContentToDTO(supplierOrderContentResult)
-            );
+            try
+            {
+                _context.SupplierOrderContents.Add(supplierOrderContentResult);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(supplierOrderContentResult.Id);
         }
 
         /// <summary>

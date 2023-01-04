@@ -65,12 +65,17 @@ namespace Negosud.webapi.Controllers
             };
 
             _context.CustomerOrderContents.Add(customerOrderContentResult);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = customerOrderContentDTO.Id },
-                ConvertCustomerOrderContentToDTO(customerOrderContentResult)
-            );
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(customerOrderContentResult.Id);
         }
 
         /// <summary>

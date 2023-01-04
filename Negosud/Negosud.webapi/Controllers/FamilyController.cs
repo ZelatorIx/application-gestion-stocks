@@ -59,9 +59,17 @@ namespace Negosud.webapi.Controllers
         {
             Family familyResult = new Family() { Name = familyDTO.Name };
 
-            int familyId = _context.Families.Add(familyResult).Entity.Id;
-            await _context.SaveChangesAsync();
-            return Ok(familyId);
+            try
+            {
+                _context.Families.Add(familyResult);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(familyResult.Id);
         }
 
         /// <summary>
