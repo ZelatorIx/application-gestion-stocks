@@ -96,5 +96,15 @@ namespace Negosud.WinForm
             formInventory.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Affiche la liste de famille
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridViewFamilyList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
