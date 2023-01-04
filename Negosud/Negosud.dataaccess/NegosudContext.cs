@@ -14,9 +14,6 @@ namespace Negosud.dataaccess
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Negosud;Trusted_Connection=True;");
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-        }
         //entities
         public DbSet<CommandCustomer> CommandCustomers { get; set; }
         public DbSet<CommandSupplier> CommandSuppliers { get; set; }
@@ -30,14 +27,25 @@ namespace Negosud.dataaccess
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<SupplierOrderContent> SupplierOrderContents { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+        }
+
         public static void InitDataDb()
         {
             using (NegosudContext context = new NegosudContext())
             {
-                context.Families.Add(new Family() { Name = "Rosé" });
-                context.Families.Add(new Family() { Name = "Rouge" });
-                context.Families.Add(new Family() { Name = "Blanc" });
-                context.Families.Add(new Family() { Name = "Champagne" });
+                //context.Families.Add(new Family() { Name = "Rouge" });
+                //context.Families.Add(new Family() { Name = "Rosé" });
+                //context.Families.Add(new Family() { Name = "Blanc" });
+                //context.Families.Add(new Family() { Name = "Champagne" });
+                context.Families.AddRange(new Family[]
+                {
+                    new Family() { Name = "Rouge" },
+                    new Family() { Name = "Rosé" },
+                    new Family() { Name = "Blanc" },
+                    new Family() { Name = "Champagne" }
+                });
                 context.SaveChanges();
             }
         }

@@ -511,7 +511,7 @@ namespace Negosud.dataaccess.Migrations
             modelBuilder.Entity("Negosud.dataaccess.Tables.Item", b =>
                 {
                     b.HasOne("Negosud.dataaccess.Tables.Family", "Family")
-                        .WithMany("Items")
+                        .WithMany()
                         .HasForeignKey("FamilyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -548,11 +548,6 @@ namespace Negosud.dataaccess.Migrations
             modelBuilder.Entity("Negosud.dataaccess.Tables.Customer", b =>
                 {
                     b.Navigation("CommandCustomers");
-                });
-
-            modelBuilder.Entity("Negosud.dataaccess.Tables.Family", b =>
-                {
-                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("Negosud.dataaccess.Tables.ReasonRegularization", b =>

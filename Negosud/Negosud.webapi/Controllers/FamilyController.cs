@@ -115,13 +115,21 @@ namespace Negosud.webapi.Controllers
                 return NotFound("This family does not exist.");
             }
 
-            if (family.Items != null && family.Items.Count > 0)
+            List<Item> items = _context.Items.Where((Item i) => i.FamilyId == id).ToList();
+            if (items.Count > 0)
             {
                 return Forbid("You can't delete family which have one or more item.");
             }
 
-            _context.Families.Remove(family);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Families.Remove(family);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
             return Ok();
         }
@@ -143,15 +151,22 @@ namespace Negosud.webapi.Controllers
         /// <returns>Famille DTO</returns>
         internal static FamilyDTO ConvertFamilyToDTO(Family? family)
         {
-            FamilyDTO familyDTO = new FamilyDTO();
-
-            if (family != null)
+            try
             {
-                familyDTO.Id = family.Id;
-                familyDTO.Name = family.Name;
-            }
+                FamilyDTO familyDTO = new FamilyDTO();
+            
+                if (family != null)
+                {
+                    familyDTO.Id = family.Id;
+                    familyDTO.Name = family.Name;
+                }
 
-            return familyDTO;
+                return familyDTO;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
