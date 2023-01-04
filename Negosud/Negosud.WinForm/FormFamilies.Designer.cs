@@ -213,7 +213,6 @@
             this.DataGridViewFamilyList.RowTemplate.Height = 25;
             this.DataGridViewFamilyList.Size = new System.Drawing.Size(623, 220);
             this.DataGridViewFamilyList.TabIndex = 56;
-            this.DataGridViewFamilyList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewFamilyList_CellContentClick);
             // 
             // ButtonAddNewFamily
             // 
