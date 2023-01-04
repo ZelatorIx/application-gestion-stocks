@@ -39,6 +39,10 @@
             this.BtnCustOrders = new System.Windows.Forms.Button();
             this.BtnRegularisation = new System.Windows.Forms.Button();
             this.BtnInventory = new System.Windows.Forms.Button();
+            this.TextBoxMapHomePage = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.TextBoxWelcome = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxAccueil
@@ -141,12 +145,44 @@
             this.BtnInventory.UseVisualStyleBackColor = true;
             this.BtnInventory.Click += new System.EventHandler(this.BtnInventory_Click);
             // 
+            // TextBoxMapHomePage
+            // 
+            this.TextBoxMapHomePage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxMapHomePage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxMapHomePage.Location = new System.Drawing.Point(152, 12);
+            this.TextBoxMapHomePage.Name = "TextBoxMapHomePage";
+            this.TextBoxMapHomePage.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxMapHomePage.TabIndex = 10;
+            this.TextBoxMapHomePage.Text = "ACCUEIL";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(161, 75);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(618, 82);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // TextBoxWelcome
+            // 
+            this.TextBoxWelcome.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxWelcome.Location = new System.Drawing.Point(364, 190);
+            this.TextBoxWelcome.Name = "TextBoxWelcome";
+            this.TextBoxWelcome.Size = new System.Drawing.Size(175, 33);
+            this.TextBoxWelcome.TabIndex = 12;
+            this.TextBoxWelcome.Text = "Bienvenue";
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TextBoxWelcome);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.TextBoxMapHomePage);
             this.Controls.Add(this.BtnInventory);
             this.Controls.Add(this.BtnRegularisation);
             this.Controls.Add(this.BtnCustOrders);
@@ -159,6 +195,7 @@
             this.Controls.Add(this.textBoxAccueil);
             this.Name = "FormHome";
             this.Text = "FormModel";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +213,8 @@
         private Button BtnCustOrders;
         private Button BtnRegularisation;
         private Button BtnInventory;
+        private TextBox TextBoxMapHomePage;
+        private PictureBox pictureBox1;
+        private TextBox TextBoxWelcome;
     }
 }
