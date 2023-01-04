@@ -31,9 +31,9 @@ namespace Negosud.WinForm
                 //comboBox1.ValueMember
                 //comboBox1.DisplayMember
                 //comboBox1.DataSource
-            int Family = int.Parse(TextBoxFamily.Text);
+            int Family = int.Parse(TextBoxPurchasePriceBT.Text);
             String Description = TextBoxDescription.Text; 
-            string Name = TextBoxName.Text;
+            string Name = TextBoxItemName.Text;
             // 2 Créer l'objet DTO
             ItemDTO itemResult = new ItemDTO();
             // 3 Remplir ce nouovel Objet avec les valeurs de Etape 1
@@ -63,5 +63,7 @@ namespace Negosud.WinForm
             //Affichage de la réponse
             MessageBox.Show(response);
         }
+
+       
     }
 }

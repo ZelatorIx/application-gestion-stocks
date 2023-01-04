@@ -75,6 +75,7 @@
             // 
             // BtnInventory
             // 
+            this.BtnInventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnInventory.Location = new System.Drawing.Point(22, 415);
             this.BtnInventory.Name = "BtnInventory";
             this.BtnInventory.Size = new System.Drawing.Size(90, 23);

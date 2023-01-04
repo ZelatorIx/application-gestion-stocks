@@ -32,13 +32,13 @@
             this.BtnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TextBoxId = new System.Windows.Forms.TextBox();
-            this.TextBoxFamily = new System.Windows.Forms.TextBox();
+            this.TextBoxPurchasePriceBT = new System.Windows.Forms.TextBox();
             this.TextBoxDescription = new System.Windows.Forms.TextBox();
-            this.TextBoxName = new System.Windows.Forms.TextBox();
+            this.TextBoxItemName = new System.Windows.Forms.TextBox();
             this.LabelId = new System.Windows.Forms.Label();
-            this.LabelName = new System.Windows.Forms.Label();
+            this.LabelItemName = new System.Windows.Forms.Label();
             this.LabelDescription = new System.Windows.Forms.Label();
-            this.LabelFamily = new System.Windows.Forms.Label();
+            this.LabelPurchasePriceBT = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,10 +80,10 @@
             // 
             // TextBoxFamily
             // 
-            this.TextBoxFamily.Location = new System.Drawing.Point(63, 246);
-            this.TextBoxFamily.Name = "TextBoxFamily";
-            this.TextBoxFamily.Size = new System.Drawing.Size(204, 23);
-            this.TextBoxFamily.TabIndex = 4;
+            this.TextBoxPurchasePriceBT.Location = new System.Drawing.Point(63, 246);
+            this.TextBoxPurchasePriceBT.Name = "TextBoxFamily";
+            this.TextBoxPurchasePriceBT.Size = new System.Drawing.Size(204, 23);
+            this.TextBoxPurchasePriceBT.TabIndex = 4;
             // 
             // TextBoxDescription
             // 
@@ -94,10 +94,10 @@
             // 
             // TextBoxName
             // 
-            this.TextBoxName.Location = new System.Drawing.Point(63, 152);
-            this.TextBoxName.Name = "TextBoxName";
-            this.TextBoxName.Size = new System.Drawing.Size(204, 23);
-            this.TextBoxName.TabIndex = 6;
+            this.TextBoxItemName.Location = new System.Drawing.Point(63, 152);
+            this.TextBoxItemName.Name = "TextBoxName";
+            this.TextBoxItemName.Size = new System.Drawing.Size(204, 23);
+            this.TextBoxItemName.TabIndex = 6;
             // 
             // LabelId
             // 
@@ -110,12 +110,12 @@
             // 
             // LabelName
             // 
-            this.LabelName.AutoSize = true;
-            this.LabelName.Location = new System.Drawing.Point(63, 132);
-            this.LabelName.Name = "LabelName";
-            this.LabelName.Size = new System.Drawing.Size(34, 15);
-            this.LabelName.TabIndex = 8;
-            this.LabelName.Text = "Nom";
+            this.LabelItemName.AutoSize = true;
+            this.LabelItemName.Location = new System.Drawing.Point(63, 132);
+            this.LabelItemName.Name = "LabelName";
+            this.LabelItemName.Size = new System.Drawing.Size(34, 15);
+            this.LabelItemName.TabIndex = 8;
+            this.LabelItemName.Text = "Nom";
             // 
             // LabelDescription
             // 
@@ -128,31 +128,32 @@
             // 
             // LabelFamily
             // 
-            this.LabelFamily.AutoSize = true;
-            this.LabelFamily.Location = new System.Drawing.Point(63, 228);
-            this.LabelFamily.Name = "LabelFamily";
-            this.LabelFamily.Size = new System.Drawing.Size(45, 15);
-            this.LabelFamily.TabIndex = 10;
-            this.LabelFamily.Text = "Famille";
+            this.LabelPurchasePriceBT.AutoSize = true;
+            this.LabelPurchasePriceBT.Location = new System.Drawing.Point(63, 228);
+            this.LabelPurchasePriceBT.Name = "LabelFamily";
+            this.LabelPurchasePriceBT.Size = new System.Drawing.Size(45, 15);
+            this.LabelPurchasePriceBT.TabIndex = 10;
+            this.LabelPurchasePriceBT.Text = "Famille";
             // 
             // FormItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.LabelFamily);
+            this.Controls.Add(this.LabelPurchasePriceBT);
             this.Controls.Add(this.LabelDescription);
-            this.Controls.Add(this.LabelName);
+            this.Controls.Add(this.LabelItemName);
             this.Controls.Add(this.LabelId);
-            this.Controls.Add(this.TextBoxName);
+            this.Controls.Add(this.TextBoxItemName);
             this.Controls.Add(this.TextBoxDescription);
-            this.Controls.Add(this.TextBoxFamily);
+            this.Controls.Add(this.TextBoxPurchasePriceBT);
             this.Controls.Add(this.TextBoxId);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnNouveau);
             this.Name = "FormItems";
             this.Text = "Articles";
+            this.Load += new System.EventHandler(this.FormItems_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,13 +165,38 @@
         private Button BtnNouveau;
         private Button BtnDelete;
         private DataGridView dataGridView1;
-        private TextBox TextBoxId;
-        private TextBox TextBoxFamily;
+        private TextBox TextBoxPurchasePriceBT;
         private TextBox TextBoxDescription;
-        private TextBox TextBoxName;
-        private Label LabelId;
-        private Label LabelName;
+        private TextBox TextBoxItemName;
+        private Label LabelItemName;
         private Label LabelDescription;
+        private Label LabelPurchasePriceBT;
+        private Button ButtonHomePage;
+        private Button ButtonFamilies;
+        private Button ButtonItems;
+        private TextBox TextBoxProducts;
+        private Button BtnInventory;
+        private Button BtnRegularisation;
+        private Button BtnCustOrders;
+        private Button BtnCustomers;
+        private Button BtnSupOrders;
+        private Button BtnSuppliers;
+        private TextBox textBoxStocks;
+        private TextBox textBoxSellings;
+        private TextBox textBoxPurchases;
+        private Label LabelSellingPriceBT;
+        private TextBox TextBoxSellingPriceBT;
+        private Label LabelTVA;
+        private TextBox textBox1;
+        private Label LabelMinLimit;
+        private TextBox textBox2;
+        private Label labelYear;
+        private TextBox textBox3;
+        private PictureBox PictureBoxItemPicture;
+        private TextBox TextBoxMapItems;
+        private TextBox TextBoxMapProducts;
+        private VScrollBar ScrollBarItems;
+        private ComboBox ComboBoxFamily;
         private Label LabelFamily;
     }
 }
