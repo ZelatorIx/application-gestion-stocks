@@ -10,46 +10,16 @@ using System.Windows.Forms;
 
 namespace Negosud.WinForm
 {
-    public partial class FormCustomer : Form
+    public partial class FormHome : Form
     {
-        public FormCustomer()
+        public FormHome()
         {
             InitializeComponent();
         }
 
-        private void ButtonAddNewCustomer_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ButtonDeleteCustomer_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void ButtonHomePage_Click(object sender, EventArgs e)
-        {
-            FormHome formHome = new FormHome();
-            formHome.Show();
-            this.Hide();
-        }
-
-        private void ButtonItems_Click(object sender, EventArgs e)
-        {
-            FormItems formItems = new FormItems();
-            formItems.Show();
-            this.Hide();
-        }
-
-        private void ButtonFamilies_Click(object sender, EventArgs e)
-        {
-            FormFamilies formFamilies = new FormFamilies();
-            formFamilies.Show();
-            this.Hide();
-        }
-
         private void BtnSuppliers_Click(object sender, EventArgs e)
         {
-            FormSupplier formSupplier = new FormSupplier(); 
+            FormSupplier formSupplier = new FormSupplier();
             formSupplier.Show();
             this.Hide();
         }
@@ -61,9 +31,16 @@ namespace Negosud.WinForm
             this.Hide();
         }
 
+        private void BtnCustomers_Click(object sender, EventArgs e)
+        {
+            FormCustomer formCustomer = new FormCustomer();
+            formCustomer.Show();
+            this.Hide();
+        }
+
         private void BtnCustOrders_Click(object sender, EventArgs e)
         {
-            FormCommandCustomer formCommandCustomer = new FormCommandCustomer();    
+            FormCommandCustomer formCommandCustomer = new FormCommandCustomer();
             formCommandCustomer.Show();
             this.Hide();
         }
@@ -79,7 +56,6 @@ namespace Negosud.WinForm
         {
             FormInventory formInventory = new FormInventory();
             formInventory.Show();
-            this.Hide();
         }
     }
 }

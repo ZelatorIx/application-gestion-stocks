@@ -32,7 +32,6 @@
             this.BtnInventory = new System.Windows.Forms.Button();
             this.BtnRegularisation = new System.Windows.Forms.Button();
             this.BtnCustOrders = new System.Windows.Forms.Button();
-            this.BtnCustomers = new System.Windows.Forms.Button();
             this.BtnSupOrders = new System.Windows.Forms.Button();
             this.BtnSuppliers = new System.Windows.Forms.Button();
             this.textBoxStocks = new System.Windows.Forms.TextBox();
@@ -60,7 +59,6 @@
             this.ButtonItems = new System.Windows.Forms.Button();
             this.TextBoxProducts = new System.Windows.Forms.TextBox();
             this.ButtonAddNewCustomer = new System.Windows.Forms.Button();
-            this.ButtonSaveCustomer = new System.Windows.Forms.Button();
             this.ButtonDeleteCustomer = new System.Windows.Forms.Button();
             this.ButtonHomePage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -74,6 +72,7 @@
             this.BtnInventory.TabIndex = 19;
             this.BtnInventory.Text = "Inventaire";
             this.BtnInventory.UseVisualStyleBackColor = true;
+            this.BtnInventory.Click += new System.EventHandler(this.BtnInventory_Click);
             // 
             // BtnRegularisation
             // 
@@ -83,6 +82,7 @@
             this.BtnRegularisation.TabIndex = 18;
             this.BtnRegularisation.Text = "Régularisation";
             this.BtnRegularisation.UseVisualStyleBackColor = true;
+            this.BtnRegularisation.Click += new System.EventHandler(this.BtnRegularisation_Click);
             // 
             // BtnCustOrders
             // 
@@ -92,15 +92,7 @@
             this.BtnCustOrders.TabIndex = 17;
             this.BtnCustOrders.Text = "Commandes";
             this.BtnCustOrders.UseVisualStyleBackColor = true;
-            // 
-            // BtnCustomers
-            // 
-            this.BtnCustomers.Location = new System.Drawing.Point(22, 295);
-            this.BtnCustomers.Name = "BtnCustomers";
-            this.BtnCustomers.Size = new System.Drawing.Size(90, 23);
-            this.BtnCustomers.TabIndex = 16;
-            this.BtnCustomers.Text = "Clients";
-            this.BtnCustomers.UseVisualStyleBackColor = true;
+            this.BtnCustOrders.Click += new System.EventHandler(this.BtnCustOrders_Click);
             // 
             // BtnSupOrders
             // 
@@ -110,6 +102,7 @@
             this.BtnSupOrders.TabIndex = 15;
             this.BtnSupOrders.Text = "Commandes";
             this.BtnSupOrders.UseVisualStyleBackColor = true;
+            this.BtnSupOrders.Click += new System.EventHandler(this.BtnSupOrders_Click);
             // 
             // BtnSuppliers
             // 
@@ -119,6 +112,7 @@
             this.BtnSuppliers.TabIndex = 14;
             this.BtnSuppliers.Text = "Fournisseurs";
             this.BtnSuppliers.UseVisualStyleBackColor = true;
+            this.BtnSuppliers.Click += new System.EventHandler(this.BtnSuppliers_Click);
             // 
             // textBoxStocks
             // 
@@ -307,6 +301,7 @@
             this.ButtonFamilies.TabIndex = 40;
             this.ButtonFamilies.Text = "Familles";
             this.ButtonFamilies.UseVisualStyleBackColor = true;
+            this.ButtonFamilies.Click += new System.EventHandler(this.ButtonFamilies_Click);
             // 
             // ButtonItems
             // 
@@ -316,6 +311,7 @@
             this.ButtonItems.TabIndex = 39;
             this.ButtonItems.Text = "Articles";
             this.ButtonItems.UseVisualStyleBackColor = true;
+            this.ButtonItems.Click += new System.EventHandler(this.ButtonItems_Click);
             // 
             // TextBoxProducts
             // 
@@ -336,16 +332,7 @@
             this.ButtonAddNewCustomer.TabIndex = 41;
             this.ButtonAddNewCustomer.Text = "Créer";
             this.ButtonAddNewCustomer.UseVisualStyleBackColor = false;
-            // 
-            // ButtonSaveCustomer
-            // 
-            this.ButtonSaveCustomer.BackColor = System.Drawing.Color.MistyRose;
-            this.ButtonSaveCustomer.Location = new System.Drawing.Point(565, 195);
-            this.ButtonSaveCustomer.Name = "ButtonSaveCustomer";
-            this.ButtonSaveCustomer.Size = new System.Drawing.Size(71, 23);
-            this.ButtonSaveCustomer.TabIndex = 42;
-            this.ButtonSaveCustomer.Text = "Enregistrer";
-            this.ButtonSaveCustomer.UseVisualStyleBackColor = false;
+            this.ButtonAddNewCustomer.Click += new System.EventHandler(this.ButtonAddNewCustomer_Click);
             // 
             // ButtonDeleteCustomer
             // 
@@ -356,6 +343,7 @@
             this.ButtonDeleteCustomer.TabIndex = 43;
             this.ButtonDeleteCustomer.Text = "Supprimer";
             this.ButtonDeleteCustomer.UseVisualStyleBackColor = false;
+            this.ButtonDeleteCustomer.Click += new System.EventHandler(this.ButtonDeleteCustomer_Click);
             // 
             // ButtonHomePage
             // 
@@ -365,16 +353,17 @@
             this.ButtonHomePage.TabIndex = 44;
             this.ButtonHomePage.Text = "Accueil";
             this.ButtonHomePage.UseVisualStyleBackColor = true;
+            this.ButtonHomePage.Click += new System.EventHandler(this.ButtonHomePage_Click);
             // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(795, 493);
             this.Controls.Add(this.ButtonHomePage);
             this.Controls.Add(this.ButtonDeleteCustomer);
-            this.Controls.Add(this.ButtonSaveCustomer);
             this.Controls.Add(this.ButtonAddNewCustomer);
             this.Controls.Add(this.ButtonFamilies);
             this.Controls.Add(this.ButtonItems);
@@ -400,7 +389,6 @@
             this.Controls.Add(this.BtnInventory);
             this.Controls.Add(this.BtnRegularisation);
             this.Controls.Add(this.BtnCustOrders);
-            this.Controls.Add(this.BtnCustomers);
             this.Controls.Add(this.BtnSupOrders);
             this.Controls.Add(this.BtnSuppliers);
             this.Controls.Add(this.textBoxStocks);
@@ -419,7 +407,6 @@
         private Button BtnInventory;
         private Button BtnRegularisation;
         private Button BtnCustOrders;
-        private Button BtnCustomers;
         private Button BtnSupOrders;
         private Button BtnSuppliers;
         private TextBox textBoxStocks;
@@ -447,7 +434,6 @@
         private Button ButtonItems;
         private TextBox TextBoxProducts;
         private Button ButtonAddNewCustomer;
-        private Button ButtonSaveCustomer;
         private Button ButtonDeleteCustomer;
         private Button ButtonHomePage;
     }

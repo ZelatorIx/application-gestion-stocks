@@ -1,6 +1,6 @@
 ﻿namespace Negosud.WinForm
 {
-    partial class FormModel
+    partial class FormHome
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormModel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.textBoxAccueil = new System.Windows.Forms.TextBox();
             this.textBoxAchats = new System.Windows.Forms.TextBox();
             this.textBoxVentes = new System.Windows.Forms.TextBox();
@@ -89,6 +89,7 @@
             this.BtnSuppliers.TabIndex = 4;
             this.BtnSuppliers.Text = "Fournisseurs";
             this.BtnSuppliers.UseVisualStyleBackColor = true;
+            this.BtnSuppliers.Click += new System.EventHandler(this.BtnSuppliers_Click);
             // 
             // BtnSupOrders
             // 
@@ -98,6 +99,7 @@
             this.BtnSupOrders.TabIndex = 5;
             this.BtnSupOrders.Text = "Commandes";
             this.BtnSupOrders.UseVisualStyleBackColor = true;
+            this.BtnSupOrders.Click += new System.EventHandler(this.BtnSupOrders_Click);
             // 
             // BtnCustomers
             // 
@@ -107,6 +109,7 @@
             this.BtnCustomers.TabIndex = 6;
             this.BtnCustomers.Text = "Clients";
             this.BtnCustomers.UseVisualStyleBackColor = true;
+            this.BtnCustomers.Click += new System.EventHandler(this.BtnCustomers_Click);
             // 
             // BtnCustOrders
             // 
@@ -116,6 +119,7 @@
             this.BtnCustOrders.TabIndex = 7;
             this.BtnCustOrders.Text = "Commandes";
             this.BtnCustOrders.UseVisualStyleBackColor = true;
+            this.BtnCustOrders.Click += new System.EventHandler(this.BtnCustOrders_Click);
             // 
             // BtnRegularisation
             // 
@@ -125,6 +129,7 @@
             this.BtnRegularisation.TabIndex = 8;
             this.BtnRegularisation.Text = "Régularisation";
             this.BtnRegularisation.UseVisualStyleBackColor = true;
+            this.BtnRegularisation.Click += new System.EventHandler(this.BtnRegularisation_Click);
             // 
             // BtnInventory
             // 
@@ -134,8 +139,9 @@
             this.BtnInventory.TabIndex = 9;
             this.BtnInventory.Text = "Inventaire";
             this.BtnInventory.UseVisualStyleBackColor = true;
+            this.BtnInventory.Click += new System.EventHandler(this.BtnInventory_Click);
             // 
-            // FormModel
+            // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -151,7 +157,7 @@
             this.Controls.Add(this.textBoxVentes);
             this.Controls.Add(this.textBoxAchats);
             this.Controls.Add(this.textBoxAccueil);
-            this.Name = "FormModel";
+            this.Name = "FormHome";
             this.Text = "FormModel";
             this.ResumeLayout(false);
             this.PerformLayout();

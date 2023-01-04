@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFamilies));
-            this.ButtonFamilies = new System.Windows.Forms.Button();
             this.ButtonItems = new System.Windows.Forms.Button();
             this.TextBoxProducts = new System.Windows.Forms.TextBox();
             this.BtnInventory = new System.Windows.Forms.Button();
@@ -47,21 +46,10 @@
             this.LabelCustName = new System.Windows.Forms.Label();
             this.TextBoxFamilyName = new System.Windows.Forms.TextBox();
             this.DataGridViewFamilyList = new System.Windows.Forms.DataGridView();
-            this.ButtonDeleteFamily = new System.Windows.Forms.Button();
-            this.ButtonSaveFamily = new System.Windows.Forms.Button();
             this.ButtonAddNewFamily = new System.Windows.Forms.Button();
             this.ButtonHomePage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewFamilyList)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ButtonFamilies
-            // 
-            this.ButtonFamilies.Location = new System.Drawing.Point(22, 145);
-            this.ButtonFamilies.Name = "ButtonFamilies";
-            this.ButtonFamilies.Size = new System.Drawing.Size(90, 23);
-            this.ButtonFamilies.TabIndex = 53;
-            this.ButtonFamilies.Text = "Familles";
-            this.ButtonFamilies.UseVisualStyleBackColor = true;
             // 
             // ButtonItems
             // 
@@ -71,6 +59,7 @@
             this.ButtonItems.TabIndex = 52;
             this.ButtonItems.Text = "Articles";
             this.ButtonItems.UseVisualStyleBackColor = true;
+            this.ButtonItems.Click += new System.EventHandler(this.ButtonItems_Click);
             // 
             // TextBoxProducts
             // 
@@ -90,6 +79,7 @@
             this.BtnInventory.TabIndex = 50;
             this.BtnInventory.Text = "Inventaire";
             this.BtnInventory.UseVisualStyleBackColor = true;
+            this.BtnInventory.Click += new System.EventHandler(this.BtnInventory_Click);
             // 
             // BtnRegularisation
             // 
@@ -99,6 +89,7 @@
             this.BtnRegularisation.TabIndex = 49;
             this.BtnRegularisation.Text = "Régularisation";
             this.BtnRegularisation.UseVisualStyleBackColor = true;
+            this.BtnRegularisation.Click += new System.EventHandler(this.BtnRegularisation_Click);
             // 
             // BtnCustOrders
             // 
@@ -108,6 +99,7 @@
             this.BtnCustOrders.TabIndex = 48;
             this.BtnCustOrders.Text = "Commandes";
             this.BtnCustOrders.UseVisualStyleBackColor = true;
+            this.BtnCustOrders.Click += new System.EventHandler(this.BtnCustOrders_Click);
             // 
             // BtnCustomers
             // 
@@ -117,6 +109,7 @@
             this.BtnCustomers.TabIndex = 47;
             this.BtnCustomers.Text = "Clients";
             this.BtnCustomers.UseVisualStyleBackColor = true;
+            this.BtnCustomers.Click += new System.EventHandler(this.BtnCustomers_Click);
             // 
             // BtnSupOrders
             // 
@@ -126,6 +119,7 @@
             this.BtnSupOrders.TabIndex = 46;
             this.BtnSupOrders.Text = "Commandes";
             this.BtnSupOrders.UseVisualStyleBackColor = true;
+            this.BtnSupOrders.Click += new System.EventHandler(this.BtnSupOrders_Click);
             // 
             // BtnSuppliers
             // 
@@ -135,6 +129,7 @@
             this.BtnSuppliers.TabIndex = 45;
             this.BtnSuppliers.Text = "Fournisseurs";
             this.BtnSuppliers.UseVisualStyleBackColor = true;
+            this.BtnSuppliers.Click += new System.EventHandler(this.BtnSuppliers_Click);
             // 
             // textBoxStocks
             // 
@@ -219,30 +214,10 @@
             this.DataGridViewFamilyList.Size = new System.Drawing.Size(623, 220);
             this.DataGridViewFamilyList.TabIndex = 56;
             // 
-            // ButtonDeleteFamily
-            // 
-            this.ButtonDeleteFamily.BackColor = System.Drawing.Color.MistyRose;
-            this.ButtonDeleteFamily.Location = new System.Drawing.Point(697, 179);
-            this.ButtonDeleteFamily.Name = "ButtonDeleteFamily";
-            this.ButtonDeleteFamily.Size = new System.Drawing.Size(71, 23);
-            this.ButtonDeleteFamily.TabIndex = 74;
-            this.ButtonDeleteFamily.Text = "Supprimer";
-            this.ButtonDeleteFamily.UseVisualStyleBackColor = false;
-            // 
-            // ButtonSaveFamily
-            // 
-            this.ButtonSaveFamily.BackColor = System.Drawing.Color.MistyRose;
-            this.ButtonSaveFamily.Location = new System.Drawing.Point(603, 178);
-            this.ButtonSaveFamily.Name = "ButtonSaveFamily";
-            this.ButtonSaveFamily.Size = new System.Drawing.Size(71, 23);
-            this.ButtonSaveFamily.TabIndex = 73;
-            this.ButtonSaveFamily.Text = "Enregistrer";
-            this.ButtonSaveFamily.UseVisualStyleBackColor = false;
-            // 
             // ButtonAddNewFamily
             // 
             this.ButtonAddNewFamily.BackColor = System.Drawing.Color.MistyRose;
-            this.ButtonAddNewFamily.Location = new System.Drawing.Point(509, 179);
+            this.ButtonAddNewFamily.Location = new System.Drawing.Point(443, 79);
             this.ButtonAddNewFamily.Name = "ButtonAddNewFamily";
             this.ButtonAddNewFamily.Size = new System.Drawing.Size(71, 23);
             this.ButtonAddNewFamily.TabIndex = 72;
@@ -258,6 +233,7 @@
             this.ButtonHomePage.TabIndex = 75;
             this.ButtonHomePage.Text = "Accueil";
             this.ButtonHomePage.UseVisualStyleBackColor = true;
+            this.ButtonHomePage.Click += new System.EventHandler(this.ButtonHomePage_Click);
             // 
             // FormFamilies
             // 
@@ -266,8 +242,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ButtonHomePage);
-            this.Controls.Add(this.ButtonDeleteFamily);
-            this.Controls.Add(this.ButtonSaveFamily);
             this.Controls.Add(this.ButtonAddNewFamily);
             this.Controls.Add(this.ScrollBarCustomers);
             this.Controls.Add(this.LabelCustName);
@@ -275,7 +249,6 @@
             this.Controls.Add(this.DataGridViewFamilyList);
             this.Controls.Add(this.TextBoxMapFamilies);
             this.Controls.Add(this.TextBoxMapProducts);
-            this.Controls.Add(this.ButtonFamilies);
             this.Controls.Add(this.ButtonItems);
             this.Controls.Add(this.TextBoxProducts);
             this.Controls.Add(this.BtnInventory);
@@ -296,8 +269,6 @@
         }
 
         #endregion
-
-        private Button ButtonFamilies;
         private Button ButtonItems;
         private TextBox TextBoxProducts;
         private Button BtnInventory;
@@ -315,8 +286,6 @@
         private Label LabelCustName;
         private TextBox TextBoxFamilyName;
         private DataGridView DataGridViewFamilyList;
-        private Button ButtonDeleteFamily;
-        private Button ButtonSaveFamily;
         private Button ButtonAddNewFamily;
         private Button ButtonHomePage;
     }

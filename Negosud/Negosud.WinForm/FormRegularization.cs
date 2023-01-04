@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Negosud.WinForm
 {
-    public partial class FormModel : Form
+    public partial class FormRegularization : Form
     {
-        public FormModel()
+        public FormRegularization()
         {
             InitializeComponent();
         }
