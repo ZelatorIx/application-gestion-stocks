@@ -187,7 +187,7 @@
             // 
             // ScrollBarCustomers
             // 
-            this.ScrollBarCustomers.Location = new System.Drawing.Point(774, 226);
+            this.ScrollBarCustomers.Location = new System.Drawing.Point(774, 225);
             this.ScrollBarCustomers.Name = "ScrollBarCustomers";
             this.ScrollBarCustomers.Size = new System.Drawing.Size(22, 222);
             this.ScrollBarCustomers.TabIndex = 71;
