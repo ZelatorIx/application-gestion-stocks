@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Negosud.dataaccess.Tables
 {
@@ -20,7 +21,6 @@ namespace Negosud.dataaccess.Tables
         public int MinLimit { get; set; }
         [Required]
         public int YearItem { get; set; }
-        [Required]
         public int FamilyId { get; set; }
         public Family Family { get; set; }
         public List<StockMovement>? StockMovements { get; set; }
