@@ -98,7 +98,7 @@ namespace Negosud.webapi.Controllers
                 return NotFound("This family does not exist.");
             }
 
-            return StatusCode(304);
+            return Ok();
         }
 
         /// <summary>

@@ -110,7 +110,7 @@ namespace Negosud.webapi.Controllers
                 return NotFound();
             }
 
-            return StatusCode(304);
+            return Ok();
         }
 
         /// <summary>
