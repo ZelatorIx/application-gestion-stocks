@@ -16,6 +16,6 @@ namespace Negosud.dataaccess.Tables
         [Required]
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-        public List<CustomerOrderContent> CustomerOrderContents { get; set; }
+        public List<CustomerOrderContent>? CustomerOrderContents { get; set; }
     }
 }

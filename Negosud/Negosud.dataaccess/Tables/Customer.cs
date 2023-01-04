@@ -25,6 +25,6 @@ namespace Negosud.dataaccess.Tables
         public int PostalCode { get; set; }
         [Required]
         public string Town { get; set; } = "";
-        public List<CommandCustomer> CommandCustomers { get; set; }
+        public List<CommandCustomer>? CommandCustomers { get; set; }
     }
 }
