@@ -42,7 +42,7 @@ namespace Negosud.webapi.Controllers
 
             if (commandCustomer == null)
             {
-                return NotFound();
+                return NotFound("This command (customer) does not exist.");
             }
 
             return Ok(ConvertCommandCustomerToDTO(commandCustomer));
@@ -70,8 +70,16 @@ namespace Negosud.webapi.Controllers
                 Customer = customer
             };
 
-            _context.CommandCustomers.Add(commandCustomerResult);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.CommandCustomers.Add(commandCustomerResult);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
             return Ok(commandCustomerResult.Id);
         }
 

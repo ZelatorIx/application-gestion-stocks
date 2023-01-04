@@ -6,7 +6,9 @@
         public int Quantity { get; set; }   
         public float BeforePriceTax { get; set; }   
         public float Vat { get; set; }
-        public List<ItemDTO>? Items { get; set; }
-        public List<CommandCustomerDTO>? CommandCustomers { get; set; }
+        public int ItemId { get; set; }
+        public ItemDTO Item { get; set; }
+        public int CommandCustomerId { get; set; }
+        public CommandCustomerDTO CommandCustomer { get; set; }
     }
 }

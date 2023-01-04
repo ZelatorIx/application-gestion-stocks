@@ -118,7 +118,7 @@ namespace Negosud.webapi.Controllers
             List<Item> items = _context.Items.Where((Item i) => i.FamilyId == id).ToList();
             if (items.Count > 0)
             {
-                return Forbid("You can't delete family which have one or more item.");
+                return StatusCode(403, "You can't delete family which have one or more item.");
             }
 
             try
