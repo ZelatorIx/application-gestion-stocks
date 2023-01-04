@@ -139,10 +139,20 @@ namespace Negosud.webapi.Controllers
                 return NotFound("This item does not exist.");
             }
 
+            List<CustomerOrderContent> customerOrderContents = _context.CustomerOrderContents
+                .Where((CustomerOrderContent c) => c.ItemId == id)
+                .ToList();
+            List<SupplierOrderContent> supplierOrderContents = _context.SupplierOrderContents
+                .Where((SupplierOrderContent soc) => soc.ItemId == id)
+                .ToList();
+            List<StockMovement> stockMovements = _context.StockMovements
+                .Where((StockMovement sm) => sm.ItemId == id)
+                .ToList();
+
             if (
-                item.CustomerOrderContents != null ||
-                item.SupplierOrderContents != null ||
-                item.StockMovements != null
+                customerOrderContents.Count > 0 ||
+                supplierOrderContents.Count > 0 ||
+                stockMovements.Count > 0
                )
             {
                 return StatusCode(403, "You can't delete item wich have one or more references.");
