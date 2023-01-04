@@ -23,8 +23,8 @@ namespace Negosud.dataaccess.Tables
         [Required]
         public int FamilyId { get; set; }
         public Family Family { get; set; }
-        public List<StockMovement>? StockMovements { get; set; }
-        public List<CustomerOrderContent>? CustomerOrderContents { get; set; }
-        public List<SupplierOrderContent>? SupplierOrderContents { get; set; }
+        public List<StockMovement> StockMovements { get; set; }
+        public List<CustomerOrderContent> CustomerOrderContents { get; set; }
+        public List<SupplierOrderContent> SupplierOrderContents { get; set; }
     }
 }

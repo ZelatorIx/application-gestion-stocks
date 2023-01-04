@@ -12,7 +12,7 @@ namespace Negosud.dataaccess.Tables
         public float BeforePriceTax { get; set; }
         [Required]
         public float Vat { get; set; }
-        public List<Item>? Items { get; set; }
-        public List<CommandCustomer>? CommandCustomers { get; set; }
+        public List<Item> Items { get; set; }
+        public List<CommandCustomer> CommandCustomers { get; set; }
     }
 }

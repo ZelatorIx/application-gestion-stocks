@@ -13,6 +13,6 @@ namespace Negosud.dataaccess.Tables
         [Required]
         public int ReasonRegularizationId { get; set; }
         public ReasonRegularization ReasonRegularization { get; set; }
-        public List<StockMovement>? StockMovements { get; set; }
+        public List<StockMovement> StockMovements { get; set; }
     }
 }
