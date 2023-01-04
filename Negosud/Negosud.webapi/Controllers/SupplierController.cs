@@ -140,7 +140,7 @@ namespace Negosud.webapi.Controllers
 
             if (supplier.CommandSuppliers != null && supplier.CommandSuppliers.Count > 0)
             {
-                return Forbid();
+                return StatusCode(403);
             }
 
             _context.Suppliers.Remove(supplier);
