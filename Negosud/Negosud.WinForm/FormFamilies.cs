@@ -109,24 +109,24 @@ namespace Negosud.WinForm
         /// <param name="e"></param>
         private async void buttonFamilies_Click(object sender, EventArgs e)
         {
-            // Envoyez une demande HTTP GET à l'API et récupérez les données sous forme de chaîne JSON
+            // Envoyer une demande HTTP GET à l'API et récupérer les données sous forme de chaîne JSON
             HttpClient client = new HttpClient();
             string json = await client.GetStringAsync("https://localhost:7049/families");
 
             // Convertir la chaîne JSON en un objet dynamic
             dynamic data = JsonConvert.DeserializeObject(json);
 
-            // Créez un objet DataTable et ajoutez les colonnes nécessaires
+            // Créer un objet DataTable et ajouter les colonnes nécessaires
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int)).ReadOnly = true;
             table.Columns.Add("Nom", typeof(string));
 
-            // Parcourez l'objet dynamic et ajoutez chaque objet en tant que ligne dans l'objet DataTable
+            // Parcourir l'objet dynamic et ajouter chaque objet en tant que ligne dans l'objet DataTable
             foreach (dynamic item in data)
             {
                 table.Rows.Add(item.id, item.name);
             }
-            // Assignez l'objet DataTable comme source de données du contrôle DataGridView
+            // Assigner l'objet DataTable comme source de données du contrôle DataGridView
             DataGridViewFamilyList.DataSource = table;
 
         }
@@ -137,15 +137,15 @@ namespace Negosud.WinForm
         /// <param name="e"></param>
         private async void DataGridViewFamilyList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Vérifiez que la cellule modifiée est dans la première colonne (la colonne "ID")
+            // Vérifier que la cellule modifiée est dans la première colonne (la colonne "ID")
             if (e.ColumnIndex == 0)
             {
-                // Récupérez l'id
+                // Récupérer l'id
                 int id = (int)DataGridViewFamilyList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-                //Récupérez la valeur Name à modifier
+                //Récupérer la valeur Name à modifier
                 string name = (string)DataGridViewFamilyList.Rows[e.RowIndex].Cells[1].Value;
 
-                // Envoyez une demande HTTP PUT à l'API en incluant les données modifiées en tant que corps de la requête
+                // Envoyer une demande HTTP PUT à l'API en incluant les données modifiées en tant que corps de la requête
                 HttpClient client = new HttpClient();
                 var content = new FormUrlEncodedContent(new[]
                 {
@@ -155,7 +155,7 @@ namespace Negosud.WinForm
 
                 HttpResponseMessage response = await client.PutAsync("https://localhost:7049/families", content);
 
-                //// Si la modification a réussi, mettez à jour la source de données en local
+                //// Si la modification a réussi, mettre à jour la source de données en local
                 if (response.IsSuccessStatusCode)
                 {
                     //Affichage de la réponse
