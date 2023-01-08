@@ -117,16 +117,6 @@ namespace Negosud.webapi.Controllers
         }
 
         /// <summary>
-        /// Retourne Vrai si le client existe déjà
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        private bool CustomerExist(int id)
-        {
-            return _context.Customers.Any((Customer customer) => customer.Id == id);
-        }
-
-        /// <summary>
         /// Supprime un client suivant son id
         /// </summary>
         /// <param name="id">Identifiant du client</param>
@@ -140,15 +130,28 @@ namespace Negosud.webapi.Controllers
                 return NotFound();
             }
 
-            if (customer.CommandCustomers != null && customer.CommandCustomers.Count > 0)
+            List<CommandCustomer> commandCustomers = _context.CommandCustomers
+                .Where((CommandCustomer cc) => cc.CustomerId == id)
+                .ToList();
+            if (commandCustomers.Count > 0)
             {
-                return StatusCode(403);
+                return StatusCode(403, "You can't delete a customer which have one or more relationships.");
             }
 
             _context.Customers.Remove(customer);
             await _context.SaveChangesAsync();
 
             return Ok();
+        }
+
+        /// <summary>
+        /// Retourne Vrai si le client existe déjà
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private bool CustomerExist(int id)
+        {
+            return _context.Customers.Any((Customer customer) => customer.Id == id);
         }
 
         /// <summary>

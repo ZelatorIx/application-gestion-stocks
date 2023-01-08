@@ -155,7 +155,7 @@ namespace Negosud.webapi.Controllers
                 stockMovements.Count > 0
                )
             {
-                return StatusCode(403, "You can't delete item wich have one or more references.");
+                return StatusCode(403, "You can't delete an item which have one or more relationships.");
             }
 
             _context.Items.Remove(item);

@@ -115,15 +115,6 @@ namespace Negosud.webapi.Controllers
         }
         
         /// <summary>
-        /// Retourne Vrai si le fournisseur existe déjà
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        private bool SupplierExist(int id)
-        {
-            return _context.Suppliers.Any((Supplier supplier) => supplier.Id == id);
-        }
-
         /// <summary>
         /// Supprime un fournisseur suivant son id
         /// </summary>
@@ -138,15 +129,34 @@ namespace Negosud.webapi.Controllers
                 return NotFound();
             }
 
-            if (supplier.CommandSuppliers != null && supplier.CommandSuppliers.Count > 0)
+            List<CommandSupplier> commandSuppliers = _context.CommandSuppliers
+                .Where((CommandSupplier cs) => cs.SupplierId == id)
+                .ToList();
+            if (commandSuppliers.Count > 0)
             {
-                return StatusCode(403);
+                return StatusCode(403, "You can't delete a supplier which have one or more relationships.");
             }
 
-            _context.Suppliers.Remove(supplier);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Suppliers.Remove(supplier);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
             return Ok();
+        }
+
+        /// Retourne Vrai si le fournisseur existe déjà
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private bool SupplierExist(int id)
+        {
+            return _context.Suppliers.Any((Supplier supplier) => supplier.Id == id);
         }
 
         /// <summary>
@@ -171,7 +181,5 @@ namespace Negosud.webapi.Controllers
             }
             return supplierDTO;
         }
-
-
     }
 }

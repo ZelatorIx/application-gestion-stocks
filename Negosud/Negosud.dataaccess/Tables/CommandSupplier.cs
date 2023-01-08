@@ -13,7 +13,6 @@ namespace Negosud.dataaccess.Tables
         public DateTime Date { get; set; }
         [Required]
         public string Status { get; set; } = "";
-        [Required]
         public int SupplierId { get; set; }
         public Supplier Supplier { get; set; }
         public List<SupplierOrderContent>? SupplierOrderContents { get; set; }
