@@ -37,7 +37,6 @@
             this.textBoxStocks = new System.Windows.Forms.TextBox();
             this.textBoxSellings = new System.Windows.Forms.TextBox();
             this.textBoxPurchases = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TextBoxCustName = new System.Windows.Forms.TextBox();
             this.TextBoxCustFirstName = new System.Windows.Forms.TextBox();
             this.TextBoxCustPhoneNumber = new System.Windows.Forms.TextBox();
@@ -61,7 +60,9 @@
             this.ButtonAddNewCustomer = new System.Windows.Forms.Button();
             this.ButtonDeleteCustomer = new System.Windows.Forms.Button();
             this.ButtonHomePage = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.buttonCustomers = new System.Windows.Forms.Button();
+            this.dataGridViewCustomer = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnInventory
@@ -143,15 +144,6 @@
             this.textBoxPurchases.Size = new System.Drawing.Size(100, 22);
             this.textBoxPurchases.TabIndex = 11;
             this.textBoxPurchases.Text = "ACHATS";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(152, 227);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(623, 220);
-            this.dataGridView1.TabIndex = 20;
             // 
             // TextBoxCustName
             // 
@@ -337,7 +329,7 @@
             // ButtonDeleteCustomer
             // 
             this.ButtonDeleteCustomer.BackColor = System.Drawing.Color.MistyRose;
-            this.ButtonDeleteCustomer.Location = new System.Drawing.Point(659, 196);
+            this.ButtonDeleteCustomer.Location = new System.Drawing.Point(548, 196);
             this.ButtonDeleteCustomer.Name = "ButtonDeleteCustomer";
             this.ButtonDeleteCustomer.Size = new System.Drawing.Size(71, 23);
             this.ButtonDeleteCustomer.TabIndex = 43;
@@ -355,6 +347,26 @@
             this.ButtonHomePage.UseVisualStyleBackColor = true;
             this.ButtonHomePage.Click += new System.EventHandler(this.ButtonHomePage_Click);
             // 
+            // buttonCustomers
+            // 
+            this.buttonCustomers.Location = new System.Drawing.Point(677, 195);
+            this.buttonCustomers.Name = "buttonCustomers";
+            this.buttonCustomers.Size = new System.Drawing.Size(98, 23);
+            this.buttonCustomers.TabIndex = 45;
+            this.buttonCustomers.Text = "Clients";
+            this.buttonCustomers.UseVisualStyleBackColor = true;
+            this.buttonCustomers.Click += new System.EventHandler(this.buttonCustomers_Click);
+            // 
+            // dataGridViewCustomer
+            // 
+            this.dataGridViewCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCustomer.Location = new System.Drawing.Point(165, 226);
+            this.dataGridViewCustomer.Name = "dataGridViewCustomer";
+            this.dataGridViewCustomer.RowTemplate.Height = 25;
+            this.dataGridViewCustomer.Size = new System.Drawing.Size(610, 222);
+            this.dataGridViewCustomer.TabIndex = 46;
+            this.dataGridViewCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCustomer_CellContentClick);
+            // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -362,6 +374,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(795, 493);
+            this.Controls.Add(this.dataGridViewCustomer);
+            this.Controls.Add(this.buttonCustomers);
             this.Controls.Add(this.ButtonHomePage);
             this.Controls.Add(this.ButtonDeleteCustomer);
             this.Controls.Add(this.ButtonAddNewCustomer);
@@ -385,7 +399,6 @@
             this.Controls.Add(this.TextBoxCustEmail);
             this.Controls.Add(this.TextBoxCustFirstName);
             this.Controls.Add(this.TextBoxCustName);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BtnInventory);
             this.Controls.Add(this.BtnRegularisation);
             this.Controls.Add(this.BtnCustOrders);
@@ -396,7 +409,7 @@
             this.Controls.Add(this.textBoxPurchases);
             this.Name = "FormCustomer";
             this.Text = "FormCustomer";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,7 +425,6 @@
         private TextBox textBoxStocks;
         private TextBox textBoxSellings;
         private TextBox textBoxPurchases;
-        private DataGridView dataGridView1;
         private TextBox TextBoxCustName;
         private TextBox TextBoxCustFirstName;
         private TextBox TextBoxCustPhoneNumber;
@@ -436,5 +448,7 @@
         private Button ButtonAddNewCustomer;
         private Button ButtonDeleteCustomer;
         private Button ButtonHomePage;
+        private Button buttonCustomers;
+        private DataGridView dataGridViewCustomer;
     }
 }

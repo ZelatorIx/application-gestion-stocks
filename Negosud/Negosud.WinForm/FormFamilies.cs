@@ -1,5 +1,6 @@
 ﻿using Negosud.webapi.Models;
 using Newtonsoft.Json;
+using System.Data;
 
 namespace Negosud.WinForm
 {
@@ -10,7 +11,11 @@ namespace Negosud.WinForm
             InitializeComponent();
         }
 
-            // But envoyer le nouvel objet DTO à l'API
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void ButtonAddNewFamily_Click(object sender, EventArgs e)
         {
             // 1 Récupérer les valeurs de(s) textBox
@@ -24,7 +29,7 @@ namespace Negosud.WinForm
             HttpClient httpClient = new HttpClient();
 
             //Adresse de l'api 
-            httpClient.BaseAddress = new Uri("https://localhost:7049/");
+            httpClient.BaseAddress = new Uri("https://localhost:7049/families");
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "families");
             // Sérialiser le DTO
             string JSon = JsonConvert.SerializeObject(FamilyResult);
@@ -38,9 +43,9 @@ namespace Negosud.WinForm
             string response = await httpResponseMessage.Content.ReadAsStringAsync();
 
             //Affichage de la réponse
-            MessageBox.Show(response);
+            MessageBox.Show("La nouvelle famille a été crée avec succès");
         }
-
+        #region Redirection Button
         private void ButtonHomePage_Click(object sender, EventArgs e)
         {
             FormHome formHome = new FormHome();
@@ -95,6 +100,92 @@ namespace Negosud.WinForm
             FormInventory formInventory = new FormInventory();
             formInventory.Show();
             this.Hide();
+        }
+        #endregion
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void buttonFamilies_Click(object sender, EventArgs e)
+        {
+            // Envoyez une demande HTTP GET à l'API et récupérez les données sous forme de chaîne JSON
+            HttpClient client = new HttpClient();
+            string json = await client.GetStringAsync("https://localhost:7049/families");
+
+            // Convertir la chaîne JSON en un objet dynamic
+            dynamic data = JsonConvert.DeserializeObject(json);
+
+            // Créez un objet DataTable et ajoutez les colonnes nécessaires
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int)).ReadOnly = true;
+            table.Columns.Add("Nom", typeof(string));
+
+            // Parcourez l'objet dynamic et ajoutez chaque objet en tant que ligne dans l'objet DataTable
+            foreach (dynamic item in data)
+            {
+                table.Rows.Add(item.id, item.name);
+            }
+            // Assignez l'objet DataTable comme source de données du contrôle DataGridView
+            DataGridViewFamilyList.DataSource = table;
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void DataGridViewFamilyList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Vérifiez que la cellule modifiée est dans la première colonne (la colonne "ID")
+            if (e.ColumnIndex == 0)
+            {
+                // Récupérez l'id
+                int id = (int)DataGridViewFamilyList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                //Récupérez la valeur Name à modifier
+                string name = (string)DataGridViewFamilyList.Rows[e.RowIndex].Cells[1].Value;
+
+                // Envoyez une demande HTTP PUT à l'API en incluant les données modifiées en tant que corps de la requête
+                HttpClient client = new HttpClient();
+                var content = new FormUrlEncodedContent(new[]
+                {
+                    new KeyValuePair<string, string>("ID", id.ToString()),
+                    new KeyValuePair<string, string>("Nom", name)
+                });
+
+                HttpResponseMessage response = await client.PutAsync("https://localhost:7049/families", content);
+
+                //// Si la modification a réussi, mettez à jour la source de données en local
+                if (response.IsSuccessStatusCode)
+                {
+                    //Affichage de la réponse
+                    MessageBox.Show("La famille a été modifiée avec succès");
+
+                } else
+                {
+                    MessageBox.Show(response.StatusCode.ToString());
+                }
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void buttonDelete_Click(object sender, EventArgs e)
+        {
+            //Récupérez la valeur à supprimer
+            int id = (int)((DataRowView)DataGridViewFamilyList.SelectedRows[0].DataBoundItem)["ID"];
+
+            // Envoyez une demande HTTP DELETE à l'API en incluant l'id de la famille à supprimer
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.DeleteAsync($"https://localhost:7049/families/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                //Affichage de la réponse
+                MessageBox.Show("La famille selectionnée a été supprimée avec succès");
+            }
         }
     }
 }

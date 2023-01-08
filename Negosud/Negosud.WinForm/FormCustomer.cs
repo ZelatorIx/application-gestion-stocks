@@ -1,14 +1,6 @@
 ﻿using Negosud.webapi.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Negosud.WinForm
 {
@@ -18,7 +10,11 @@ namespace Negosud.WinForm
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void ButtonAddNewCustomer_Click(object sender, EventArgs e)
         {
             // 1 Récupérer les valeurs de(s) textBox
@@ -62,11 +58,7 @@ namespace Negosud.WinForm
             MessageBox.Show(response);
 
         }
-
-        private void ButtonDeleteCustomer_Click(object sender, EventArgs e)
-        {
-        }
-
+        #region Redirection Button
         private void ButtonHomePage_Click(object sender, EventArgs e)
         {
             FormHome formHome = new FormHome();
@@ -122,5 +114,86 @@ namespace Negosud.WinForm
             formInventory.Show();
             this.Hide();
         }
+        #endregion
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void buttonCustomers_Click(object sender, EventArgs e)
+        {
+            // Envoyez une demande HTTP GET à l'API et récupérez les données sous forme de chaîne JSON
+            HttpClient client = new HttpClient();
+            string json = await client.GetStringAsync("https://localhost:7049/customers");
+
+            // Convertir la chaîne JSON en un objet dynamic
+            dynamic data = JsonConvert.DeserializeObject(json);
+
+            // Créez un objet DataTable et ajoutez les colonnes nécessaires
+            DataTable table = new DataTable();
+            table.Columns.Add("Id", typeof(int)).ReadOnly = true;
+            table.Columns.Add("Nom", typeof(string));
+            table.Columns.Add("Prenom", typeof(string));
+            table.Columns.Add("Email", typeof(string));
+            table.Columns.Add("Telephone", typeof(string));
+            table.Columns.Add("Adresse", typeof(string));
+            table.Columns.Add("Code postal", typeof(string));
+            table.Columns.Add("Ville", typeof(string));
+
+
+            // Parcourez l'objet dynamic et ajoutez chaque objet en tant que ligne dans l'objet DataTable
+            foreach (dynamic item in data)
+            {
+                table.Rows.Add(item.id, item.lastName, item.firstName, item.email, item.phoneNumber, item.address, item.postalCode, item.town);
+            }
+            // Assignez l'objet DataTable comme source de données du contrôle DataGridView
+            dataGridViewCustomer.DataSource = table;
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void dataGridViewCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Vérifiez que la cellule modifiée est dans la première colonne (la colonne "ID")
+            if (e.ColumnIndex == 0)
+            {
+                // Récupérez la valeur modifiée
+                int id = (int)dataGridViewCustomer.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                // Envoyez une demande HTTP PUT à l'API en incluant les données modifiées en tant que corps de la requête
+                HttpClient client = new HttpClient();
+                var content = new FormUrlEncodedContent(new[]
+                {
+                    new KeyValuePair<string, string>("ID", id.ToString()),
+                    new KeyValuePair<string, string>("Nom", Name)
+                });
+
+                HttpResponseMessage response = await client.PutAsync("https://localhost:7049/customers", content);
+
+                //// Si la modification a réussi, mettez à jour la source de données en local
+                //if (response.IsSuccessStatusCode)
+                //{
+                //    // Utilisez le code ADO.NET ou Entity Framework pour mettre à jour la base de données
+                //    using (SqlConnection connection = new SqlConnection(connectionString))
+                //    {
+                //        connection.Open();
+
+                //        // Créez une commande
+                //    }
+                //}
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonDeleteCustomer_Click(object sender, EventArgs e)
+        {
+        }
+
     }
 }
