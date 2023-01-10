@@ -57,5 +57,15 @@ namespace Negosud.WinForm
             FormInventory formInventory = new FormInventory();
             formInventory.Show();
         }
+
+        private void textBoxAchats_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxVentes_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

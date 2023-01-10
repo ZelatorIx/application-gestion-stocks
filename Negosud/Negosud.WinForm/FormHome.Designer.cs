@@ -42,6 +42,9 @@
             this.TextBoxMapHomePage = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TextBoxWelcome = new System.Windows.Forms.TextBox();
+            this.ButtonFamilies = new System.Windows.Forms.Button();
+            this.ButtonItems = new System.Windows.Forms.Button();
+            this.TextBoxProducts = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,27 +62,29 @@
             // 
             this.textBoxAchats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAchats.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxAchats.Location = new System.Drawing.Point(12, 157);
+            this.textBoxAchats.Location = new System.Drawing.Point(12, 184);
             this.textBoxAchats.Name = "textBoxAchats";
             this.textBoxAchats.Size = new System.Drawing.Size(100, 22);
             this.textBoxAchats.TabIndex = 1;
             this.textBoxAchats.Text = "ACHATS";
+            this.textBoxAchats.TextChanged += new System.EventHandler(this.textBoxAchats_TextChanged);
             // 
             // textBoxVentes
             // 
             this.textBoxVentes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxVentes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxVentes.Location = new System.Drawing.Point(12, 242);
+            this.textBoxVentes.Location = new System.Drawing.Point(12, 269);
             this.textBoxVentes.Name = "textBoxVentes";
             this.textBoxVentes.Size = new System.Drawing.Size(100, 22);
             this.textBoxVentes.TabIndex = 2;
             this.textBoxVentes.Text = "VENTES";
+            this.textBoxVentes.TextChanged += new System.EventHandler(this.textBoxVentes_TextChanged);
             // 
             // textBoxStocks
             // 
             this.textBoxStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxStocks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxStocks.Location = new System.Drawing.Point(12, 327);
+            this.textBoxStocks.Location = new System.Drawing.Point(12, 354);
             this.textBoxStocks.Name = "textBoxStocks";
             this.textBoxStocks.Size = new System.Drawing.Size(100, 22);
             this.textBoxStocks.TabIndex = 3;
@@ -87,7 +92,7 @@
             // 
             // BtnSuppliers
             // 
-            this.BtnSuppliers.Location = new System.Drawing.Point(22, 185);
+            this.BtnSuppliers.Location = new System.Drawing.Point(22, 212);
             this.BtnSuppliers.Name = "BtnSuppliers";
             this.BtnSuppliers.Size = new System.Drawing.Size(90, 23);
             this.BtnSuppliers.TabIndex = 4;
@@ -97,7 +102,7 @@
             // 
             // BtnSupOrders
             // 
-            this.BtnSupOrders.Location = new System.Drawing.Point(22, 214);
+            this.BtnSupOrders.Location = new System.Drawing.Point(22, 241);
             this.BtnSupOrders.Name = "BtnSupOrders";
             this.BtnSupOrders.Size = new System.Drawing.Size(90, 23);
             this.BtnSupOrders.TabIndex = 5;
@@ -107,7 +112,7 @@
             // 
             // BtnCustomers
             // 
-            this.BtnCustomers.Location = new System.Drawing.Point(22, 270);
+            this.BtnCustomers.Location = new System.Drawing.Point(22, 297);
             this.BtnCustomers.Name = "BtnCustomers";
             this.BtnCustomers.Size = new System.Drawing.Size(90, 23);
             this.BtnCustomers.TabIndex = 6;
@@ -117,7 +122,7 @@
             // 
             // BtnCustOrders
             // 
-            this.BtnCustOrders.Location = new System.Drawing.Point(22, 298);
+            this.BtnCustOrders.Location = new System.Drawing.Point(22, 325);
             this.BtnCustOrders.Name = "BtnCustOrders";
             this.BtnCustOrders.Size = new System.Drawing.Size(90, 23);
             this.BtnCustOrders.TabIndex = 7;
@@ -127,7 +132,7 @@
             // 
             // BtnRegularisation
             // 
-            this.BtnRegularisation.Location = new System.Drawing.Point(22, 355);
+            this.BtnRegularisation.Location = new System.Drawing.Point(22, 382);
             this.BtnRegularisation.Name = "BtnRegularisation";
             this.BtnRegularisation.Size = new System.Drawing.Size(90, 23);
             this.BtnRegularisation.TabIndex = 8;
@@ -137,7 +142,7 @@
             // 
             // BtnInventory
             // 
-            this.BtnInventory.Location = new System.Drawing.Point(22, 384);
+            this.BtnInventory.Location = new System.Drawing.Point(22, 411);
             this.BtnInventory.Name = "BtnInventory";
             this.BtnInventory.Size = new System.Drawing.Size(90, 23);
             this.BtnInventory.TabIndex = 9;
@@ -167,12 +172,41 @@
             // 
             // TextBoxWelcome
             // 
+            this.TextBoxWelcome.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBoxWelcome.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TextBoxWelcome.Location = new System.Drawing.Point(364, 190);
+            this.TextBoxWelcome.Location = new System.Drawing.Point(385, 190);
             this.TextBoxWelcome.Name = "TextBoxWelcome";
-            this.TextBoxWelcome.Size = new System.Drawing.Size(175, 33);
+            this.TextBoxWelcome.Size = new System.Drawing.Size(175, 26);
             this.TextBoxWelcome.TabIndex = 12;
             this.TextBoxWelcome.Text = "Bienvenue";
+            // 
+            // ButtonFamilies
+            // 
+            this.ButtonFamilies.Location = new System.Drawing.Point(22, 155);
+            this.ButtonFamilies.Name = "ButtonFamilies";
+            this.ButtonFamilies.Size = new System.Drawing.Size(90, 23);
+            this.ButtonFamilies.TabIndex = 46;
+            this.ButtonFamilies.Text = "Familles";
+            this.ButtonFamilies.UseVisualStyleBackColor = true;
+            // 
+            // ButtonItems
+            // 
+            this.ButtonItems.Location = new System.Drawing.Point(22, 125);
+            this.ButtonItems.Name = "ButtonItems";
+            this.ButtonItems.Size = new System.Drawing.Size(90, 23);
+            this.ButtonItems.TabIndex = 45;
+            this.ButtonItems.Text = "Articles";
+            this.ButtonItems.UseVisualStyleBackColor = true;
+            // 
+            // TextBoxProducts
+            // 
+            this.TextBoxProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxProducts.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxProducts.Location = new System.Drawing.Point(12, 100);
+            this.TextBoxProducts.Name = "TextBoxProducts";
+            this.TextBoxProducts.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxProducts.TabIndex = 44;
+            this.TextBoxProducts.Text = "PRODUITS";
             // 
             // FormHome
             // 
@@ -180,6 +214,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ButtonFamilies);
+            this.Controls.Add(this.ButtonItems);
+            this.Controls.Add(this.TextBoxProducts);
             this.Controls.Add(this.TextBoxWelcome);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.TextBoxMapHomePage);
@@ -216,5 +253,8 @@
         private TextBox TextBoxMapHomePage;
         private PictureBox pictureBox1;
         private TextBox TextBoxWelcome;
+        private Button ButtonFamilies;
+        private Button ButtonItems;
+        private TextBox TextBoxProducts;
     }
 }
