@@ -165,24 +165,13 @@ namespace Negosud.WinForm
 
                 // Envoyer une demande HTTP PUT à l'API en incluant les données modifiées en tant que corps de la requête
                 HttpClient client = new HttpClient();
-                var content = new FormUrlEncodedContent(new[]
-                {
-                    new KeyValuePair<string, string>("ID", id.ToString()),
-                    new KeyValuePair<string, string>("Nom", Name)
-                });
 
-                HttpResponseMessage response = await client.PutAsync("https://localhost:7049/customers", content);
+                //HttpResponseMessage response = await client.PutAsync("https://localhost:7049/customers", content);
 
                 //// Si la modification a réussi, mettre à jour la source de données en local
                 //if (response.IsSuccessStatusCode)
                 //{
-                //    // Utilisez le code ADO.NET ou Entity Framework pour mettre à jour la base de données
-                //    using (SqlConnection connection = new SqlConnection(connectionString))
-                //    {
-                //        connection.Open();
 
-                //        // Créez une commande
-                //    }
                 //}
             }
         }
@@ -191,8 +180,20 @@ namespace Negosud.WinForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ButtonDeleteCustomer_Click(object sender, EventArgs e)
+        private async void ButtonDeleteCustomer_Click(object sender, EventArgs e)
         {
+            //Récupérez la valeur à supprimer
+            int id = (int)((DataRowView)dataGridViewCustomer.SelectedRows[0].DataBoundItem)["ID"];
+
+            // Envoyez une demande HTTP DELETE à l'API en incluant l'id de la famille à supprimer
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.DeleteAsync($"https://localhost:7049/customers/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                //Affichage de la réponse
+                MessageBox.Show("Le client selectionné a été supprimée avec succès");
+            }
         }
 
     }

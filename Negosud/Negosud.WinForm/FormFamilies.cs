@@ -1,6 +1,8 @@
 ﻿using Negosud.webapi.Models;
 using Newtonsoft.Json;
 using System.Data;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Negosud.WinForm
 {
@@ -39,9 +41,6 @@ namespace Negosud.WinForm
             HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(request);
             // vérifie que le retour ne soit pas une erreur
             httpResponseMessage.EnsureSuccessStatusCode();
-            //Réponse avec message de la requête
-            string response = await httpResponseMessage.Content.ReadAsStringAsync();
-
             //Affichage de la réponse
             MessageBox.Show("La nouvelle famille a été crée avec succès");
         }
@@ -103,7 +102,7 @@ namespace Negosud.WinForm
         }
         #endregion
         /// <summary>
-        /// 
+        /// Permet d'afficher la liste de famille 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -118,7 +117,7 @@ namespace Negosud.WinForm
 
             // Créer un objet DataTable et ajouter les colonnes nécessaires
             DataTable table = new DataTable();
-            table.Columns.Add("ID", typeof(int)).ReadOnly = true;
+            table.Columns.Add("ID", typeof(int));
             table.Columns.Add("Nom", typeof(string));
 
             // Parcourir l'objet dynamic et ajouter chaque objet en tant que ligne dans l'objet DataTable
@@ -131,50 +130,51 @@ namespace Negosud.WinForm
 
         }
         /// <summary>
-        /// 
+        /// Permet d'effectuer une modification directement dans le dataGrid
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void DataGridViewFamilyList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Vérifier que la cellule modifiée est dans la première colonne (la colonne "ID")
-            if (e.ColumnIndex == 0)
+
+            //Récupérer la ligne modifiée 
+            DataGridViewRow modifiedRow = DataGridViewFamilyList.Rows[e.RowIndex];
+
+            // Récupérer l'id
+            int id = (int)modifiedRow.Cells["ID"].Value;
+
+            //Récupérer la valeur Name modifier
+            string name = (string)modifiedRow.Cells[e.ColumnIndex].Value;
+
+            Dictionary<string, object> data = new Dictionary<string, object>();
+            data.Add("id", id);
+            data.Add("name", name);
+
+            // Envoyer une demande HTTP PUT à l'API en incluant les données modifiées en tant que corps de la requête
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage response = await client.PutAsync($"https://localhost:7049/families/{id}", new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json"));
+
+            // Si la modification a réussi, mettre à jour la source de données en local
+            if (response.IsSuccessStatusCode)
             {
-                // Récupérer l'id
-                int id = (int)DataGridViewFamilyList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-                //Récupérer la valeur Name à modifier
-                string name = (string)DataGridViewFamilyList.Rows[e.RowIndex].Cells[1].Value;
+                //Affichage de la réponse
+                MessageBox.Show("La famille a été modifiée avec succès");
 
-                // Envoyer une demande HTTP PUT à l'API en incluant les données modifiées en tant que corps de la requête
-                HttpClient client = new HttpClient();
-                var content = new FormUrlEncodedContent(new[]
-                {
-                    new KeyValuePair<string, string>("ID", id.ToString()),
-                    new KeyValuePair<string, string>("Nom", name)
-                });
-
-                HttpResponseMessage response = await client.PutAsync("https://localhost:7049/families", content);
-
-                //// Si la modification a réussi, mettre à jour la source de données en local
-                if (response.IsSuccessStatusCode)
-                {
-                    //Affichage de la réponse
-                    MessageBox.Show("La famille a été modifiée avec succès");
-
-                } else
-                {
-                    MessageBox.Show(response.StatusCode.ToString());
-                }
+            }
+            else
+            {
+                MessageBox.Show(response.StatusCode.ToString());
             }
         }
         /// <summary>
-        /// 
+        /// Permet de supprimer une famille selectionnée
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void buttonDelete_Click(object sender, EventArgs e)
         {
-            //Récupérez la valeur à supprimer
+            //Récupérez l'id selectionné
             int id = (int)((DataRowView)DataGridViewFamilyList.SelectedRows[0].DataBoundItem)["ID"];
 
             // Envoyez une demande HTTP DELETE à l'API en incluant l'id de la famille à supprimer
