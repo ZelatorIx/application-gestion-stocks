@@ -188,7 +188,11 @@ namespace Negosud.WinForm
             }
             else if (response.StatusCode == HttpStatusCode.Forbidden)
             {
-                MessageBox.Show("La famille sélectionnée ne peut pas être supprimée car elle a un ou plusieurs articles qui lui sont affiliés.");
+                MessageBox.Show("La famille sélectionnée ne peut pas être supprimée car elle a un ou plusieurs articles qui lui sont affiliés");
+            }
+            else
+            {
+                MessageBox.Show("Une erreur inattendue s'est produite");
             }
         }
     }
