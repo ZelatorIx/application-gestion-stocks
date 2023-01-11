@@ -1,6 +1,7 @@
 ﻿using Negosud.webapi.Models;
 using Newtonsoft.Json;
 using System.Data;
+using System.Net;
 using System.Text;
 
 namespace Negosud.WinForm
@@ -184,6 +185,10 @@ namespace Negosud.WinForm
             {
                 //Affichage de la réponse
                 MessageBox.Show("La famille selectionnée a été supprimée avec succès");
+            }
+            else if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                MessageBox.Show("La famille sélectionnée ne peut pas être supprimée car elle a un ou plusieurs articles qui lui sont affiliés.");
             }
         }
     }
