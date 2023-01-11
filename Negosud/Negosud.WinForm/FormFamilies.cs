@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System.Data;
 using System.Text;
-using System.Windows.Forms;
 
 namespace Negosud.WinForm
 {
