@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormItems));
-            this.BtnNouveau = new System.Windows.Forms.Button();
+            this.BtnNew = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TextBoxDescription = new System.Windows.Forms.TextBox();
             this.TextBoxItemName = new System.Windows.Forms.TextBox();
             this.LabelItemName = new System.Windows.Forms.Label();
-            this.LabelDescription = new System.Windows.Forms.Label();
-            this.LabelFamily = new System.Windows.Forms.Label();
+            this.LabelItemDescription = new System.Windows.Forms.Label();
             this.BtnInventory = new System.Windows.Forms.Button();
-            this.BtnRegularisation = new System.Windows.Forms.Button();
+            this.BtnRegularization = new System.Windows.Forms.Button();
             this.BtnCustOrders = new System.Windows.Forms.Button();
             this.BtnCustomers = new System.Windows.Forms.Button();
             this.BtnSupOrders = new System.Windows.Forms.Button();
@@ -48,14 +47,12 @@
             this.textBoxAchats = new System.Windows.Forms.TextBox();
             this.textBoxAccueil = new System.Windows.Forms.TextBox();
             this.ButtonFamilies = new System.Windows.Forms.Button();
-            this.ButtonItems = new System.Windows.Forms.Button();
             this.TextBoxProducts = new System.Windows.Forms.TextBox();
             this.TextBoxMapFamilies = new System.Windows.Forms.TextBox();
             this.TextBoxMapProducts = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.LabelYear = new System.Windows.Forms.Label();
+            this.PictureBoxItem = new System.Windows.Forms.PictureBox();
+            this.LabelItemYear = new System.Windows.Forms.Label();
             this.TextBoxYear = new System.Windows.Forms.TextBox();
-            this.ComboBoxFamily = new System.Windows.Forms.ComboBox();
             this.LabelStockLimit = new System.Windows.Forms.Label();
             this.TextBoxStockMin = new System.Windows.Forms.TextBox();
             this.LabelVAT = new System.Windows.Forms.Label();
@@ -64,20 +61,23 @@
             this.TextBoxSellingPriceBT = new System.Windows.Forms.TextBox();
             this.LabelPurchasePriceBT = new System.Windows.Forms.Label();
             this.TextBoxPurchasePriceBT = new System.Windows.Forms.TextBox();
+            this.LabelItemFamily = new System.Windows.Forms.Label();
+            this.ComboBoxItemFamily = new System.Windows.Forms.ComboBox();
+            this.ScrollBarListItems = new System.Windows.Forms.VScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxItem)).BeginInit();
             this.SuspendLayout();
             // 
-            // BtnNouveau
+            // BtnNew
             // 
-            this.BtnNouveau.BackColor = System.Drawing.Color.MistyRose;
-            this.BtnNouveau.Location = new System.Drawing.Point(472, 196);
-            this.BtnNouveau.Name = "BtnNouveau";
-            this.BtnNouveau.Size = new System.Drawing.Size(75, 23);
-            this.BtnNouveau.TabIndex = 0;
-            this.BtnNouveau.Text = "Créer";
-            this.BtnNouveau.UseVisualStyleBackColor = false;
-            this.BtnNouveau.Click += new System.EventHandler(this.BtnNouveau_Click);
+            this.BtnNew.BackColor = System.Drawing.Color.MistyRose;
+            this.BtnNew.Location = new System.Drawing.Point(472, 196);
+            this.BtnNew.Name = "BtnNew";
+            this.BtnNew.Size = new System.Drawing.Size(75, 23);
+            this.BtnNew.TabIndex = 0;
+            this.BtnNew.Text = "Créer";
+            this.BtnNew.UseVisualStyleBackColor = false;
+            this.BtnNew.Click += new System.EventHandler(this.BtnNouveau_Click);
             // 
             // BtnDelete
             // 
@@ -121,23 +121,14 @@
             this.LabelItemName.TabIndex = 8;
             this.LabelItemName.Text = "Nom";
             // 
-            // LabelDescription
+            // LabelItemDescription
             // 
-            this.LabelDescription.AutoSize = true;
-            this.LabelDescription.Location = new System.Drawing.Point(216, 101);
-            this.LabelDescription.Name = "LabelDescription";
-            this.LabelDescription.Size = new System.Drawing.Size(67, 15);
-            this.LabelDescription.TabIndex = 9;
-            this.LabelDescription.Text = "Description";
-            // 
-            // LabelFamily
-            // 
-            this.LabelFamily.AutoSize = true;
-            this.LabelFamily.Location = new System.Drawing.Point(216, 143);
-            this.LabelFamily.Name = "LabelFamily";
-            this.LabelFamily.Size = new System.Drawing.Size(45, 15);
-            this.LabelFamily.TabIndex = 10;
-            this.LabelFamily.Text = "Famille";
+            this.LabelItemDescription.AutoSize = true;
+            this.LabelItemDescription.Location = new System.Drawing.Point(216, 101);
+            this.LabelItemDescription.Name = "LabelItemDescription";
+            this.LabelItemDescription.Size = new System.Drawing.Size(67, 15);
+            this.LabelItemDescription.TabIndex = 9;
+            this.LabelItemDescription.Text = "Description";
             // 
             // BtnInventory
             // 
@@ -148,14 +139,14 @@
             this.BtnInventory.Text = "Inventaire";
             this.BtnInventory.UseVisualStyleBackColor = true;
             // 
-            // BtnRegularisation
+            // BtnRegularization
             // 
-            this.BtnRegularisation.Location = new System.Drawing.Point(22, 375);
-            this.BtnRegularisation.Name = "BtnRegularisation";
-            this.BtnRegularisation.Size = new System.Drawing.Size(90, 26);
-            this.BtnRegularisation.TabIndex = 19;
-            this.BtnRegularisation.Text = "Régularisation";
-            this.BtnRegularisation.UseVisualStyleBackColor = true;
+            this.BtnRegularization.Location = new System.Drawing.Point(22, 375);
+            this.BtnRegularization.Name = "BtnRegularization";
+            this.BtnRegularization.Size = new System.Drawing.Size(90, 26);
+            this.BtnRegularization.TabIndex = 19;
+            this.BtnRegularization.Text = "Régularisation";
+            this.BtnRegularization.UseVisualStyleBackColor = true;
             // 
             // BtnCustOrders
             // 
@@ -242,15 +233,6 @@
             this.ButtonFamilies.Text = "Familles";
             this.ButtonFamilies.UseVisualStyleBackColor = true;
             // 
-            // ButtonItems
-            // 
-            this.ButtonItems.Location = new System.Drawing.Point(22, 121);
-            this.ButtonItems.Name = "ButtonItems";
-            this.ButtonItems.Size = new System.Drawing.Size(90, 23);
-            this.ButtonItems.TabIndex = 42;
-            this.ButtonItems.Text = "Articles";
-            this.ButtonItems.UseVisualStyleBackColor = true;
-            // 
             // TextBoxProducts
             // 
             this.TextBoxProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -282,24 +264,24 @@
             this.TextBoxMapProducts.TabIndex = 56;
             this.TextBoxMapProducts.Text = "PRODUITS";
             // 
-            // pictureBox1
+            // PictureBoxItem
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(152, 68);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 151);
-            this.pictureBox1.TabIndex = 58;
-            this.pictureBox1.TabStop = false;
+            this.PictureBoxItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PictureBoxItem.BackgroundImage")));
+            this.PictureBoxItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PictureBoxItem.Location = new System.Drawing.Point(152, 68);
+            this.PictureBoxItem.Name = "PictureBoxItem";
+            this.PictureBoxItem.Size = new System.Drawing.Size(60, 151);
+            this.PictureBoxItem.TabIndex = 58;
+            this.PictureBoxItem.TabStop = false;
             // 
-            // LabelYear
+            // LabelItemYear
             // 
-            this.LabelYear.AutoSize = true;
-            this.LabelYear.Location = new System.Drawing.Point(216, 185);
-            this.LabelYear.Name = "LabelYear";
-            this.LabelYear.Size = new System.Drawing.Size(41, 15);
-            this.LabelYear.TabIndex = 60;
-            this.LabelYear.Text = "Année";
+            this.LabelItemYear.AutoSize = true;
+            this.LabelItemYear.Location = new System.Drawing.Point(216, 185);
+            this.LabelItemYear.Name = "LabelItemYear";
+            this.LabelItemYear.Size = new System.Drawing.Size(41, 15);
+            this.LabelItemYear.TabIndex = 60;
+            this.LabelItemYear.Text = "Année";
             // 
             // TextBoxYear
             // 
@@ -307,14 +289,6 @@
             this.TextBoxYear.Name = "TextBoxYear";
             this.TextBoxYear.Size = new System.Drawing.Size(204, 23);
             this.TextBoxYear.TabIndex = 59;
-            // 
-            // ComboBoxFamily
-            // 
-            this.ComboBoxFamily.FormattingEnabled = true;
-            this.ComboBoxFamily.Location = new System.Drawing.Point(217, 160);
-            this.ComboBoxFamily.Name = "ComboBoxFamily";
-            this.ComboBoxFamily.Size = new System.Drawing.Size(204, 23);
-            this.ComboBoxFamily.TabIndex = 61;
             // 
             // LabelStockLimit
             // 
@@ -380,6 +354,30 @@
             this.TextBoxPurchasePriceBT.Size = new System.Drawing.Size(100, 23);
             this.TextBoxPurchasePriceBT.TabIndex = 66;
             // 
+            // LabelItemFamily
+            // 
+            this.LabelItemFamily.AutoSize = true;
+            this.LabelItemFamily.Location = new System.Drawing.Point(218, 144);
+            this.LabelItemFamily.Name = "LabelItemFamily";
+            this.LabelItemFamily.Size = new System.Drawing.Size(45, 15);
+            this.LabelItemFamily.TabIndex = 70;
+            this.LabelItemFamily.Text = "Famille";
+            // 
+            // ComboBoxItemFamily
+            // 
+            this.ComboBoxItemFamily.FormattingEnabled = true;
+            this.ComboBoxItemFamily.Location = new System.Drawing.Point(216, 163);
+            this.ComboBoxItemFamily.Name = "ComboBoxItemFamily";
+            this.ComboBoxItemFamily.Size = new System.Drawing.Size(204, 23);
+            this.ComboBoxItemFamily.TabIndex = 71;
+            // 
+            // ScrollBarListItems
+            // 
+            this.ScrollBarListItems.Location = new System.Drawing.Point(780, 225);
+            this.ScrollBarListItems.Name = "ScrollBarListItems";
+            this.ScrollBarListItems.Size = new System.Drawing.Size(22, 222);
+            this.ScrollBarListItems.TabIndex = 72;
+            // 
             // FormItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -387,6 +385,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ScrollBarListItems);
+            this.Controls.Add(this.ComboBoxItemFamily);
+            this.Controls.Add(this.LabelItemFamily);
             this.Controls.Add(this.LabelSellingPriceBT);
             this.Controls.Add(this.TextBoxSellingPriceBT);
             this.Controls.Add(this.LabelPurchasePriceBT);
@@ -395,17 +396,15 @@
             this.Controls.Add(this.TextBoxVAT);
             this.Controls.Add(this.LabelStockLimit);
             this.Controls.Add(this.TextBoxStockMin);
-            this.Controls.Add(this.ComboBoxFamily);
-            this.Controls.Add(this.LabelYear);
+            this.Controls.Add(this.LabelItemYear);
             this.Controls.Add(this.TextBoxYear);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.PictureBoxItem);
             this.Controls.Add(this.TextBoxMapFamilies);
             this.Controls.Add(this.TextBoxMapProducts);
             this.Controls.Add(this.ButtonFamilies);
-            this.Controls.Add(this.ButtonItems);
             this.Controls.Add(this.TextBoxProducts);
             this.Controls.Add(this.BtnInventory);
-            this.Controls.Add(this.BtnRegularisation);
+            this.Controls.Add(this.BtnRegularization);
             this.Controls.Add(this.BtnCustOrders);
             this.Controls.Add(this.BtnCustomers);
             this.Controls.Add(this.BtnSupOrders);
@@ -414,18 +413,17 @@
             this.Controls.Add(this.textBoxVentes);
             this.Controls.Add(this.textBoxAchats);
             this.Controls.Add(this.textBoxAccueil);
-            this.Controls.Add(this.LabelFamily);
-            this.Controls.Add(this.LabelDescription);
+            this.Controls.Add(this.LabelItemDescription);
             this.Controls.Add(this.LabelItemName);
             this.Controls.Add(this.TextBoxItemName);
             this.Controls.Add(this.TextBoxDescription);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BtnDelete);
-            this.Controls.Add(this.BtnNouveau);
+            this.Controls.Add(this.BtnNew);
             this.Name = "FormItems";
             this.Text = "Articles";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,20 +431,19 @@
 
         #endregion
 
-        private Button BtnNouveau;
+        private Button BtnNew;
         private Button BtnDelete;
         private DataGridView dataGridView1;
         private TextBox TextBoxDescription;
         private TextBox TextBoxItemName;
         private Label LabelItemName;
-        private Label LabelDescription;
+        private Label LabelItemDescription;
         private Label LabelFamily;
         private Button ButtonHomePage;
         private Button ButtonFamilies;
-        private Button ButtonItems;
         private TextBox TextBoxProducts;
         private Button BtnInventory;
-        private Button BtnRegularisation;
+        private Button BtnRegularization;
         private Button BtnCustOrders;
         private Button BtnCustomers;
         private Button BtnSupOrders;
@@ -467,17 +464,18 @@
         private TextBox TextBoxMapProducts;
         private VScrollBar ScrollBarItems;
         private ComboBox ComboBoxFamily;
-        private Label LabelFamily;
         private TextBox textBoxVentes;
         private TextBox textBoxAchats;
         private TextBox textBoxAccueil;
         private TextBox TextBoxMapFamilies;
-        private PictureBox pictureBox1;
-        private Label LabelYear;
-        private ComboBox ComboBoxFamily;
+        private PictureBox PictureBoxItem;
+        private Label LabelItemYear;
         private Label LabelStockLimit;
         private Label LabelVAT;
         private Label LabelPurchasePriceBT;
         private TextBox TextBoxPurchasePriceBT;
+        private Label LabelItemFamily;
+        private ComboBox ComboBoxItemFamily;
+        private VScrollBar ScrollBarListItems;
     }
 }
