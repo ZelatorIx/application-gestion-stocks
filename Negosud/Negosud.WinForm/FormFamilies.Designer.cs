@@ -48,8 +48,8 @@
             this.DataGridViewFamilyList = new System.Windows.Forms.DataGridView();
             this.ButtonAddNewFamily = new System.Windows.Forms.Button();
             this.ButtonHomePage = new System.Windows.Forms.Button();
-            this.buttonFamilies = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
+            this.ButtonFamilies = new System.Windows.Forms.Button();
+            this.ButtonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewFamilyList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -239,25 +239,25 @@
             this.ButtonHomePage.UseVisualStyleBackColor = true;
             this.ButtonHomePage.Click += new System.EventHandler(this.ButtonHomePage_Click);
             // 
-            // buttonFamilies
+            // ButtonFamilies
             // 
-            this.buttonFamilies.Location = new System.Drawing.Point(165, 198);
-            this.buttonFamilies.Name = "buttonFamilies";
-            this.buttonFamilies.Size = new System.Drawing.Size(133, 23);
-            this.buttonFamilies.TabIndex = 76;
-            this.buttonFamilies.Text = "Liste de Familles";
-            this.buttonFamilies.UseVisualStyleBackColor = true;
-            this.buttonFamilies.Click += new System.EventHandler(this.buttonFamilies_Click);
+            this.ButtonFamilies.Location = new System.Drawing.Point(165, 198);
+            this.ButtonFamilies.Name = "ButtonFamilies";
+            this.ButtonFamilies.Size = new System.Drawing.Size(133, 23);
+            this.ButtonFamilies.TabIndex = 76;
+            this.ButtonFamilies.Text = "Liste de Familles";
+            this.ButtonFamilies.UseVisualStyleBackColor = true;
+            this.ButtonFamilies.Click += new System.EventHandler(this.buttonFamilies_Click);
             // 
-            // buttonDelete
+            // ButtonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(314, 198);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(187, 23);
-            this.buttonDelete.TabIndex = 77;
-            this.buttonDelete.Text = "Supprimer Famille Selectionnée";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            this.ButtonDelete.Location = new System.Drawing.Point(314, 198);
+            this.ButtonDelete.Name = "ButtonDelete";
+            this.ButtonDelete.Size = new System.Drawing.Size(187, 23);
+            this.ButtonDelete.TabIndex = 77;
+            this.ButtonDelete.Text = "Supprimer Famille Selectionnée";
+            this.ButtonDelete.UseVisualStyleBackColor = true;
+            this.ButtonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // FormFamilies
             // 
@@ -265,8 +265,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonFamilies);
+            this.Controls.Add(this.ButtonDelete);
+            this.Controls.Add(this.ButtonFamilies);
             this.Controls.Add(this.ButtonHomePage);
             this.Controls.Add(this.ButtonAddNewFamily);
             this.Controls.Add(this.ScrollBarCustomers);
@@ -314,7 +314,7 @@
         private DataGridView DataGridViewFamilyList;
         private Button ButtonAddNewFamily;
         private Button ButtonHomePage;
-        private Button buttonFamilies;
-        private Button buttonDelete;
+        private Button ButtonFamilies;
+        private Button ButtonDelete;
     }
 }
