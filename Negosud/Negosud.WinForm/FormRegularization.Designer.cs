@@ -43,17 +43,15 @@
             this.BtnCustomers = new System.Windows.Forms.Button();
             this.TextBoxMapFamilies = new System.Windows.Forms.TextBox();
             this.TextBoxMapStocks = new System.Windows.Forms.TextBox();
-            this.TextBoxRegulDate = new System.Windows.Forms.TextBox();
             this.LabelRegulDate = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.LabelInventorist = new System.Windows.Forms.Label();
-            this.ComboBoxItems = new System.Windows.Forms.ComboBox();
-            this.LabelRegulItems = new System.Windows.Forms.Label();
             this.LabelReason = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.reasonRegulComboBox = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.LabelQuantity = new System.Windows.Forms.Label();
             this.ButtonAddNewFamily = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // ButtonHomePage
@@ -189,13 +187,6 @@
             this.TextBoxMapStocks.TabIndex = 58;
             this.TextBoxMapStocks.Text = "STOCKS";
             // 
-            // TextBoxRegulDate
-            // 
-            this.TextBoxRegulDate.Location = new System.Drawing.Point(192, 80);
-            this.TextBoxRegulDate.Name = "TextBoxRegulDate";
-            this.TextBoxRegulDate.Size = new System.Drawing.Size(206, 23);
-            this.TextBoxRegulDate.TabIndex = 60;
-            // 
             // LabelRegulDate
             // 
             this.LabelRegulDate.AutoSize = true;
@@ -221,23 +212,6 @@
             this.LabelInventorist.TabIndex = 63;
             this.LabelInventorist.Text = "Inventoriste";
             // 
-            // ComboBoxItems
-            // 
-            this.ComboBoxItems.FormattingEnabled = true;
-            this.ComboBoxItems.Location = new System.Drawing.Point(192, 137);
-            this.ComboBoxItems.Name = "ComboBoxItems";
-            this.ComboBoxItems.Size = new System.Drawing.Size(167, 23);
-            this.ComboBoxItems.TabIndex = 64;
-            // 
-            // LabelRegulItems
-            // 
-            this.LabelRegulItems.AutoSize = true;
-            this.LabelRegulItems.Location = new System.Drawing.Point(192, 120);
-            this.LabelRegulItems.Name = "LabelRegulItems";
-            this.LabelRegulItems.Size = new System.Drawing.Size(31, 15);
-            this.LabelRegulItems.TabIndex = 65;
-            this.LabelRegulItems.Text = "Date";
-            // 
             // LabelReason
             // 
             this.LabelReason.AutoSize = true;
@@ -247,13 +221,14 @@
             this.LabelReason.TabIndex = 67;
             this.LabelReason.Text = "Motif";
             // 
-            // comboBox1
+            // reasonRegulComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(381, 137);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(167, 23);
-            this.comboBox1.TabIndex = 66;
+            this.reasonRegulComboBox.FormattingEnabled = true;
+            this.reasonRegulComboBox.Location = new System.Drawing.Point(381, 137);
+            this.reasonRegulComboBox.Name = "reasonRegulComboBox";
+            this.reasonRegulComboBox.Size = new System.Drawing.Size(167, 23);
+            this.reasonRegulComboBox.TabIndex = 66;
+            this.reasonRegulComboBox.SelectedIndexChanged += new System.EventHandler(this.ReasonRegularizationComboxBox_SelectedIndexChanged);
             // 
             // textBox2
             // 
@@ -281,6 +256,13 @@
             this.ButtonAddNewFamily.Text = "Créer";
             this.ButtonAddNewFamily.UseVisualStyleBackColor = false;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(192, 80);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker1.TabIndex = 74;
+            // 
             // FormRegularization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -288,17 +270,15 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.ButtonAddNewFamily);
             this.Controls.Add(this.LabelQuantity);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.LabelReason);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.LabelRegulItems);
-            this.Controls.Add(this.ComboBoxItems);
+            this.Controls.Add(this.reasonRegulComboBox);
             this.Controls.Add(this.LabelInventorist);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.LabelRegulDate);
-            this.Controls.Add(this.TextBoxRegulDate);
             this.Controls.Add(this.TextBoxMapFamilies);
             this.Controls.Add(this.TextBoxMapStocks);
             this.Controls.Add(this.BtnCustomers);
@@ -336,16 +316,14 @@
         private Button BtnCustomers;
         private TextBox TextBoxMapFamilies;
         private TextBox TextBoxMapStocks;
-        private TextBox TextBoxRegulDate;
         private Label LabelRegulDate;
         private TextBox textBox1;
         private Label LabelInventorist;
-        private ComboBox ComboBoxItems;
-        private Label LabelRegulItems;
         private Label LabelReason;
-        private ComboBox comboBox1;
+        private ComboBox reasonRegulComboBox;
         private TextBox textBox2;
         private Label LabelQuantity;
         private Button ButtonAddNewFamily;
+        private DateTimePicker dateTimePicker1;
     }
 }

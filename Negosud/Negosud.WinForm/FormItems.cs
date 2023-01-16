@@ -26,11 +26,11 @@ namespace Negosud.WinForm
             //Envoyer le nouvel ObjetDTO à l'API
             // 1 Récupérer les valeurs des Textboxs
 
-                // 4 Propriétés pour rendre opérationelle la combo 
-                //comboBox1.SelectedItem
-                //comboBox1.ValueMember
-                //comboBox1.DisplayMember
-                //comboBox1.DataSource
+            // 4 Propriétés pour rendre opérationelle la combo 
+            //comboBox1.SelectedItem
+            //comboBox1.ValueMember
+            //comboBox1.DisplayMember
+            //comboBox1.DataSource
             int Family = int.Parse(TextBoxPurchasePriceBT.Text);
             String Description = TextBoxDescription.Text; 
             string Name = TextBoxItemName.Text;
@@ -53,8 +53,8 @@ namespace Negosud.WinForm
             string JSon = JsonConvert.SerializeObject(itemResult);
             request.Content = new StringContent(JSon);
             request.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-           //Envoi de la requête 
-           HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(request);
+            //Envoi de la requête 
+            HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(request);
             // vérifie que le retour ne soit pas une erreur
             httpResponseMessage.EnsureSuccessStatusCode(); 
             //Réponse avec message de la requête
@@ -63,7 +63,5 @@ namespace Negosud.WinForm
             //Affichage de la réponse
             MessageBox.Show(response);
         }
-
-       
     }
 }
