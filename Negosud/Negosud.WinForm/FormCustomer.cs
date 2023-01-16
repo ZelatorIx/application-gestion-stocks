@@ -1,6 +1,8 @@
 ﻿using Negosud.webapi.Models;
 using Newtonsoft.Json;
 using System.Data;
+using System.Net;
+using System.Text;
 
 namespace Negosud.WinForm
 {
@@ -10,8 +12,9 @@ namespace Negosud.WinForm
         {
             InitializeComponent();
         }
+
         /// <summary>
-        /// 
+        /// Crée un nouveau client
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -41,7 +44,7 @@ namespace Negosud.WinForm
             HttpClient httpClient = new HttpClient();
 
             //Adresse de l'api 
-            httpClient.BaseAddress = new Uri("https://localhost:7049/");
+            httpClient.BaseAddress = new Uri("https://localhost:7049/customers");
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "customers");
             // Sérialiser le DTO
             string JSon = JsonConvert.SerializeObject(CustomerResult);
@@ -55,7 +58,7 @@ namespace Negosud.WinForm
             string response = await httpResponseMessage.Content.ReadAsStringAsync();
 
             //Affichage de la réponse
-            MessageBox.Show(response);
+            MessageBox.Show("Le nouveau client a été créé avec succès");
 
         }
         #region Redirection Button
@@ -116,7 +119,7 @@ namespace Negosud.WinForm
         }
         #endregion
         /// <summary>
-        /// 
+        /// Affiche la grille de clients
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -147,26 +150,26 @@ namespace Negosud.WinForm
                 table.Rows.Add(item.id, item.lastName, item.firstName, item.email, item.phoneNumber, item.address, item.postalCode, item.town);
             }
             // Assigner l'objet DataTable comme source de données du contrôle DataGridView
-            dataGridViewCustomer.DataSource = table;
+            DataGridViewCustomer.DataSource = table;
 
         }
         /// <summary>
-        /// 
+        /// Permet d'effectuer une modification directement dans le dataGrid
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void dataGridViewCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void DataGridViewCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Vérifier que la cellule modifiée est dans la première colonne (la colonne "ID")
-            if (e.ColumnIndex == 0)
+            if (e.ColumnIndex != 0)
             {
                 // Récupérer la valeur modifiée
-                int id = (int)dataGridViewCustomer.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                int id = (int)DataGridViewCustomer.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
 
                 // Envoyer une demande HTTP PUT à l'API en incluant les données modifiées en tant que corps de la requête
                 HttpClient client = new HttpClient();
 
-                //HttpResponseMessage response = await client.PutAsync("https://localhost:7049/customers", content);
+                //HttpResponseMessage response = await client.PutAsync("https://localhost:7049/customers/{id}", new StringContent(JsonConvert.SerializeObject(DataRow), Encoding.UTF8, "application/json"));
 
                 //// Si la modification a réussi, mettre à jour la source de données en local
                 //if (response.IsSuccessStatusCode)
@@ -183,7 +186,7 @@ namespace Negosud.WinForm
         private async void ButtonDeleteCustomer_Click(object sender, EventArgs e)
         {
             //Récupérez la valeur à supprimer
-            int id = (int)((DataRowView)dataGridViewCustomer.SelectedRows[0].DataBoundItem)["ID"];
+            int id = (int)((DataRowView)DataGridViewCustomer.SelectedRows[0].DataBoundItem)["ID"];
 
             // Envoyez une demande HTTP DELETE à l'API en incluant l'id de la famille à supprimer
             HttpClient client = new HttpClient();

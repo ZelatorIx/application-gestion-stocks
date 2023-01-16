@@ -37,9 +37,9 @@
             this.BtnCustomers = new System.Windows.Forms.Button();
             this.BtnSupOrders = new System.Windows.Forms.Button();
             this.BtnSuppliers = new System.Windows.Forms.Button();
-            this.textBoxStocks = new System.Windows.Forms.TextBox();
-            this.textBoxSellings = new System.Windows.Forms.TextBox();
-            this.textBoxPurchases = new System.Windows.Forms.TextBox();
+            this.TextBoxStocks = new System.Windows.Forms.TextBox();
+            this.TextBoxSellings = new System.Windows.Forms.TextBox();
+            this.TextBoxPurchases = new System.Windows.Forms.TextBox();
             this.TextBoxMapFamilies = new System.Windows.Forms.TextBox();
             this.TextBoxMapProducts = new System.Windows.Forms.TextBox();
             this.ScrollBarCustomers = new System.Windows.Forms.VScrollBar();
@@ -134,35 +134,35 @@
             this.BtnSuppliers.UseVisualStyleBackColor = true;
             this.BtnSuppliers.Click += new System.EventHandler(this.BtnSuppliers_Click);
             // 
-            // textBoxStocks
+            // TextBoxStocks
             // 
-            this.textBoxStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxStocks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxStocks.Location = new System.Drawing.Point(12, 360);
-            this.textBoxStocks.Name = "textBoxStocks";
-            this.textBoxStocks.Size = new System.Drawing.Size(100, 22);
-            this.textBoxStocks.TabIndex = 44;
-            this.textBoxStocks.Text = "STOCKS";
+            this.TextBoxStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxStocks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxStocks.Location = new System.Drawing.Point(12, 360);
+            this.TextBoxStocks.Name = "TextBoxStocks";
+            this.TextBoxStocks.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxStocks.TabIndex = 44;
+            this.TextBoxStocks.Text = "STOCKS";
             // 
-            // textBoxSellings
+            // TextBoxSellings
             // 
-            this.textBoxSellings.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSellings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxSellings.Location = new System.Drawing.Point(12, 270);
-            this.textBoxSellings.Name = "textBoxSellings";
-            this.textBoxSellings.Size = new System.Drawing.Size(100, 22);
-            this.textBoxSellings.TabIndex = 43;
-            this.textBoxSellings.Text = "VENTES";
+            this.TextBoxSellings.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxSellings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxSellings.Location = new System.Drawing.Point(12, 270);
+            this.TextBoxSellings.Name = "TextBoxSellings";
+            this.TextBoxSellings.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxSellings.TabIndex = 43;
+            this.TextBoxSellings.Text = "VENTES";
             // 
-            // textBoxPurchases
+            // TextBoxPurchases
             // 
-            this.textBoxPurchases.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPurchases.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxPurchases.Location = new System.Drawing.Point(12, 180);
-            this.textBoxPurchases.Name = "textBoxPurchases";
-            this.textBoxPurchases.Size = new System.Drawing.Size(100, 22);
-            this.textBoxPurchases.TabIndex = 42;
-            this.textBoxPurchases.Text = "ACHATS";
+            this.TextBoxPurchases.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxPurchases.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxPurchases.Location = new System.Drawing.Point(12, 180);
+            this.TextBoxPurchases.Name = "TextBoxPurchases";
+            this.TextBoxPurchases.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxPurchases.TabIndex = 42;
+            this.TextBoxPurchases.Text = "ACHATS";
             // 
             // TextBoxMapFamilies
             // 
@@ -283,9 +283,9 @@
             this.Controls.Add(this.BtnCustomers);
             this.Controls.Add(this.BtnSupOrders);
             this.Controls.Add(this.BtnSuppliers);
-            this.Controls.Add(this.textBoxStocks);
-            this.Controls.Add(this.textBoxSellings);
-            this.Controls.Add(this.textBoxPurchases);
+            this.Controls.Add(this.TextBoxStocks);
+            this.Controls.Add(this.TextBoxSellings);
+            this.Controls.Add(this.TextBoxPurchases);
             this.Name = "FormFamilies";
             this.Text = "FormFamilies";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewFamilyList)).EndInit();
@@ -303,9 +303,9 @@
         private Button BtnCustomers;
         private Button BtnSupOrders;
         private Button BtnSuppliers;
-        private TextBox textBoxStocks;
-        private TextBox textBoxSellings;
-        private TextBox textBoxPurchases;
+        private TextBox TextBoxStocks;
+        private TextBox TextBoxSellings;
+        private TextBox TextBoxPurchases;
         private TextBox TextBoxMapFamilies;
         private TextBox TextBoxMapProducts;
         private VScrollBar ScrollBarCustomers;

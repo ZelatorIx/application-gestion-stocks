@@ -34,9 +34,9 @@
             this.BtnCustOrders = new System.Windows.Forms.Button();
             this.BtnSupOrders = new System.Windows.Forms.Button();
             this.BtnSuppliers = new System.Windows.Forms.Button();
-            this.textBoxStocks = new System.Windows.Forms.TextBox();
-            this.textBoxSellings = new System.Windows.Forms.TextBox();
-            this.textBoxPurchases = new System.Windows.Forms.TextBox();
+            this.TextBoxStocks = new System.Windows.Forms.TextBox();
+            this.TextBoxSellings = new System.Windows.Forms.TextBox();
+            this.TextBoxPurchases = new System.Windows.Forms.TextBox();
             this.TextBoxCustName = new System.Windows.Forms.TextBox();
             this.TextBoxCustFirstName = new System.Windows.Forms.TextBox();
             this.TextBoxCustPhoneNumber = new System.Windows.Forms.TextBox();
@@ -61,8 +61,8 @@
             this.ButtonDeleteCustomer = new System.Windows.Forms.Button();
             this.ButtonHomePage = new System.Windows.Forms.Button();
             this.buttonCustomers = new System.Windows.Forms.Button();
-            this.dataGridViewCustomer = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).BeginInit();
+            this.DataGridViewCustomer = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnInventory
@@ -115,35 +115,35 @@
             this.BtnSuppliers.UseVisualStyleBackColor = true;
             this.BtnSuppliers.Click += new System.EventHandler(this.BtnSuppliers_Click);
             // 
-            // textBoxStocks
+            // TextBoxStocks
             // 
-            this.textBoxStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxStocks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxStocks.Location = new System.Drawing.Point(12, 360);
-            this.textBoxStocks.Name = "textBoxStocks";
-            this.textBoxStocks.Size = new System.Drawing.Size(100, 22);
-            this.textBoxStocks.TabIndex = 13;
-            this.textBoxStocks.Text = "STOCKS";
+            this.TextBoxStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxStocks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxStocks.Location = new System.Drawing.Point(12, 360);
+            this.TextBoxStocks.Name = "TextBoxStocks";
+            this.TextBoxStocks.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxStocks.TabIndex = 13;
+            this.TextBoxStocks.Text = "STOCKS";
             // 
-            // textBoxSellings
+            // TextBoxSellings
             // 
-            this.textBoxSellings.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSellings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxSellings.Location = new System.Drawing.Point(12, 270);
-            this.textBoxSellings.Name = "textBoxSellings";
-            this.textBoxSellings.Size = new System.Drawing.Size(100, 22);
-            this.textBoxSellings.TabIndex = 12;
-            this.textBoxSellings.Text = "VENTES";
+            this.TextBoxSellings.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxSellings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxSellings.Location = new System.Drawing.Point(12, 270);
+            this.TextBoxSellings.Name = "TextBoxSellings";
+            this.TextBoxSellings.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxSellings.TabIndex = 12;
+            this.TextBoxSellings.Text = "VENTES";
             // 
-            // textBoxPurchases
+            // TextBoxPurchases
             // 
-            this.textBoxPurchases.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPurchases.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxPurchases.Location = new System.Drawing.Point(12, 180);
-            this.textBoxPurchases.Name = "textBoxPurchases";
-            this.textBoxPurchases.Size = new System.Drawing.Size(100, 22);
-            this.textBoxPurchases.TabIndex = 11;
-            this.textBoxPurchases.Text = "ACHATS";
+            this.TextBoxPurchases.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxPurchases.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxPurchases.Location = new System.Drawing.Point(12, 180);
+            this.TextBoxPurchases.Name = "TextBoxPurchases";
+            this.TextBoxPurchases.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxPurchases.TabIndex = 11;
+            this.TextBoxPurchases.Text = "ACHATS";
             // 
             // TextBoxCustName
             // 
@@ -357,24 +357,23 @@
             this.buttonCustomers.UseVisualStyleBackColor = true;
             this.buttonCustomers.Click += new System.EventHandler(this.buttonCustomers_Click);
             // 
-            // dataGridViewCustomer
+            // DataGridViewCustomer
             // 
-            this.dataGridViewCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCustomer.Location = new System.Drawing.Point(165, 226);
-            this.dataGridViewCustomer.Name = "dataGridViewCustomer";
-            this.dataGridViewCustomer.RowTemplate.Height = 25;
-            this.dataGridViewCustomer.Size = new System.Drawing.Size(610, 222);
-            this.dataGridViewCustomer.TabIndex = 46;
-            this.dataGridViewCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCustomer_CellContentClick);
+            this.DataGridViewCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewCustomer.Location = new System.Drawing.Point(165, 226);
+            this.DataGridViewCustomer.Name = "DataGridViewCustomer";
+            this.DataGridViewCustomer.RowTemplate.Height = 25;
+            this.DataGridViewCustomer.Size = new System.Drawing.Size(610, 222);
+            this.DataGridViewCustomer.TabIndex = 46;
+            this.DataGridViewCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCustomer_CellContentClick);
             // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(795, 493);
-            this.Controls.Add(this.dataGridViewCustomer);
+            this.Controls.Add(this.DataGridViewCustomer);
             this.Controls.Add(this.buttonCustomers);
             this.Controls.Add(this.ButtonHomePage);
             this.Controls.Add(this.ButtonDeleteCustomer);
@@ -404,12 +403,12 @@
             this.Controls.Add(this.BtnCustOrders);
             this.Controls.Add(this.BtnSupOrders);
             this.Controls.Add(this.BtnSuppliers);
-            this.Controls.Add(this.textBoxStocks);
-            this.Controls.Add(this.textBoxSellings);
-            this.Controls.Add(this.textBoxPurchases);
+            this.Controls.Add(this.TextBoxStocks);
+            this.Controls.Add(this.TextBoxSellings);
+            this.Controls.Add(this.TextBoxPurchases);
             this.Name = "FormCustomer";
             this.Text = "FormCustomer";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCustomer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,9 +421,9 @@
         private Button BtnCustOrders;
         private Button BtnSupOrders;
         private Button BtnSuppliers;
-        private TextBox textBoxStocks;
-        private TextBox textBoxSellings;
-        private TextBox textBoxPurchases;
+        private TextBox TextBoxStocks;
+        private TextBox TextBoxSellings;
+        private TextBox TextBoxPurchases;
         private TextBox TextBoxCustName;
         private TextBox TextBoxCustFirstName;
         private TextBox TextBoxCustPhoneNumber;
@@ -449,6 +448,6 @@
         private Button ButtonDeleteCustomer;
         private Button ButtonHomePage;
         private Button buttonCustomers;
-        private DataGridView dataGridViewCustomer;
+        private DataGridView DataGridViewCustomer;
     }
 }
