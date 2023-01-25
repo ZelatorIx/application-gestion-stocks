@@ -1,4 +1,5 @@
-﻿using Negosud.webapi.Models;
+﻿using Azure;
+using Negosud.webapi.Models;
 using Newtonsoft.Json;
 using System.Data;
 using System.Net;
@@ -42,7 +43,15 @@ namespace Negosud.WinForm
             // vérifie que le retour ne soit pas une erreur
             httpResponseMessage.EnsureSuccessStatusCode();
             //Affichage de la réponse
-            MessageBox.Show("La nouvelle famille a été crée avec succès");
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+                MessageBox.Show("La nouvelle famille a été crée avec succès");
+            } else
+            {
+                MessageBox.Show("Une erreur s'est produite");
+            }
+
+            
         }
         #region Redirection Button
         private void ButtonHomePage_Click(object sender, EventArgs e)

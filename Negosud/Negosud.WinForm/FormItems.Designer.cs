@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormItems));
             this.BtnNew = new System.Windows.Forms.Button();
-            this.BtnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TextBoxDescription = new System.Windows.Forms.TextBox();
             this.TextBoxItemName = new System.Windows.Forms.TextBox();
@@ -64,6 +63,7 @@
             this.LabelItemFamily = new System.Windows.Forms.Label();
             this.ComboBoxItemFamily = new System.Windows.Forms.ComboBox();
             this.ScrollBarListItems = new System.Windows.Forms.VScrollBar();
+            this.buttonItems = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxItem)).BeginInit();
             this.SuspendLayout();
@@ -71,23 +71,13 @@
             // BtnNew
             // 
             this.BtnNew.BackColor = System.Drawing.Color.MistyRose;
-            this.BtnNew.Location = new System.Drawing.Point(472, 196);
+            this.BtnNew.Location = new System.Drawing.Point(467, 196);
             this.BtnNew.Name = "BtnNew";
             this.BtnNew.Size = new System.Drawing.Size(75, 23);
             this.BtnNew.TabIndex = 0;
             this.BtnNew.Text = "Créer";
             this.BtnNew.UseVisualStyleBackColor = false;
             this.BtnNew.Click += new System.EventHandler(this.BtnNouveau_Click);
-            // 
-            // BtnDelete
-            // 
-            this.BtnDelete.BackColor = System.Drawing.Color.MistyRose;
-            this.BtnDelete.Location = new System.Drawing.Point(659, 196);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(75, 23);
-            this.BtnDelete.TabIndex = 1;
-            this.BtnDelete.Text = "Supprimer";
-            this.BtnDelete.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
@@ -97,6 +87,7 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(625, 220);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // TextBoxDescription
             // 
@@ -378,6 +369,16 @@
             this.ScrollBarListItems.Size = new System.Drawing.Size(22, 222);
             this.ScrollBarListItems.TabIndex = 72;
             // 
+            // buttonItems
+            // 
+            this.buttonItems.Location = new System.Drawing.Point(557, 196);
+            this.buttonItems.Name = "buttonItems";
+            this.buttonItems.Size = new System.Drawing.Size(109, 23);
+            this.buttonItems.TabIndex = 73;
+            this.buttonItems.Text = "Liste articles";
+            this.buttonItems.UseVisualStyleBackColor = true;
+            this.buttonItems.Click += new System.EventHandler(this.buttonItems_Click);
+            // 
             // FormItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -385,6 +386,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonItems);
             this.Controls.Add(this.ScrollBarListItems);
             this.Controls.Add(this.ComboBoxItemFamily);
             this.Controls.Add(this.LabelItemFamily);
@@ -418,7 +420,6 @@
             this.Controls.Add(this.TextBoxItemName);
             this.Controls.Add(this.TextBoxDescription);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnNew);
             this.Name = "FormItems";
             this.Text = "Articles";
@@ -432,7 +433,6 @@
         #endregion
 
         private Button BtnNew;
-        private Button BtnDelete;
         private DataGridView dataGridView1;
         private TextBox TextBoxDescription;
         private TextBox TextBoxItemName;
@@ -477,5 +477,6 @@
         private Label LabelItemFamily;
         private ComboBox ComboBoxItemFamily;
         private VScrollBar ScrollBarListItems;
+        private Button buttonItems;
     }
 }
