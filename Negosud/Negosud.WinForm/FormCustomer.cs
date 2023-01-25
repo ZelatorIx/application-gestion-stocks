@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Data;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 
 namespace Negosud.WinForm
@@ -147,7 +148,7 @@ namespace Negosud.WinForm
             // Parcourir l'objet dynamic et ajouter chaque objet en tant que ligne dans l'objet DataTable
             foreach (dynamic item in data)
             {
-                table.Rows.Add(item.id, item.lastName, item.firstName, item.email, item.phoneNumber, item.address, item.postalCode, item.town);
+                table.Rows.Add(item.id, item.lastName, item.firstName, item.email, item.phoneNumber, item.physicalAddress, item.postalCode, item.town);
             }
             // Assigner l'objet DataTable comme source de données du contrôle DataGridView
             DataGridViewCustomer.DataSource = table;
@@ -160,23 +161,66 @@ namespace Negosud.WinForm
         /// <param name="e"></param>
         private async void DataGridViewCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Vérifier que la cellule modifiée est dans la première colonne (la colonne "ID")
-            if (e.ColumnIndex != 0)
+            if(e.RowIndex >= 0 && e.RowIndex <= DataGridViewCustomer.RowCount)
             {
-                // Récupérer la valeur modifiée
-                int id = (int)DataGridViewCustomer.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                //Récupérer la ligne modifiée 
+                DataGridViewRow modifiedRow = DataGridViewCustomer.Rows[e.RowIndex];
+
+                // Récupérer l'id
+                int id = (int)modifiedRow.Cells["ID"].Value;
+
+                //Récupérer la valeur Name modifier
+                //string name = (string)modifiedRow.Cells[e.ColumnIndex].Value;
+
+                // 1 Récupérer les valeurs de la ligne modifiée
+                string lastName = (string)modifiedRow.Cells[1].Value;
+                string firstName = (string)modifiedRow.Cells[2].Value;
+                string email = (string)modifiedRow.Cells[3].Value;
+                string phoneNumber = (string)modifiedRow.Cells[4].Value;
+                string address = (string)modifiedRow.Cells[5].Value;
+                int postalCode = Convert.ToInt32(modifiedRow.Cells[6].Value);
+                string town = (string)modifiedRow.Cells[7].Value;
+
+                //
+                // 2 Créer l'objet DTO
+                CustomerDTO CustomerResult = new CustomerDTO();
+                // 3 Remplir ce nouvel Objet avec les valeurs de Etape 1
+                CustomerResult.Id = id;
+                CustomerResult.LastName = lastName;
+                CustomerResult.FirstName = firstName;
+                CustomerResult.Email = email;
+                CustomerResult.PhoneNumber = phoneNumber;
+                CustomerResult.PhysicalAddress = address;
+                CustomerResult.PostalCode = postalCode;
+                CustomerResult.Town = town;
+                // 4 Appeler la web API (route Customers et avec Put)  avec cet objet DTO
+                //Déclaration du client http
+                HttpClient httpClient = new HttpClient();
+
+                //Adresse de l'api 
+                httpClient.BaseAddress = new Uri("https://localhost:7049/customers");
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, "customers");
+                // Sérialiser le DTO
+                string JSon = JsonConvert.SerializeObject(CustomerResult);
+                request.Content = new StringContent(JSon, Encoding.UTF8, "application/json");
+                request.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                //Envoi de la requête 
+                HttpResponseMessage httpResponseMessage = await httpClient.PutAsync($"https://localhost:7049/customers/{id}", request.Content);
+                // vérifie que le retour ne soit pas une erreur
+                httpResponseMessage.EnsureSuccessStatusCode();
+                //Réponse avec message de la requête
+                string response = await httpResponseMessage.Content.ReadAsStringAsync();
+                //Affichage de la réponse
+                MessageBox.Show("Le client a été modifé avec succès");
 
                 // Envoyer une demande HTTP PUT à l'API en incluant les données modifiées en tant que corps de la requête
-                HttpClient client = new HttpClient();
+                //HttpClient client = new HttpClient();
+                //HttpClient.BaseAddress = new Uri("https://localhost:7049/customers");
+                //HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, "customers");
+                //HttpResponseMessage response = await client.PutAsync("https://localhost:7049/customers/{id}", new StringContent(JsonConvert.SerializeObject(lastName, firstName, email, phoneNumber, address, postalCode, town), Encoding.UTF8, "application/json"));
 
-                //HttpResponseMessage response = await client.PutAsync("https://localhost:7049/customers/{id}", new StringContent(JsonConvert.SerializeObject(DataRow), Encoding.UTF8, "application/json"));
-
-                //// Si la modification a réussi, mettre à jour la source de données en local
-                //if (response.IsSuccessStatusCode)
-                //{
-
-                //}
             }
+
         }
         /// <summary>
         /// 

@@ -59,8 +59,8 @@ namespace Negosud.WinForm
             string JSon = JsonConvert.SerializeObject(itemResult);
             request.Content = new StringContent(JSon);
             request.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-           //Envoi de la requête 
-           HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(request);
+            //Envoi de la requête 
+            HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(request);
             // vérifie que le retour ne soit pas une erreur
             httpResponseMessage.EnsureSuccessStatusCode();
             //Affichage de la réponse
@@ -110,6 +110,5 @@ namespace Negosud.WinForm
         {
 
         }
-
     }
 }
