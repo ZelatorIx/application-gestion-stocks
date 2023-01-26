@@ -35,12 +35,12 @@
             this.LabelSupPhoneNumer = new System.Windows.Forms.Label();
             this.LabelSupEmail = new System.Windows.Forms.Label();
             this.LabelSupName = new System.Windows.Forms.Label();
-            this.TextBoxCustCity = new System.Windows.Forms.TextBox();
-            this.TextBoxCustZipCode = new System.Windows.Forms.TextBox();
-            this.TextBoxCustAdress = new System.Windows.Forms.TextBox();
-            this.TextBoxCustPhoneNumber = new System.Windows.Forms.TextBox();
-            this.TextBoxCustEmail = new System.Windows.Forms.TextBox();
-            this.TextBoxCustName = new System.Windows.Forms.TextBox();
+            this.TextBoxSupCity = new System.Windows.Forms.TextBox();
+            this.TextBoxSupZipCode = new System.Windows.Forms.TextBox();
+            this.TextBoxSupAdress = new System.Windows.Forms.TextBox();
+            this.TextBoxSupPhoneNumber = new System.Windows.Forms.TextBox();
+            this.TextBoxSupEmail = new System.Windows.Forms.TextBox();
+            this.TextBoxSupName = new System.Windows.Forms.TextBox();
             this.ButtonHomePage = new System.Windows.Forms.Button();
             this.ButtonItems = new System.Windows.Forms.Button();
             this.TextBoxProducts = new System.Windows.Forms.TextBox();
@@ -49,14 +49,16 @@
             this.BtnCustOrders = new System.Windows.Forms.Button();
             this.BtnCustomers = new System.Windows.Forms.Button();
             this.BtnSupOrders = new System.Windows.Forms.Button();
-            this.textBoxStocks = new System.Windows.Forms.TextBox();
-            this.textBoxSellings = new System.Windows.Forms.TextBox();
-            this.textBoxPurchases = new System.Windows.Forms.TextBox();
+            this.TextBoxStocks = new System.Windows.Forms.TextBox();
+            this.TextBoxSellings = new System.Windows.Forms.TextBox();
+            this.TextBoxPurchases = new System.Windows.Forms.TextBox();
             this.DataGridViewSuppliersList = new System.Windows.Forms.DataGridView();
             this.TextBoxMapFamilies = new System.Windows.Forms.TextBox();
             this.TextBoxMapPurchase = new System.Windows.Forms.TextBox();
+            this.ButtonFamilies = new System.Windows.Forms.Button();
             this.ButtonDeleteSupplier = new System.Windows.Forms.Button();
             this.ButtonAddNewSupplier = new System.Windows.Forms.Button();
+            this.ButtonSuppliers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSuppliersList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,47 +116,47 @@
             this.LabelSupName.TabIndex = 42;
             this.LabelSupName.Text = "Nom";
             // 
-            // TextBoxCustCity
+            // TextBoxSupCity
             // 
-            this.TextBoxCustCity.Location = new System.Drawing.Point(472, 159);
-            this.TextBoxCustCity.Name = "TextBoxCustCity";
-            this.TextBoxCustCity.Size = new System.Drawing.Size(259, 23);
-            this.TextBoxCustCity.TabIndex = 41;
+            this.TextBoxSupCity.Location = new System.Drawing.Point(472, 159);
+            this.TextBoxSupCity.Name = "TextBoxSupCity";
+            this.TextBoxSupCity.Size = new System.Drawing.Size(259, 23);
+            this.TextBoxSupCity.TabIndex = 41;
             // 
-            // TextBoxCustZipCode
+            // TextBoxSupZipCode
             // 
-            this.TextBoxCustZipCode.Location = new System.Drawing.Point(472, 120);
-            this.TextBoxCustZipCode.Name = "TextBoxCustZipCode";
-            this.TextBoxCustZipCode.Size = new System.Drawing.Size(259, 23);
-            this.TextBoxCustZipCode.TabIndex = 40;
+            this.TextBoxSupZipCode.Location = new System.Drawing.Point(472, 120);
+            this.TextBoxSupZipCode.Name = "TextBoxSupZipCode";
+            this.TextBoxSupZipCode.Size = new System.Drawing.Size(259, 23);
+            this.TextBoxSupZipCode.TabIndex = 40;
             // 
-            // TextBoxCustAdress
+            // TextBoxSupAdress
             // 
-            this.TextBoxCustAdress.Location = new System.Drawing.Point(472, 81);
-            this.TextBoxCustAdress.Name = "TextBoxCustAdress";
-            this.TextBoxCustAdress.Size = new System.Drawing.Size(259, 23);
-            this.TextBoxCustAdress.TabIndex = 39;
+            this.TextBoxSupAdress.Location = new System.Drawing.Point(472, 81);
+            this.TextBoxSupAdress.Name = "TextBoxSupAdress";
+            this.TextBoxSupAdress.Size = new System.Drawing.Size(259, 23);
+            this.TextBoxSupAdress.TabIndex = 39;
             // 
-            // TextBoxCustPhoneNumber
+            // TextBoxSupPhoneNumber
             // 
-            this.TextBoxCustPhoneNumber.Location = new System.Drawing.Point(165, 159);
-            this.TextBoxCustPhoneNumber.Name = "TextBoxCustPhoneNumber";
-            this.TextBoxCustPhoneNumber.Size = new System.Drawing.Size(259, 23);
-            this.TextBoxCustPhoneNumber.TabIndex = 38;
+            this.TextBoxSupPhoneNumber.Location = new System.Drawing.Point(165, 159);
+            this.TextBoxSupPhoneNumber.Name = "TextBoxSupPhoneNumber";
+            this.TextBoxSupPhoneNumber.Size = new System.Drawing.Size(259, 23);
+            this.TextBoxSupPhoneNumber.TabIndex = 38;
             // 
-            // TextBoxCustEmail
+            // TextBoxSupEmail
             // 
-            this.TextBoxCustEmail.Location = new System.Drawing.Point(165, 120);
-            this.TextBoxCustEmail.Name = "TextBoxCustEmail";
-            this.TextBoxCustEmail.Size = new System.Drawing.Size(259, 23);
-            this.TextBoxCustEmail.TabIndex = 37;
+            this.TextBoxSupEmail.Location = new System.Drawing.Point(165, 120);
+            this.TextBoxSupEmail.Name = "TextBoxSupEmail";
+            this.TextBoxSupEmail.Size = new System.Drawing.Size(259, 23);
+            this.TextBoxSupEmail.TabIndex = 37;
             // 
-            // TextBoxCustName
+            // TextBoxSupName
             // 
-            this.TextBoxCustName.Location = new System.Drawing.Point(165, 81);
-            this.TextBoxCustName.Name = "TextBoxCustName";
-            this.TextBoxCustName.Size = new System.Drawing.Size(259, 23);
-            this.TextBoxCustName.TabIndex = 35;
+            this.TextBoxSupName.Location = new System.Drawing.Point(165, 81);
+            this.TextBoxSupName.Name = "TextBoxSupName";
+            this.TextBoxSupName.Size = new System.Drawing.Size(259, 23);
+            this.TextBoxSupName.TabIndex = 35;
             // 
             // ButtonHomePage
             // 
@@ -164,6 +166,7 @@
             this.ButtonHomePage.TabIndex = 87;
             this.ButtonHomePage.Text = "Accueil";
             this.ButtonHomePage.UseVisualStyleBackColor = true;
+            this.ButtonHomePage.Click += new System.EventHandler(this.ButtonHomePage_Click_1);
             // 
             // ButtonItems
             // 
@@ -173,6 +176,7 @@
             this.ButtonItems.TabIndex = 86;
             this.ButtonItems.Text = "Articles";
             this.ButtonItems.UseVisualStyleBackColor = true;
+            this.ButtonItems.Click += new System.EventHandler(this.ButtonItems_Click);
             // 
             // TextBoxProducts
             // 
@@ -193,6 +197,7 @@
             this.BtnInventory.TabIndex = 84;
             this.BtnInventory.Text = "Inventaire";
             this.BtnInventory.UseVisualStyleBackColor = true;
+            this.BtnInventory.Click += new System.EventHandler(this.BtnInventory_Click);
             // 
             // BtnRegularisation
             // 
@@ -202,6 +207,7 @@
             this.BtnRegularisation.TabIndex = 83;
             this.BtnRegularisation.Text = "Régularisation";
             this.BtnRegularisation.UseVisualStyleBackColor = true;
+            this.BtnRegularisation.Click += new System.EventHandler(this.BtnRegularisation_Click);
             // 
             // BtnCustOrders
             // 
@@ -211,6 +217,7 @@
             this.BtnCustOrders.TabIndex = 82;
             this.BtnCustOrders.Text = "Commandes";
             this.BtnCustOrders.UseVisualStyleBackColor = true;
+            this.BtnCustOrders.Click += new System.EventHandler(this.BtnCustOrders_Click);
             // 
             // BtnCustomers
             // 
@@ -220,6 +227,7 @@
             this.BtnCustomers.TabIndex = 81;
             this.BtnCustomers.Text = "Clients";
             this.BtnCustomers.UseVisualStyleBackColor = true;
+            this.BtnCustomers.Click += new System.EventHandler(this.BtnCustomers_Click);
             // 
             // BtnSupOrders
             // 
@@ -229,36 +237,37 @@
             this.BtnSupOrders.TabIndex = 80;
             this.BtnSupOrders.Text = "Commandes";
             this.BtnSupOrders.UseVisualStyleBackColor = true;
+            this.BtnSupOrders.Click += new System.EventHandler(this.BtnSupOrders_Click);
             // 
-            // textBoxStocks
+            // TextBoxStocks
             // 
-            this.textBoxStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxStocks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxStocks.Location = new System.Drawing.Point(12, 362);
-            this.textBoxStocks.Name = "textBoxStocks";
-            this.textBoxStocks.Size = new System.Drawing.Size(100, 22);
-            this.textBoxStocks.TabIndex = 78;
-            this.textBoxStocks.Text = "STOCKS";
+            this.TextBoxStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxStocks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxStocks.Location = new System.Drawing.Point(12, 362);
+            this.TextBoxStocks.Name = "TextBoxStocks";
+            this.TextBoxStocks.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxStocks.TabIndex = 78;
+            this.TextBoxStocks.Text = "STOCKS";
             // 
-            // textBoxSellings
+            // TextBoxSellings
             // 
-            this.textBoxSellings.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSellings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxSellings.Location = new System.Drawing.Point(12, 272);
-            this.textBoxSellings.Name = "textBoxSellings";
-            this.textBoxSellings.Size = new System.Drawing.Size(100, 22);
-            this.textBoxSellings.TabIndex = 77;
-            this.textBoxSellings.Text = "VENTES";
+            this.TextBoxSellings.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxSellings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxSellings.Location = new System.Drawing.Point(12, 272);
+            this.TextBoxSellings.Name = "TextBoxSellings";
+            this.TextBoxSellings.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxSellings.TabIndex = 77;
+            this.TextBoxSellings.Text = "VENTES";
             // 
-            // textBoxPurchases
+            // TextBoxPurchases
             // 
-            this.textBoxPurchases.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPurchases.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxPurchases.Location = new System.Drawing.Point(12, 182);
-            this.textBoxPurchases.Name = "textBoxPurchases";
-            this.textBoxPurchases.Size = new System.Drawing.Size(100, 22);
-            this.textBoxPurchases.TabIndex = 76;
-            this.textBoxPurchases.Text = "ACHATS";
+            this.TextBoxPurchases.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxPurchases.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextBoxPurchases.Location = new System.Drawing.Point(12, 182);
+            this.TextBoxPurchases.Name = "TextBoxPurchases";
+            this.TextBoxPurchases.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxPurchases.TabIndex = 76;
+            this.TextBoxPurchases.Text = "ACHATS";
             // 
             // DataGridViewSuppliersList
             // 
@@ -268,6 +277,7 @@
             this.DataGridViewSuppliersList.RowTemplate.Height = 25;
             this.DataGridViewSuppliersList.Size = new System.Drawing.Size(623, 220);
             this.DataGridViewSuppliersList.TabIndex = 88;
+            this.DataGridViewSuppliersList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSuppliersList_CellContentClick_1);
             // 
             // TextBoxMapFamilies
             // 
@@ -290,15 +300,26 @@
             this.TextBoxMapPurchase.TabIndex = 89;
             this.TextBoxMapPurchase.Text = "ACHATS";
             // 
+            // ButtonFamilies
+            // 
+            this.ButtonFamilies.Location = new System.Drawing.Point(22, 146);
+            this.ButtonFamilies.Name = "ButtonFamilies";
+            this.ButtonFamilies.Size = new System.Drawing.Size(90, 23);
+            this.ButtonFamilies.TabIndex = 93;
+            this.ButtonFamilies.Text = "Familles";
+            this.ButtonFamilies.UseVisualStyleBackColor = true;
+            this.ButtonFamilies.Click += new System.EventHandler(this.ButtonFamilies_Click);
+            // 
             // ButtonDeleteSupplier
             // 
             this.ButtonDeleteSupplier.BackColor = System.Drawing.Color.MistyRose;
-            this.ButtonDeleteSupplier.Location = new System.Drawing.Point(660, 188);
+            this.ButtonDeleteSupplier.Location = new System.Drawing.Point(550, 188);
             this.ButtonDeleteSupplier.Name = "ButtonDeleteSupplier";
             this.ButtonDeleteSupplier.Size = new System.Drawing.Size(71, 23);
-            this.ButtonDeleteSupplier.TabIndex = 92;
+            this.ButtonDeleteSupplier.TabIndex = 95;
             this.ButtonDeleteSupplier.Text = "Supprimer";
             this.ButtonDeleteSupplier.UseVisualStyleBackColor = false;
+            this.ButtonDeleteSupplier.Click += new System.EventHandler(this.ButtonDeleteSupplier_Click);
             // 
             // ButtonAddNewSupplier
             // 
@@ -306,9 +327,20 @@
             this.ButtonAddNewSupplier.Location = new System.Drawing.Point(472, 188);
             this.ButtonAddNewSupplier.Name = "ButtonAddNewSupplier";
             this.ButtonAddNewSupplier.Size = new System.Drawing.Size(71, 23);
-            this.ButtonAddNewSupplier.TabIndex = 91;
+            this.ButtonAddNewSupplier.TabIndex = 94;
             this.ButtonAddNewSupplier.Text = "Créer";
             this.ButtonAddNewSupplier.UseVisualStyleBackColor = false;
+            this.ButtonAddNewSupplier.Click += new System.EventHandler(this.ButtonAddNewSupplier_Click);
+            // 
+            // ButtonSuppliers
+            // 
+            this.ButtonSuppliers.Location = new System.Drawing.Point(633, 188);
+            this.ButtonSuppliers.Name = "ButtonSuppliers";
+            this.ButtonSuppliers.Size = new System.Drawing.Size(98, 23);
+            this.ButtonSuppliers.TabIndex = 96;
+            this.ButtonSuppliers.Text = "Fournisseurs";
+            this.ButtonSuppliers.UseVisualStyleBackColor = true;
+            this.ButtonSuppliers.Click += new System.EventHandler(this.ButtonSuppliers_Click_1);
             // 
             // FormSupplier
             // 
@@ -316,8 +348,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ButtonSuppliers);
             this.Controls.Add(this.ButtonDeleteSupplier);
             this.Controls.Add(this.ButtonAddNewSupplier);
+            this.Controls.Add(this.ButtonFamilies);
             this.Controls.Add(this.TextBoxMapFamilies);
             this.Controls.Add(this.TextBoxMapPurchase);
             this.Controls.Add(this.DataGridViewSuppliersList);
@@ -329,21 +363,21 @@
             this.Controls.Add(this.BtnCustOrders);
             this.Controls.Add(this.BtnCustomers);
             this.Controls.Add(this.BtnSupOrders);
-            this.Controls.Add(this.textBoxStocks);
-            this.Controls.Add(this.textBoxSellings);
-            this.Controls.Add(this.textBoxPurchases);
+            this.Controls.Add(this.TextBoxStocks);
+            this.Controls.Add(this.TextBoxSellings);
+            this.Controls.Add(this.TextBoxPurchases);
             this.Controls.Add(this.LabelSupCity);
             this.Controls.Add(this.LabelSupZipCode);
             this.Controls.Add(this.LabelSupAdress);
             this.Controls.Add(this.LabelSupPhoneNumer);
             this.Controls.Add(this.LabelSupEmail);
             this.Controls.Add(this.LabelSupName);
-            this.Controls.Add(this.TextBoxCustCity);
-            this.Controls.Add(this.TextBoxCustZipCode);
-            this.Controls.Add(this.TextBoxCustAdress);
-            this.Controls.Add(this.TextBoxCustPhoneNumber);
-            this.Controls.Add(this.TextBoxCustEmail);
-            this.Controls.Add(this.TextBoxCustName);
+            this.Controls.Add(this.TextBoxSupCity);
+            this.Controls.Add(this.TextBoxSupZipCode);
+            this.Controls.Add(this.TextBoxSupAdress);
+            this.Controls.Add(this.TextBoxSupPhoneNumber);
+            this.Controls.Add(this.TextBoxSupEmail);
+            this.Controls.Add(this.TextBoxSupName);
             this.Name = "FormSupplier";
             this.Text = "FormSupplier";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSuppliersList)).EndInit();
@@ -360,12 +394,12 @@
         private Label LabelSupPhoneNumer;
         private Label LabelSupEmail;
         private Label LabelSupName;
-        private TextBox TextBoxCustCity;
-        private TextBox TextBoxCustZipCode;
-        private TextBox TextBoxCustAdress;
-        private TextBox TextBoxCustPhoneNumber;
-        private TextBox TextBoxCustEmail;
-        private TextBox TextBoxCustName;
+        private TextBox TextBoxSupCity;
+        private TextBox TextBoxSupZipCode;
+        private TextBox TextBoxSupAdress;
+        private TextBox TextBoxSupPhoneNumber;
+        private TextBox TextBoxSupEmail;
+        private TextBox TextBoxSupName;
         private Button ButtonHomePage;
         private Button ButtonItems;
         private TextBox TextBoxProducts;
@@ -374,13 +408,15 @@
         private Button BtnCustOrders;
         private Button BtnCustomers;
         private Button BtnSupOrders;
-        private TextBox textBoxStocks;
-        private TextBox textBoxSellings;
-        private TextBox textBoxPurchases;
+        private TextBox TextBoxStocks;
+        private TextBox TextBoxSellings;
+        private TextBox TextBoxPurchases;
         private DataGridView DataGridViewSuppliersList;
         private TextBox TextBoxMapFamilies;
         private TextBox TextBoxMapPurchase;
-        private Button ButtonDeleteSupplier;
         private Button ButtonAddNewSupplier;
+        private Button ButtonFamilies;
+        private Button ButtonDeleteSupplier;
+        private Button ButtonSuppliers;
     }
 }
