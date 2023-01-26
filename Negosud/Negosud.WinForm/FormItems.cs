@@ -17,7 +17,73 @@ namespace Negosud.WinForm
         public FormItems()
         {
             InitializeComponent();
+            List<FamilyDTO> familyDTO = new List<FamilyDTO>();
+            ComboBoxItemFamily.DataSource = familyDTO;
+            ComboBoxItemFamily.DisplayMember = Name;
+            //ComboBoxItemFamily.ValueMember = 
+
+
+
         }
+
+        #region Redirection Button
+        private void ButtonHomePage_Click(object sender, EventArgs e)
+        {
+            FormHome formHome = new FormHome();
+            formHome.Show();
+            this.Hide();
+        }
+
+        private void ButtonItems_Click(object sender, EventArgs e)
+        {
+            FormItems formItems = new FormItems();
+            formItems.Show();
+            this.Hide();
+        }
+
+        private void BtnSuppliers_Click(object sender, EventArgs e)
+        {
+            FormSupplier formSupplier = new FormSupplier();
+            formSupplier.Show();
+            this.Hide();
+        }
+
+        private void BtnSupOrders_Click(object sender, EventArgs e)
+        {
+            FormCommandSupplier formCommandSupplier = new FormCommandSupplier();
+            formCommandSupplier.Show();
+            this.Hide();
+        }
+
+        private void BtnCustomers_Click(object sender, EventArgs e)
+        {
+            FormCustomer formCustomer = new FormCustomer();
+            formCustomer.Show();
+            this.Hide();
+        }
+
+        private void BtnCustOrders_Click(object sender, EventArgs e)
+        {
+            FormCommandCustomer formCommandCustomer = new FormCommandCustomer();
+            formCommandCustomer.Show();
+            this.Hide();
+        }
+
+        private void BtnRegularisation_Click(object sender, EventArgs e)
+        {
+            FormRegularization formRegularization = new FormRegularization();
+            formRegularization.Show();
+            this.Hide();
+        }
+
+        private void BtnInventory_Click(object sender, EventArgs e)
+        {
+            FormInventory formInventory = new FormInventory();
+            formInventory.Show();
+            this.Hide();
+        }
+        #endregion
+
 
         public FamilyDTO? ItemFamily { get; private set; }
 
@@ -28,7 +94,7 @@ namespace Negosud.WinForm
             string Name = TextBoxItemName.Text;
             string Description = TextBoxDescription.Text;
             //string Family = ComboBoxItemFamily.Text;
-            ComboBoxItemFamily.DataSource = new List<FamilyDTO>();  
+            string selectedFamily = (string)ComboBoxItemFamily.SelectedItem;
             int Year = int.Parse(TextBoxYear.Text);
             int StockMin = int.Parse(TextBoxStockMin.Text);
             float PurchasePriceBT = float.Parse(TextBoxPurchasePriceBT.Text);
@@ -38,7 +104,6 @@ namespace Negosud.WinForm
             // 2 Créer l'objet DTO
             ItemDTO itemResult = new ItemDTO();
             // 3 Remplir ce nouovel Objet avec les valeurs de Etape 1
-         
             itemResult.Name = Name; 
             itemResult.Description = Description;
             //itemResult.Family = Family;
@@ -69,7 +134,7 @@ namespace Negosud.WinForm
                 MessageBox.Show("Le nouvel article a été crée avec succès");
             } else
             {
-                MessageBox.Show("L'article a été crée avec succès");
+                MessageBox.Show("Une erreur s'est produite, vérifiez d'avoir rempli tous les champs correctement.");
             }
             
         }

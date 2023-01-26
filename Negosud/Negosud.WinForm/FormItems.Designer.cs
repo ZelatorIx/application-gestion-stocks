@@ -174,6 +174,7 @@
             this.BtnSuppliers.TabIndex = 15;
             this.BtnSuppliers.Text = "Fournisseurs";
             this.BtnSuppliers.UseVisualStyleBackColor = true;
+            this.BtnSuppliers.Click += new System.EventHandler(this.BtnSuppliers_Click);
             // 
             // textBoxStocks
             // 
