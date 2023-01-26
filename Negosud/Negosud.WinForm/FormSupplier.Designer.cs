@@ -166,6 +166,7 @@
             this.ButtonHomePage.TabIndex = 87;
             this.ButtonHomePage.Text = "Accueil";
             this.ButtonHomePage.UseVisualStyleBackColor = true;
+            this.ButtonHomePage.Click += new System.EventHandler(this.ButtonHomePage_Click_1);
             // 
             // ButtonItems
             // 
@@ -175,6 +176,7 @@
             this.ButtonItems.TabIndex = 86;
             this.ButtonItems.Text = "Articles";
             this.ButtonItems.UseVisualStyleBackColor = true;
+            this.ButtonItems.Click += new System.EventHandler(this.ButtonItems_Click);
             // 
             // TextBoxProducts
             // 
@@ -195,6 +197,7 @@
             this.BtnInventory.TabIndex = 84;
             this.BtnInventory.Text = "Inventaire";
             this.BtnInventory.UseVisualStyleBackColor = true;
+            this.BtnInventory.Click += new System.EventHandler(this.BtnInventory_Click);
             // 
             // BtnRegularisation
             // 
@@ -204,6 +207,7 @@
             this.BtnRegularisation.TabIndex = 83;
             this.BtnRegularisation.Text = "Régularisation";
             this.BtnRegularisation.UseVisualStyleBackColor = true;
+            this.BtnRegularisation.Click += new System.EventHandler(this.BtnRegularisation_Click);
             // 
             // BtnCustOrders
             // 
@@ -213,6 +217,7 @@
             this.BtnCustOrders.TabIndex = 82;
             this.BtnCustOrders.Text = "Commandes";
             this.BtnCustOrders.UseVisualStyleBackColor = true;
+            this.BtnCustOrders.Click += new System.EventHandler(this.BtnCustOrders_Click);
             // 
             // BtnCustomers
             // 
@@ -222,6 +227,7 @@
             this.BtnCustomers.TabIndex = 81;
             this.BtnCustomers.Text = "Clients";
             this.BtnCustomers.UseVisualStyleBackColor = true;
+            this.BtnCustomers.Click += new System.EventHandler(this.BtnCustomers_Click);
             // 
             // BtnSupOrders
             // 
@@ -231,6 +237,7 @@
             this.BtnSupOrders.TabIndex = 80;
             this.BtnSupOrders.Text = "Commandes";
             this.BtnSupOrders.UseVisualStyleBackColor = true;
+            this.BtnSupOrders.Click += new System.EventHandler(this.BtnSupOrders_Click);
             // 
             // TextBoxStocks
             // 
@@ -270,6 +277,7 @@
             this.DataGridViewSuppliersList.RowTemplate.Height = 25;
             this.DataGridViewSuppliersList.Size = new System.Drawing.Size(623, 220);
             this.DataGridViewSuppliersList.TabIndex = 88;
+            this.DataGridViewSuppliersList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSuppliersList_CellContentClick_1);
             // 
             // TextBoxMapFamilies
             // 
@@ -300,6 +308,7 @@
             this.ButtonFamilies.TabIndex = 93;
             this.ButtonFamilies.Text = "Familles";
             this.ButtonFamilies.UseVisualStyleBackColor = true;
+            this.ButtonFamilies.Click += new System.EventHandler(this.ButtonFamilies_Click);
             // 
             // ButtonDeleteSupplier
             // 
@@ -310,6 +319,7 @@
             this.ButtonDeleteSupplier.TabIndex = 95;
             this.ButtonDeleteSupplier.Text = "Supprimer";
             this.ButtonDeleteSupplier.UseVisualStyleBackColor = false;
+            this.ButtonDeleteSupplier.Click += new System.EventHandler(this.ButtonDeleteSupplier_Click);
             // 
             // ButtonAddNewSupplier
             // 
@@ -330,6 +340,7 @@
             this.ButtonSuppliers.TabIndex = 96;
             this.ButtonSuppliers.Text = "Fournisseurs";
             this.ButtonSuppliers.UseVisualStyleBackColor = true;
+            this.ButtonSuppliers.Click += new System.EventHandler(this.ButtonSuppliers_Click_1);
             // 
             // FormSupplier
             // 
