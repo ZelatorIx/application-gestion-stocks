@@ -52,6 +52,10 @@
             this.LabelQuantity = new System.Windows.Forms.Label();
             this.ButtonAddNewFamily = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxItems = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonHomePage
@@ -249,9 +253,9 @@
             // ButtonAddNewFamily
             // 
             this.ButtonAddNewFamily.BackColor = System.Drawing.Color.MistyRose;
-            this.ButtonAddNewFamily.Location = new System.Drawing.Point(666, 181);
+            this.ButtonAddNewFamily.Location = new System.Drawing.Point(666, 166);
             this.ButtonAddNewFamily.Name = "ButtonAddNewFamily";
-            this.ButtonAddNewFamily.Size = new System.Drawing.Size(71, 23);
+            this.ButtonAddNewFamily.Size = new System.Drawing.Size(71, 22);
             this.ButtonAddNewFamily.TabIndex = 73;
             this.ButtonAddNewFamily.Text = "Créer";
             this.ButtonAddNewFamily.UseVisualStyleBackColor = false;
@@ -263,6 +267,32 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker1.TabIndex = 74;
             // 
+            // comboBoxItems
+            // 
+            this.comboBoxItems.FormattingEnabled = true;
+            this.comboBoxItems.Location = new System.Drawing.Point(192, 137);
+            this.comboBoxItems.Name = "comboBoxItems";
+            this.comboBoxItems.Size = new System.Drawing.Size(167, 23);
+            this.comboBoxItems.TabIndex = 75;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(192, 120);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 15);
+            this.label1.TabIndex = 76;
+            this.label1.Text = "Article";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(192, 207);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(546, 232);
+            this.dataGridView1.TabIndex = 77;
+            // 
             // FormRegularization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -270,6 +300,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBoxItems);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.ButtonAddNewFamily);
             this.Controls.Add(this.LabelQuantity);
@@ -295,6 +328,7 @@
             this.Controls.Add(this.textBoxPurchases);
             this.Name = "FormRegularization";
             this.Text = "FormRegularization";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,5 +359,8 @@
         private Label LabelQuantity;
         private Button ButtonAddNewFamily;
         private DateTimePicker dateTimePicker1;
+        private ComboBox comboBoxItems;
+        private Label label1;
+        private DataGridView dataGridView1;
     }
 }
