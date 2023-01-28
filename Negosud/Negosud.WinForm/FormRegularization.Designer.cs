@@ -274,6 +274,7 @@
             this.comboBoxItems.Name = "comboBoxItems";
             this.comboBoxItems.Size = new System.Drawing.Size(167, 23);
             this.comboBoxItems.TabIndex = 75;
+            this.comboBoxItems.SelectedIndexChanged += new System.EventHandler(this.comboBoxItems_SelectedIndexChanged);
             // 
             // label1
             // 

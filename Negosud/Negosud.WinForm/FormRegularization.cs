@@ -1,4 +1,5 @@
-﻿using Negosud.webapi.Models;
+﻿using Microsoft.EntityFrameworkCore.Infrastructure;
+using Negosud.webapi.Models;
 using Newtonsoft.Json;
 using System.Data;
 using System.Net;
@@ -31,20 +32,38 @@ namespace Negosud.WinForm
             }
         }
 
+        private async void comboBoxItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HttpClient client = new HttpClient();
+            string json = await client.GetStringAsync("https://localhost:7049/items");
+
+            dynamic data = JsonConvert.DeserializeObject(json);
+
+            comboBoxItems.Items.Add("Toto");
+            if (data != null)
+            {
+                foreach (dynamic item in data)
+                {
+                    comboBoxItems.Items.Insert(item.id, item.title);
+                }
+            }
+        }
+
         private async void ReasonRegularizationComboxBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //HttpClient client = new HttpClient();
-            //string json = await client.GetStringAsync("https://localhost:7049/reasons-regularization");
+            HttpClient client = new HttpClient();
+            string json = await client.GetStringAsync("https://localhost:7049/reasons-regularization");
 
-            //dynamic data = JsonConvert.DeserializeObject(json);
-            //DataTable reguls = new DataTable();
-            ////ReasonRegularizationDTO reasons = data.
+            dynamic data = JsonConvert.DeserializeObject(json);
+            DataTable reguls = new DataTable();
+            ReasonRegularizationDTO reasons = data;
 
-            //reasonRegulComboBox.Items.Add("Toto");
-            //foreach (dynamic regul in json)
-            //{
-            //    reasonRegulComboBox.Items.Insert(regul.Id, regul.Title);
-            //}
+            reasonRegulComboBox.Items.Add("Toto");
+            foreach (dynamic regul in json)
+            {
+                reasonRegulComboBox.Items.Insert(regul.Id, regul.Title);
+            }
         }
+
     }
 }
