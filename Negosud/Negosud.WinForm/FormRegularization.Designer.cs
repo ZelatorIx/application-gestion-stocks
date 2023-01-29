@@ -47,12 +47,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.LabelInventorist = new System.Windows.Forms.Label();
             this.LabelReason = new System.Windows.Forms.Label();
-            this.reasonRegulComboBox = new System.Windows.Forms.ComboBox();
+            this.ComboBoxReasonRegul = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.LabelQuantity = new System.Windows.Forms.Label();
             this.ButtonAddNewFamily = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxItems = new System.Windows.Forms.ComboBox();
+            this.ComboBoxItems = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -225,14 +225,14 @@
             this.LabelReason.TabIndex = 67;
             this.LabelReason.Text = "Motif";
             // 
-            // reasonRegulComboBox
+            // ComboBoxReasonRegul
             // 
-            this.reasonRegulComboBox.FormattingEnabled = true;
-            this.reasonRegulComboBox.Location = new System.Drawing.Point(381, 137);
-            this.reasonRegulComboBox.Name = "reasonRegulComboBox";
-            this.reasonRegulComboBox.Size = new System.Drawing.Size(167, 23);
-            this.reasonRegulComboBox.TabIndex = 66;
-            this.reasonRegulComboBox.SelectedIndexChanged += new System.EventHandler(this.ReasonRegularizationComboxBox_SelectedIndexChanged);
+            this.ComboBoxReasonRegul.FormattingEnabled = true;
+            this.ComboBoxReasonRegul.Location = new System.Drawing.Point(381, 137);
+            this.ComboBoxReasonRegul.Name = "ComboBoxReasonRegul";
+            this.ComboBoxReasonRegul.Size = new System.Drawing.Size(167, 23);
+            this.ComboBoxReasonRegul.TabIndex = 66;
+            this.ComboBoxReasonRegul.SelectedIndexChanged += new System.EventHandler(this.ReasonRegularizationComboxBox_SelectedIndexChanged);
             // 
             // textBox2
             // 
@@ -267,14 +267,14 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker1.TabIndex = 74;
             // 
-            // comboBoxItems
+            // ComboBoxItems
             // 
-            this.comboBoxItems.FormattingEnabled = true;
-            this.comboBoxItems.Location = new System.Drawing.Point(192, 137);
-            this.comboBoxItems.Name = "comboBoxItems";
-            this.comboBoxItems.Size = new System.Drawing.Size(167, 23);
-            this.comboBoxItems.TabIndex = 75;
-            this.comboBoxItems.SelectedIndexChanged += new System.EventHandler(this.comboBoxItems_SelectedIndexChanged);
+            this.ComboBoxItems.FormattingEnabled = true;
+            this.ComboBoxItems.Location = new System.Drawing.Point(192, 137);
+            this.ComboBoxItems.Name = "ComboBoxItems";
+            this.ComboBoxItems.Size = new System.Drawing.Size(167, 23);
+            this.ComboBoxItems.TabIndex = 75;
+            this.ComboBoxItems.SelectedIndexChanged += new System.EventHandler(this.comboBoxItems_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -303,13 +303,13 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBoxItems);
+            this.Controls.Add(this.ComboBoxItems);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.ButtonAddNewFamily);
             this.Controls.Add(this.LabelQuantity);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.LabelReason);
-            this.Controls.Add(this.reasonRegulComboBox);
+            this.Controls.Add(this.ComboBoxReasonRegul);
             this.Controls.Add(this.LabelInventorist);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.LabelRegulDate);
@@ -335,6 +335,16 @@
 
         }
 
+        private void ReasonRegularizationComboxBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void comboBoxItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
         #endregion
 
         private Button ButtonHomePage;
@@ -355,12 +365,12 @@
         private TextBox textBox1;
         private Label LabelInventorist;
         private Label LabelReason;
-        private ComboBox reasonRegulComboBox;
+        private ComboBox ComboBoxReasonRegul;
         private TextBox textBox2;
         private Label LabelQuantity;
         private Button ButtonAddNewFamily;
         private DateTimePicker dateTimePicker1;
-        private ComboBox comboBoxItems;
+        private ComboBox ComboBoxItems;
         private Label label1;
         private DataGridView dataGridView1;
     }
