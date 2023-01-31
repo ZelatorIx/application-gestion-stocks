@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormItems));
             this.BtnNew = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DataGridViewItemList = new System.Windows.Forms.DataGridView();
             this.TextBoxDescription = new System.Windows.Forms.TextBox();
             this.TextBoxItemName = new System.Windows.Forms.TextBox();
             this.LabelItemName = new System.Windows.Forms.Label();
@@ -64,7 +64,8 @@
             this.ComboBoxItemFamily = new System.Windows.Forms.ComboBox();
             this.ScrollBarListItems = new System.Windows.Forms.VScrollBar();
             this.buttonItems = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.DeleteItemButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewItemList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxItem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,15 +80,15 @@
             this.BtnNew.UseVisualStyleBackColor = false;
             this.BtnNew.Click += new System.EventHandler(this.BtnNouveau_Click);
             // 
-            // dataGridView1
+            // DataGridViewItemList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(152, 234);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(625, 211);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.DataGridViewItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewItemList.Location = new System.Drawing.Point(152, 234);
+            this.DataGridViewItemList.Name = "DataGridViewItemList";
+            this.DataGridViewItemList.RowTemplate.Height = 25;
+            this.DataGridViewItemList.Size = new System.Drawing.Size(625, 211);
+            this.DataGridViewItemList.TabIndex = 2;
+            this.DataGridViewItemList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewItemList_CellContentClick);
             // 
             // TextBoxDescription
             // 
@@ -381,6 +382,16 @@
             this.buttonItems.UseVisualStyleBackColor = true;
             this.buttonItems.Click += new System.EventHandler(this.buttonItems_Click);
             // 
+            // DeleteItemButton
+            // 
+            this.DeleteItemButton.Location = new System.Drawing.Point(682, 196);
+            this.DeleteItemButton.Name = "DeleteItemButton";
+            this.DeleteItemButton.Size = new System.Drawing.Size(95, 23);
+            this.DeleteItemButton.TabIndex = 74;
+            this.DeleteItemButton.Text = "Supprimer";
+            this.DeleteItemButton.UseVisualStyleBackColor = true;
+            this.DeleteItemButton.Click += new System.EventHandler(this.DeleteItemButton_Click);
+            // 
             // FormItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -388,6 +399,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DeleteItemButton);
             this.Controls.Add(this.buttonItems);
             this.Controls.Add(this.ScrollBarListItems);
             this.Controls.Add(this.ComboBoxItemFamily);
@@ -421,11 +433,11 @@
             this.Controls.Add(this.LabelItemName);
             this.Controls.Add(this.TextBoxItemName);
             this.Controls.Add(this.TextBoxDescription);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DataGridViewItemList);
             this.Controls.Add(this.BtnNew);
             this.Name = "FormItems";
             this.Text = "Articles";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewItemList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -435,7 +447,7 @@
         #endregion
 
         private Button BtnNew;
-        private DataGridView dataGridView1;
+        private DataGridView DataGridViewItemList;
         private TextBox TextBoxDescription;
         private TextBox TextBoxItemName;
         private Label LabelItemName;
@@ -480,5 +492,6 @@
         private ComboBox ComboBoxItemFamily;
         private VScrollBar ScrollBarListItems;
         private Button buttonItems;
+        private Button DeleteItemButton;
     }
 }

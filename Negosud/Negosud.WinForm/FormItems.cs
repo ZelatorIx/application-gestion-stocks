@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -80,7 +81,6 @@ namespace Negosud.WinForm
             this.Hide();
         }
         #endregion
-
 
         public FamilyDTO? ItemFamily { get; set; }
 
@@ -168,16 +168,17 @@ namespace Negosud.WinForm
 
                 // Envoyer une demande HTTP GET à l'API et récupérer les données sous forme de chaîne JSON
                 HttpClient client = new HttpClient();
-                string json = await client.GetStringAsync("https://localhost:7049/items");
+                string jsonItems = await client.GetStringAsync("https://localhost:7049/items");
 
                 // Convertir la chaîne JSON en un objet dynamic
-                List<ItemDTO>? items = JsonConvert.DeserializeObject<List<ItemDTO>>(json);
+                List<ItemDTO>? items = JsonConvert.DeserializeObject<List<ItemDTO>>(jsonItems);
 
                 // Créer un objet DataTable et ajouter les colonnes nécessaires
                 DataTable table = new DataTable();
                 table.Columns.Add("ID", typeof(int));
                 table.Columns.Add("Nom", typeof(string));
                 table.Columns.Add("Description", typeof(string));
+                table.Columns.Add("Famille", typeof(string));
                 table.Columns.Add("Prix HT", typeof(float));
                 table.Columns.Add("Prix TTC", typeof(float));
                 table.Columns.Add("TVA", typeof(float));
@@ -188,14 +189,22 @@ namespace Negosud.WinForm
                 // Parcourir la liste d'ItemDTO et ajouter chaque objet en tant que ligne dans l'objet DataTable
                 if (items != null)
                 {
+                    //string jsonFamilies = await client.GetStringAsync($"https://localhost:7049/families");
+                    //List<FamilyDTO>? families = JsonConvert.DeserializeObject<List<FamilyDTO>>(jsonFamilies);
+                    //DataGridViewComboBoxCell familiesComboBox = new DataGridViewComboBoxCell();
+                    //if (families != null)
+                    //{
+                    //    familiesComboBox.DataSource = families;
+                    //}
+
                     foreach (ItemDTO item in items)
                     {
-                        table.Rows.Add(item.Id, item.Name, item.Description, item.PurchasePriceBT, item.SellingPriceBT,
+                        table.Rows.Add(item.Id, item.Name, item.Description, item.Family.Name, item.PurchasePriceBT, item.SellingPriceBT,
                             item.Vat, item.Picture, item.MinLimit, item.YearItem);
                     }
                 }
                 // Assigner l'objet DataTable comme source de données du contrôle DataGridView
-                dataGridView1.DataSource = table;
+                DataGridViewItemList.DataSource = table;
             }
             catch (Exception ex)
             {
@@ -229,7 +238,7 @@ namespace Negosud.WinForm
             this.ComboBoxItemFamily.SelectedIndexChanged += new EventHandler(ComboBoxItemFamily_SelectedIndexChanged);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewItemList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -237,6 +246,29 @@ namespace Negosud.WinForm
         private void ComboBoxItemFamily_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private async void DeleteItemButton_Click(object sender, EventArgs e)
+        {
+            int itemId = (int)((DataRowView)DataGridViewItemList.SelectedRows[0].DataBoundItem)["ID"];
+
+            // Envoyez une demande HTTP DELETE à l'API en incluant l'id de l'article à supprimer
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.DeleteAsync($"https://localhost:7049/items/{itemId}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                //Affichage de la réponse
+                MessageBox.Show("L'article selectionné a été supprimé avec succès");
+            }
+            else if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                MessageBox.Show("L'article sélectionné ne peut pas être supprimé");
+            }
+            else
+            {
+                MessageBox.Show("Une erreur inattendue s'est produite");
+            }
         }
     }
 }
