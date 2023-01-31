@@ -44,7 +44,6 @@
             this.textBoxStocks = new System.Windows.Forms.TextBox();
             this.textBoxVentes = new System.Windows.Forms.TextBox();
             this.textBoxAchats = new System.Windows.Forms.TextBox();
-            this.textBoxAccueil = new System.Windows.Forms.TextBox();
             this.ButtonFamilies = new System.Windows.Forms.Button();
             this.TextBoxProducts = new System.Windows.Forms.TextBox();
             this.TextBoxMapFamilies = new System.Windows.Forms.TextBox();
@@ -65,6 +64,7 @@
             this.ScrollBarListItems = new System.Windows.Forms.VScrollBar();
             this.buttonItems = new System.Windows.Forms.Button();
             this.DeleteItemButton = new System.Windows.Forms.Button();
+            this.ButtonHomePage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewItemList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxItem)).BeginInit();
             this.SuspendLayout();
@@ -130,6 +130,7 @@
             this.BtnInventory.TabIndex = 20;
             this.BtnInventory.Text = "Inventaire";
             this.BtnInventory.UseVisualStyleBackColor = true;
+            this.BtnInventory.Click += new System.EventHandler(this.BtnInventory_Click_1);
             // 
             // BtnRegularization
             // 
@@ -139,6 +140,7 @@
             this.BtnRegularization.TabIndex = 19;
             this.BtnRegularization.Text = "Régularisation";
             this.BtnRegularization.UseVisualStyleBackColor = true;
+            this.BtnRegularization.Click += new System.EventHandler(this.BtnRegularization_Click);
             // 
             // BtnCustOrders
             // 
@@ -148,6 +150,7 @@
             this.BtnCustOrders.TabIndex = 18;
             this.BtnCustOrders.Text = "Commandes";
             this.BtnCustOrders.UseVisualStyleBackColor = true;
+            this.BtnCustOrders.Click += new System.EventHandler(this.BtnCustOrders_Click_1);
             // 
             // BtnCustomers
             // 
@@ -157,6 +160,7 @@
             this.BtnCustomers.TabIndex = 17;
             this.BtnCustomers.Text = "Clients";
             this.BtnCustomers.UseVisualStyleBackColor = true;
+            this.BtnCustomers.Click += new System.EventHandler(this.BtnCustomers_Click_1);
             // 
             // BtnSupOrders
             // 
@@ -166,6 +170,7 @@
             this.BtnSupOrders.TabIndex = 16;
             this.BtnSupOrders.Text = "Commandes";
             this.BtnSupOrders.UseVisualStyleBackColor = true;
+            this.BtnSupOrders.Click += new System.EventHandler(this.BtnSupOrders_Click_1);
             // 
             // BtnSuppliers
             // 
@@ -207,16 +212,6 @@
             this.textBoxAchats.TabIndex = 12;
             this.textBoxAchats.Text = "ACHATS";
             // 
-            // textBoxAccueil
-            // 
-            this.textBoxAccueil.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxAccueil.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxAccueil.Location = new System.Drawing.Point(12, 68);
-            this.textBoxAccueil.Name = "textBoxAccueil";
-            this.textBoxAccueil.Size = new System.Drawing.Size(100, 22);
-            this.textBoxAccueil.TabIndex = 11;
-            this.textBoxAccueil.Text = "ACCUEIL";
-            // 
             // ButtonFamilies
             // 
             this.ButtonFamilies.Location = new System.Drawing.Point(22, 151);
@@ -225,6 +220,7 @@
             this.ButtonFamilies.TabIndex = 43;
             this.ButtonFamilies.Text = "Familles";
             this.ButtonFamilies.UseVisualStyleBackColor = true;
+            this.ButtonFamilies.Click += new System.EventHandler(this.ButtonFamilies_Click);
             // 
             // TextBoxProducts
             // 
@@ -392,6 +388,16 @@
             this.DeleteItemButton.UseVisualStyleBackColor = true;
             this.DeleteItemButton.Click += new System.EventHandler(this.DeleteItemButton_Click);
             // 
+            // ButtonHomePage
+            // 
+            this.ButtonHomePage.Location = new System.Drawing.Point(22, 68);
+            this.ButtonHomePage.Name = "ButtonHomePage";
+            this.ButtonHomePage.Size = new System.Drawing.Size(90, 23);
+            this.ButtonHomePage.TabIndex = 75;
+            this.ButtonHomePage.Text = "Accueil";
+            this.ButtonHomePage.UseVisualStyleBackColor = true;
+            this.ButtonHomePage.Click += new System.EventHandler(this.ButtonHomePage_Click_1);
+            // 
             // FormItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -399,6 +405,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ButtonHomePage);
             this.Controls.Add(this.DeleteItemButton);
             this.Controls.Add(this.buttonItems);
             this.Controls.Add(this.ScrollBarListItems);
@@ -428,7 +435,6 @@
             this.Controls.Add(this.textBoxStocks);
             this.Controls.Add(this.textBoxVentes);
             this.Controls.Add(this.textBoxAchats);
-            this.Controls.Add(this.textBoxAccueil);
             this.Controls.Add(this.LabelItemDescription);
             this.Controls.Add(this.LabelItemName);
             this.Controls.Add(this.TextBoxItemName);
@@ -480,7 +486,6 @@
         private ComboBox ComboBoxFamily;
         private TextBox textBoxVentes;
         private TextBox textBoxAchats;
-        private TextBox textBoxAccueil;
         private TextBox TextBoxMapFamilies;
         private PictureBox PictureBoxItem;
         private Label LabelItemYear;

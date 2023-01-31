@@ -160,7 +160,54 @@ namespace Negosud.WinForm
                 MessageBox.Show(ex.Message);
             }
         }
+        private void ButtonHomePage_Click_1(object sender, EventArgs e)
+        {
+            FormHome formHome = new FormHome();
+            formHome.Show();
+            this.Hide();
+        }
 
+        private void ButtonFamilies_Click(object sender, EventArgs e)
+        {
+            FormFamilies formFamilies = new FormFamilies();
+            formFamilies.Show();
+            this.Hide();
+        }
+
+        private void BtnSupOrders_Click_1(object sender, EventArgs e)
+        {
+            FormCommandSupplier formCommandSupplier = new FormCommandSupplier();
+            formCommandSupplier.Show();
+            this.Hide();
+        }
+
+        private void BtnCustomers_Click_1(object sender, EventArgs e)
+        {
+            FormCustomer formCustomer = new FormCustomer();
+            formCustomer.Show();
+            this.Hide();
+        }
+
+        private void BtnCustOrders_Click_1(object sender, EventArgs e)
+        {
+            FormCommandCustomer formCommandCustomer = new FormCommandCustomer();
+            formCommandCustomer.Show();
+            this.Hide();
+        }
+
+        private void BtnRegularization_Click(object sender, EventArgs e)
+        {
+            FormRegularization formRegularization = new FormRegularization();
+            formRegularization.Show();
+            this.Hide();
+        }
+
+        private void BtnInventory_Click_1(object sender, EventArgs e)
+        {
+            FormInventory formInventory = new FormInventory();
+            formInventory.Show();
+            this.Hide();
+        }
         private async void buttonItems_Click(object sender, EventArgs e)
         {
             try
@@ -270,5 +317,7 @@ namespace Negosud.WinForm
                 MessageBox.Show("Une erreur inattendue s'est produite");
             }
         }
+
+       
     }
 }
