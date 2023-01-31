@@ -163,34 +163,45 @@ namespace Negosud.WinForm
 
         private async void buttonItems_Click(object sender, EventArgs e)
         {
-            // Envoyer une demande HTTP GET à l'API et récupérer les données sous forme de chaîne JSON
-            HttpClient client = new HttpClient();
-            string json = await client.GetStringAsync("https://localhost:7049/items");
-
-            // Convertir la chaîne JSON en un objet dynamic
-            dynamic data = JsonConvert.DeserializeObject(json);
-
-            // Créer un objet DataTable et ajouter les colonnes nécessaires
-            DataTable table = new DataTable();
-            table.Columns.Add("ID", typeof(int));
-            table.Columns.Add("Nom", typeof(string));
-            table.Columns.Add("Description", typeof(string));
-            table.Columns.Add("Prix HT", typeof(float));
-            table.Columns.Add("Prix TTC", typeof(float));
-            table.Columns.Add("TVA", typeof(float));
-            table.Columns.Add("Image", typeof(string));
-            table.Columns.Add("Minimum", typeof(int));
-            table.Columns.Add("Année", typeof(int));
-
-            // Parcourir l'objet dynamic et ajouter chaque objet en tant que ligne dans l'objet DataTable
-            foreach (dynamic item in data)
+            try
             {
-                table.Rows.Add(item.id, item.name, item.description, item.purchasePriceBT, item.sellingPriceBT, 
-                    item.vat, item.picture, item.minLimit, item.yearItem);
-            }
-            // Assigner l'objet DataTable comme source de données du contrôle DataGridView
-            dataGridView1.DataSource = table;
 
+                // Envoyer une demande HTTP GET à l'API et récupérer les données sous forme de chaîne JSON
+                HttpClient client = new HttpClient();
+                string json = await client.GetStringAsync("https://localhost:7049/items");
+
+                // Convertir la chaîne JSON en un objet dynamic
+                List<ItemDTO>? items = JsonConvert.DeserializeObject<List<ItemDTO>>(json);
+                if (items == null)
+                {
+                    throw new Exception("Aucun article trouvé.");
+                }
+
+                // Créer un objet DataTable et ajouter les colonnes nécessaires
+                DataTable table = new DataTable();
+                table.Columns.Add("ID", typeof(int));
+                table.Columns.Add("Nom", typeof(string));
+                table.Columns.Add("Description", typeof(string));
+                table.Columns.Add("Prix HT", typeof(float));
+                table.Columns.Add("Prix TTC", typeof(float));
+                table.Columns.Add("TVA", typeof(float));
+                table.Columns.Add("Image", typeof(string));
+                table.Columns.Add("Minimum", typeof(int));
+                table.Columns.Add("Année", typeof(int));
+
+                // Parcourir la liste d'ItemDTO et ajouter chaque objet en tant que ligne dans l'objet DataTable
+                foreach (ItemDTO item in items)
+                {
+                    table.Rows.Add(item.Id, item.Name, item.Description, item.PurchasePriceBT, item.SellingPriceBT,
+                        item.Vat, item.Picture, item.MinLimit, item.YearItem);
+                }
+                // Assigner l'objet DataTable comme source de données du contrôle DataGridView
+                dataGridView1.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private async void InitializeComboboxFamily()
