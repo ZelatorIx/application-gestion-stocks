@@ -17,9 +17,10 @@ namespace Negosud.WinForm
         public FormItems()
         {
             InitializeComponent();
-            ComboBoxItemFamily.DataSource = ItemFamily;
-            ComboBoxItemFamily.DisplayMember = "Name";
-            ComboBoxItemFamily.ValueMember = "Id";
+            InitializeComboboxFamily();
+            //ComboBoxItemFamily.DataSource = ItemFamily;
+            //ComboBoxItemFamily.DisplayMember = "Name";
+            //ComboBoxItemFamily.ValueMember = "Id";
         }
 
         #region Redirection Button
@@ -168,7 +169,39 @@ namespace Negosud.WinForm
 
         }
 
+        private async void InitializeComboboxFamily()
+        {
+            HttpClient client = new HttpClient();
+            string json = await client.GetStringAsync("https://localhost:7049/families");
+            dynamic data = JsonConvert.DeserializeObject(json);
+            // Créer un objet DataTable et ajouter les colonnes nécessaires
+            DataTable table = new DataTable();
+            table.Columns.Add("Id", typeof(int)).ReadOnly = true;
+            table.Columns.Add("Nom", typeof(string));
+            // Parcourir l'objet dynamic et ajouter chaque objet en tant que ligne dans l'objet DataTable
+            if (data != null)
+            {
+                foreach (dynamic item in data)
+                {
+                    table.Rows.Add(item.id, item.name);
+                }
+            }
+            // Assigner l'objet DataTable comme source de données de la comboBox
+            ComboBoxItemFamily.DataSource = table;
+            ComboBoxItemFamily.ValueMember = "Id";
+            ComboBoxItemFamily.DisplayMember = "Nom";
+            // Associate the event-handling method with the 
+            // SelectedIndexChanged event.
+            this.ComboBoxItemFamily.SelectedIndexChanged += new EventHandler(ComboBoxItemFamily_SelectedIndexChanged);
+
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ComboBoxItemFamily_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

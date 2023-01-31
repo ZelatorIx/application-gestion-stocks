@@ -82,10 +82,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(152, 225);
+            this.dataGridView1.Location = new System.Drawing.Point(152, 234);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(625, 220);
+            this.dataGridView1.Size = new System.Drawing.Size(625, 211);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -362,6 +362,7 @@
             this.ComboBoxItemFamily.Name = "ComboBoxItemFamily";
             this.ComboBoxItemFamily.Size = new System.Drawing.Size(204, 23);
             this.ComboBoxItemFamily.TabIndex = 71;
+            this.ComboBoxItemFamily.SelectedIndexChanged += new System.EventHandler(this.ComboBoxItemFamily_SelectedIndexChanged);
             // 
             // ScrollBarListItems
             // 
