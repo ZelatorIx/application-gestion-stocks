@@ -53,6 +53,7 @@
             this.ButtonHomePage.TabIndex = 75;
             this.ButtonHomePage.Text = "Accueil";
             this.ButtonHomePage.UseVisualStyleBackColor = true;
+            this.ButtonHomePage.Click += new System.EventHandler(this.ButtonHomePage_Click);
             // 
             // TextBoxMapOrdersSuppliers
             // 
@@ -73,6 +74,7 @@
             this.ButtonFamilies.TabIndex = 73;
             this.ButtonFamilies.Text = "Familles";
             this.ButtonFamilies.UseVisualStyleBackColor = true;
+            this.ButtonFamilies.Click += new System.EventHandler(this.ButtonFamilies_Click);
             // 
             // ButtonItems
             // 
@@ -82,6 +84,7 @@
             this.ButtonItems.TabIndex = 72;
             this.ButtonItems.Text = "Articles";
             this.ButtonItems.UseVisualStyleBackColor = true;
+            this.ButtonItems.Click += new System.EventHandler(this.ButtonItems_Click);
             // 
             // TextBoxProducts
             // 
@@ -111,6 +114,7 @@
             this.BtnInventory.TabIndex = 69;
             this.BtnInventory.Text = "Inventaire";
             this.BtnInventory.UseVisualStyleBackColor = true;
+            this.BtnInventory.Click += new System.EventHandler(this.BtnInventory_Click);
             // 
             // BtnRegularisation
             // 
@@ -120,6 +124,7 @@
             this.BtnRegularisation.TabIndex = 68;
             this.BtnRegularisation.Text = "Régularisation";
             this.BtnRegularisation.UseVisualStyleBackColor = true;
+            this.BtnRegularisation.Click += new System.EventHandler(this.BtnRegularisation_Click);
             // 
             // BtnCustomers
             // 
@@ -129,6 +134,7 @@
             this.BtnCustomers.TabIndex = 67;
             this.BtnCustomers.Text = "Clients";
             this.BtnCustomers.UseVisualStyleBackColor = true;
+            this.BtnCustomers.Click += new System.EventHandler(this.BtnCustomers_Click);
             // 
             // BtnSuppliers
             // 
@@ -138,6 +144,7 @@
             this.BtnSuppliers.TabIndex = 66;
             this.BtnSuppliers.Text = "Fournisseurs";
             this.BtnSuppliers.UseVisualStyleBackColor = true;
+            this.BtnSuppliers.Click += new System.EventHandler(this.BtnSuppliers_Click);
             // 
             // textBoxStocks
             // 
@@ -177,6 +184,7 @@
             this.BtnCustOrders.TabIndex = 76;
             this.BtnCustOrders.Text = "Commandes";
             this.BtnCustOrders.UseVisualStyleBackColor = true;
+            this.BtnCustOrders.Click += new System.EventHandler(this.BtnCustOrders_Click);
             // 
             // FormCommandSupplier
             // 
