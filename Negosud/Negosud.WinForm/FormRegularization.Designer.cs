@@ -47,11 +47,15 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.LabelInventorist = new System.Windows.Forms.Label();
             this.LabelReason = new System.Windows.Forms.Label();
-            this.reasonRegulComboBox = new System.Windows.Forms.ComboBox();
+            this.ComboBoxReasonRegul = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.LabelQuantity = new System.Windows.Forms.Label();
-            this.ButtonAddNewFamily = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.ComboBoxItems = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ButtonAddNewRegularization = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonHomePage
@@ -62,6 +66,7 @@
             this.ButtonHomePage.TabIndex = 56;
             this.ButtonHomePage.Text = "Accueil";
             this.ButtonHomePage.UseVisualStyleBackColor = true;
+            this.ButtonHomePage.Click += new System.EventHandler(this.ButtonHomePage_Click);
             // 
             // ButtonFamilies
             // 
@@ -71,6 +76,7 @@
             this.ButtonFamilies.TabIndex = 55;
             this.ButtonFamilies.Text = "Familles";
             this.ButtonFamilies.UseVisualStyleBackColor = true;
+            this.ButtonFamilies.Click += new System.EventHandler(this.ButtonFamilies_Click);
             // 
             // ButtonItems
             // 
@@ -80,6 +86,7 @@
             this.ButtonItems.TabIndex = 54;
             this.ButtonItems.Text = "Articles";
             this.ButtonItems.UseVisualStyleBackColor = true;
+            this.ButtonItems.Click += new System.EventHandler(this.ButtonItems_Click);
             // 
             // TextBoxProducts
             // 
@@ -99,6 +106,7 @@
             this.BtnInventory.TabIndex = 52;
             this.BtnInventory.Text = "Inventaire";
             this.BtnInventory.UseVisualStyleBackColor = true;
+            this.BtnInventory.Click += new System.EventHandler(this.BtnInventory_Click);
             // 
             // BtnCustOrders
             // 
@@ -108,6 +116,7 @@
             this.BtnCustOrders.TabIndex = 50;
             this.BtnCustOrders.Text = "Commandes";
             this.BtnCustOrders.UseVisualStyleBackColor = true;
+            this.BtnCustOrders.Click += new System.EventHandler(this.BtnCustOrders_Click);
             // 
             // BtnSupOrders
             // 
@@ -117,6 +126,7 @@
             this.BtnSupOrders.TabIndex = 49;
             this.BtnSupOrders.Text = "Commandes";
             this.BtnSupOrders.UseVisualStyleBackColor = true;
+            this.BtnSupOrders.Click += new System.EventHandler(this.BtnSupOrders_Click);
             // 
             // BtnSuppliers
             // 
@@ -126,6 +136,7 @@
             this.BtnSuppliers.TabIndex = 48;
             this.BtnSuppliers.Text = "Fournisseurs";
             this.BtnSuppliers.UseVisualStyleBackColor = true;
+            this.BtnSuppliers.Click += new System.EventHandler(this.BtnSuppliers_Click);
             // 
             // textBoxStocks
             // 
@@ -165,6 +176,7 @@
             this.BtnCustomers.TabIndex = 57;
             this.BtnCustomers.Text = "Clients";
             this.BtnCustomers.UseVisualStyleBackColor = true;
+            this.BtnCustomers.Click += new System.EventHandler(this.BtnCustomers_Click);
             // 
             // TextBoxMapFamilies
             // 
@@ -221,14 +233,14 @@
             this.LabelReason.TabIndex = 67;
             this.LabelReason.Text = "Motif";
             // 
-            // reasonRegulComboBox
+            // ComboBoxReasonRegul
             // 
-            this.reasonRegulComboBox.FormattingEnabled = true;
-            this.reasonRegulComboBox.Location = new System.Drawing.Point(381, 137);
-            this.reasonRegulComboBox.Name = "reasonRegulComboBox";
-            this.reasonRegulComboBox.Size = new System.Drawing.Size(167, 23);
-            this.reasonRegulComboBox.TabIndex = 66;
-            this.reasonRegulComboBox.SelectedIndexChanged += new System.EventHandler(this.ReasonRegularizationComboxBox_SelectedIndexChanged);
+            this.ComboBoxReasonRegul.FormattingEnabled = true;
+            this.ComboBoxReasonRegul.Location = new System.Drawing.Point(381, 137);
+            this.ComboBoxReasonRegul.Name = "ComboBoxReasonRegul";
+            this.ComboBoxReasonRegul.Size = new System.Drawing.Size(167, 23);
+            this.ComboBoxReasonRegul.TabIndex = 66;
+            this.ComboBoxReasonRegul.SelectedIndexChanged += new System.EventHandler(this.ReasonRegularizationComboxBox_SelectedIndexChanged);
             // 
             // textBox2
             // 
@@ -246,22 +258,50 @@
             this.LabelQuantity.TabIndex = 69;
             this.LabelQuantity.Text = "Quantité";
             // 
-            // ButtonAddNewFamily
-            // 
-            this.ButtonAddNewFamily.BackColor = System.Drawing.Color.MistyRose;
-            this.ButtonAddNewFamily.Location = new System.Drawing.Point(666, 181);
-            this.ButtonAddNewFamily.Name = "ButtonAddNewFamily";
-            this.ButtonAddNewFamily.Size = new System.Drawing.Size(71, 23);
-            this.ButtonAddNewFamily.TabIndex = 73;
-            this.ButtonAddNewFamily.Text = "Créer";
-            this.ButtonAddNewFamily.UseVisualStyleBackColor = false;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(192, 80);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker1.TabIndex = 74;
+            // 
+            // ComboBoxItems
+            // 
+            this.ComboBoxItems.FormattingEnabled = true;
+            this.ComboBoxItems.Location = new System.Drawing.Point(192, 137);
+            this.ComboBoxItems.Name = "ComboBoxItems";
+            this.ComboBoxItems.Size = new System.Drawing.Size(167, 23);
+            this.ComboBoxItems.TabIndex = 75;
+            this.ComboBoxItems.SelectedIndexChanged += new System.EventHandler(this.comboBoxItems_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(192, 120);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 15);
+            this.label1.TabIndex = 76;
+            this.label1.Text = "Article";
+            // 
+            // ButtonAddNewRegularization
+            // 
+            this.ButtonAddNewRegularization.BackColor = System.Drawing.Color.MistyRose;
+            this.ButtonAddNewRegularization.Location = new System.Drawing.Point(666, 166);
+            this.ButtonAddNewRegularization.Name = "ButtonAddNewRegularization";
+            this.ButtonAddNewRegularization.Size = new System.Drawing.Size(71, 22);
+            this.ButtonAddNewRegularization.TabIndex = 73;
+            this.ButtonAddNewRegularization.Text = "Enregistrer";
+            this.ButtonAddNewRegularization.UseVisualStyleBackColor = false;
+            this.ButtonAddNewRegularization.Click += new System.EventHandler(this.ButtonAddNewRegularization_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(192, 207);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(546, 232);
+            this.dataGridView1.TabIndex = 77;
             // 
             // FormRegularization
             // 
@@ -270,12 +310,15 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ComboBoxItems);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.ButtonAddNewFamily);
+            this.Controls.Add(this.ButtonAddNewRegularization);
             this.Controls.Add(this.LabelQuantity);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.LabelReason);
-            this.Controls.Add(this.reasonRegulComboBox);
+            this.Controls.Add(this.ComboBoxReasonRegul);
             this.Controls.Add(this.LabelInventorist);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.LabelRegulDate);
@@ -295,9 +338,25 @@
             this.Controls.Add(this.textBoxPurchases);
             this.Name = "FormRegularization";
             this.Text = "FormRegularization";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void ButtonAddNewRegularization_Click(object sender, EventArgs e)
+        {
+           // throw new NotImplementedException();
+        }
+
+        private void ReasonRegularizationComboxBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void comboBoxItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
         }
 
         #endregion
@@ -320,10 +379,13 @@
         private TextBox textBox1;
         private Label LabelInventorist;
         private Label LabelReason;
-        private ComboBox reasonRegulComboBox;
+        private ComboBox ComboBoxReasonRegul;
         private TextBox textBox2;
         private Label LabelQuantity;
-        private Button ButtonAddNewFamily;
+        private Button ButtonAddNewRegularization;
         private DateTimePicker dateTimePicker1;
+        private ComboBox ComboBoxItems;
+        private Label label1;
+        private DataGridView dataGridView1;
     }
 }

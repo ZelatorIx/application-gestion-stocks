@@ -188,6 +188,7 @@
             this.ButtonFamilies.TabIndex = 46;
             this.ButtonFamilies.Text = "Familles";
             this.ButtonFamilies.UseVisualStyleBackColor = true;
+            this.ButtonFamilies.Click += new System.EventHandler(this.ButtonFamilies_Click);
             // 
             // ButtonItems
             // 
@@ -197,6 +198,7 @@
             this.ButtonItems.TabIndex = 45;
             this.ButtonItems.Text = "Articles";
             this.ButtonItems.UseVisualStyleBackColor = true;
+            this.ButtonItems.Click += new System.EventHandler(this.ButtonItems_Click);
             // 
             // TextBoxProducts
             // 

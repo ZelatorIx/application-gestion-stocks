@@ -56,6 +56,7 @@ namespace Negosud.WinForm
         {
             FormInventory formInventory = new FormInventory();
             formInventory.Show();
+            this.Hide();
         }
 
         private void textBoxAchats_TextChanged(object sender, EventArgs e)
@@ -66,6 +67,20 @@ namespace Negosud.WinForm
         private void textBoxVentes_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButtonItems_Click(object sender, EventArgs e)
+        {
+            FormItems formItems = new FormItems();
+            formItems.Show();
+            this.Hide();
+        }
+
+        private void ButtonFamilies_Click(object sender, EventArgs e)
+        {
+            FormFamilies formFamilies = new FormFamilies();
+            formFamilies.Show();
+            this.Hide();
         }
     }
 }
