@@ -86,55 +86,79 @@ namespace Negosud.WinForm
 
         private async void BtnNouveau_Click(object sender, EventArgs e)
         {
-            //Envoyer le nouvel ObjetDTO à l'API
-            // 1 Récupérer les valeurs des Textboxs
-            string Name = TextBoxItemName.Text;
-            string Description = TextBoxDescription.Text;
-            //string Family = ComboBoxItemFamily.Text;
-            string selectedFamily = (string)ComboBoxItemFamily.SelectedItem;
-            int Year = int.Parse(TextBoxYear.Text);
-            int StockMin = int.Parse(TextBoxStockMin.Text);
-            float PurchasePriceBT = float.Parse(TextBoxPurchasePriceBT.Text);
-            float VAT = float.Parse(TextBoxVAT.Text);
-            float SellingPriceBT = float.Parse(TextBoxSellingPriceBT.Text);
-
-            // 2 Créer l'objet DTO
-            ItemDTO itemResult = new ItemDTO();
-            // 3 Remplir ce nouovel Objet avec les valeurs de Etape 1
-            itemResult.Name = Name; 
-            itemResult.Description = Description;
-            //itemResult.Family = selectedFamily;
-
-            itemResult.YearItem = Year;
-            itemResult.MinLimit = StockMin;
-            itemResult.PurchasePriceBT = PurchasePriceBT;
-            itemResult.Vat = VAT;
-            itemResult.SellingPriceBT = SellingPriceBT;
-
-            // 4 Appeler la web API (route Item et avec Post)  avec cet objet DTO
-            //Déclaration du client http
-            HttpClient httpClient = new HttpClient();
-
-            //Adresse de l'api 
-            httpClient.BaseAddress = new Uri("https://localhost:7049/items");
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "items");
-            // Sérialiser le DTO
-            string JSon = JsonConvert.SerializeObject(itemResult);
-            request.Content = new StringContent(JSon);
-            request.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-            //Envoi de la requête 
-            HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(request);
-            // vérifie que le retour ne soit pas une erreur
-            httpResponseMessage.EnsureSuccessStatusCode();
-            //Affichage de la réponse
-            if (httpResponseMessage.IsSuccessStatusCode) 
+            try
             {
-                MessageBox.Show("Le nouvel article a été crée avec succès");
-            } else
-            {
-                MessageBox.Show("Une erreur s'est produite, vérifiez d'avoir rempli tous les champs correctement.");
+                //Déclaration du client http
+                HttpClient client = new HttpClient();
+
+                //Envoyer le nouvel ObjetDTO à l'API
+                // 1 Récupérer les valeurs des Textboxs
+                string Name = TextBoxItemName.Text;
+                string Description = TextBoxDescription.Text;
+                //string Family = ComboBoxItemFamily.Text;
+                string? comboBoxFamilyId = ComboBoxItemFamily.SelectedValue.ToString();
+                if (comboBoxFamilyId == null)
+                {
+                    MessageBox.Show("Sélectionnez une famille");
+                    return;
+                }
+
+                int selectedFamilyId = int.Parse(comboBoxFamilyId);
+                string json = await client.GetStringAsync($"https://localhost:7049/families/{selectedFamilyId}");
+                FamilyDTO? selectedFamily = JsonConvert.DeserializeObject<FamilyDTO>(json);
+                if (selectedFamily == null)
+                {
+                    MessageBox.Show($"Aucune famille \"{ComboBoxItemFamily.Text}\" trouvée");
+                    return;
+                }
+
+                int Year = int.Parse(TextBoxYear.Text);
+                int StockMin = int.Parse(TextBoxStockMin.Text);
+                float PurchasePriceBT = float.Parse(TextBoxPurchasePriceBT.Text);
+                float VAT = float.Parse(TextBoxVAT.Text);
+                float SellingPriceBT = float.Parse(TextBoxSellingPriceBT.Text);
+
+                // 2 Créer l'objet DTO
+                ItemDTO itemResult = new ItemDTO();
+                // 3 Remplir ce nouovel Objet avec les valeurs de Etape 1
+                itemResult.Name = Name; 
+                itemResult.Description = Description;
+                itemResult.Family = selectedFamily;
+
+                itemResult.YearItem = Year;
+                itemResult.MinLimit = StockMin;
+                itemResult.PurchasePriceBT = PurchasePriceBT;
+                itemResult.Vat = VAT;
+                itemResult.SellingPriceBT = SellingPriceBT;
+
+                // 4 Appeler la web API (route Item et avec Post)  avec cet objet DTO
+                //Adresse de l'api 
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    httpClient.BaseAddress = new Uri("https://localhost:7049/items");
+                    HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "items");
+                    // Sérialiser le DTO
+                    string JSon = JsonConvert.SerializeObject(itemResult);
+                    request.Content = new StringContent(JSon);
+                    request.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                    //Envoi de la requête 
+                    HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(request);
+                    // vérifie que le retour ne soit pas une erreur
+                    httpResponseMessage.EnsureSuccessStatusCode();
+                    //Affichage de la réponse
+                    if (httpResponseMessage.IsSuccessStatusCode) 
+                    {
+                        MessageBox.Show("Le nouvel article a été crée avec succès");
+                    } else
+                    {
+                        MessageBox.Show("Une erreur s'est produite, vérifiez d'avoir rempli tous les champs correctement.");
+                    }
+                }
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private async void buttonItems_Click(object sender, EventArgs e)
