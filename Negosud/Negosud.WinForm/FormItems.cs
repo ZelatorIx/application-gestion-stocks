@@ -172,10 +172,6 @@ namespace Negosud.WinForm
 
                 // Convertir la chaîne JSON en un objet dynamic
                 List<ItemDTO>? items = JsonConvert.DeserializeObject<List<ItemDTO>>(json);
-                if (items == null)
-                {
-                    throw new Exception("Aucun article trouvé.");
-                }
 
                 // Créer un objet DataTable et ajouter les colonnes nécessaires
                 DataTable table = new DataTable();
@@ -190,10 +186,13 @@ namespace Negosud.WinForm
                 table.Columns.Add("Année", typeof(int));
 
                 // Parcourir la liste d'ItemDTO et ajouter chaque objet en tant que ligne dans l'objet DataTable
-                foreach (ItemDTO item in items)
+                if (items != null)
                 {
-                    table.Rows.Add(item.Id, item.Name, item.Description, item.PurchasePriceBT, item.SellingPriceBT,
-                        item.Vat, item.Picture, item.MinLimit, item.YearItem);
+                    foreach (ItemDTO item in items)
+                    {
+                        table.Rows.Add(item.Id, item.Name, item.Description, item.PurchasePriceBT, item.SellingPriceBT,
+                            item.Vat, item.Picture, item.MinLimit, item.YearItem);
+                    }
                 }
                 // Assigner l'objet DataTable comme source de données du contrôle DataGridView
                 dataGridView1.DataSource = table;
@@ -208,17 +207,17 @@ namespace Negosud.WinForm
         {
             HttpClient client = new HttpClient();
             string json = await client.GetStringAsync("https://localhost:7049/families");
-            dynamic data = JsonConvert.DeserializeObject(json);
+            List<FamilyDTO>? families = JsonConvert.DeserializeObject<List<FamilyDTO>>(json);
             // Créer un objet DataTable et ajouter les colonnes nécessaires
             DataTable table = new DataTable();
             table.Columns.Add("Id", typeof(int)).ReadOnly = true;
             table.Columns.Add("Nom", typeof(string));
             // Parcourir l'objet dynamic et ajouter chaque objet en tant que ligne dans l'objet DataTable
-            if (data != null)
+            if (families != null)
             {
-                foreach (dynamic item in data)
+                foreach (FamilyDTO family in families)
                 {
-                    table.Rows.Add(item.id, item.name);
+                    table.Rows.Add(family.Id, family.Name);
                 }
             }
             // Assigner l'objet DataTable comme source de données de la comboBox
@@ -228,7 +227,6 @@ namespace Negosud.WinForm
             // Associate the event-handling method with the 
             // SelectedIndexChanged event.
             this.ComboBoxItemFamily.SelectedIndexChanged += new EventHandler(ComboBoxItemFamily_SelectedIndexChanged);
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
