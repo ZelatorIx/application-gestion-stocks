@@ -17,13 +17,9 @@ namespace Negosud.WinForm
         public FormItems()
         {
             InitializeComponent();
-            List<FamilyDTO> familyDTO = new List<FamilyDTO>();
-            ComboBoxItemFamily.DataSource = familyDTO;
-            ComboBoxItemFamily.DisplayMember = Name;
-            //ComboBoxItemFamily.ValueMember = 
-
-
-
+            ComboBoxItemFamily.DataSource = ItemFamily;
+            ComboBoxItemFamily.DisplayMember = "Name";
+            ComboBoxItemFamily.ValueMember = "Id";
         }
 
         #region Redirection Button
@@ -85,7 +81,7 @@ namespace Negosud.WinForm
         #endregion
 
 
-        public FamilyDTO? ItemFamily { get; private set; }
+        public FamilyDTO? ItemFamily { get; set; }
 
         private async void BtnNouveau_Click(object sender, EventArgs e)
         {
@@ -106,7 +102,8 @@ namespace Negosud.WinForm
             // 3 Remplir ce nouovel Objet avec les valeurs de Etape 1
             itemResult.Name = Name; 
             itemResult.Description = Description;
-            //itemResult.Family = Family;
+            //itemResult.Family = selectedFamily;
+
             itemResult.YearItem = Year;
             itemResult.MinLimit = StockMin;
             itemResult.PurchasePriceBT = PurchasePriceBT;

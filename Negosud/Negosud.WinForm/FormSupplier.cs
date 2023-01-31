@@ -234,7 +234,6 @@ namespace Negosud.WinForm
             this.Hide();
         }
 
-
         #endregion
 
     }
