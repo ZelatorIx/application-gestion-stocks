@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Negosud.WinForm": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:58444;http://localhost:58447"
+    }
+  }
+}
