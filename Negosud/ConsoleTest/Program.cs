@@ -1,4 +1,6 @@
-﻿namespace Negosud.dataaccess
+﻿using Negosud.dataaccess;
+
+namespace ConsoleTest
 {
     class Program
     {

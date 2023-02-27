@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTest", "ConsoleTest\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Negosud.WinForm", "Negosud.WinForm\Negosud.WinForm.csproj", "{982FD472-3A36-4D25-8115-9C74D95C2971}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negosud.MVCWeb", "Negosud.MVCWeb\Negosud.MVCWeb.csproj", "{7E831FF4-7101-4FB5-A310-A928D255E5F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{982FD472-3A36-4D25-8115-9C74D95C2971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{982FD472-3A36-4D25-8115-9C74D95C2971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{982FD472-3A36-4D25-8115-9C74D95C2971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E831FF4-7101-4FB5-A310-A928D255E5F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E831FF4-7101-4FB5-A310-A928D255E5F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E831FF4-7101-4FB5-A310-A928D255E5F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E831FF4-7101-4FB5-A310-A928D255E5F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
