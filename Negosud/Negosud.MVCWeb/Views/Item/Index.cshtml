@@ -16,12 +16,18 @@
     <tbody>
         @foreach(Item item in Model)
         {
-            <tr>
+            <tr asp-action="Item" asp-route-id="@item.Id">
                 <td>@item.Name</td>
                 <td>@item.Description</td>
                 <td>@item.Family.Name</td>
                 <td>@item.YearItem</td>
                 <td>@(item.SellingPriceBT * item.Vat)&euro;</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Détails</a>
+                </td>
+                <td>
+                    <a>Panier</a>
+                </td>
             </tr>
         }
     </tbody>

@@ -13,16 +13,20 @@ namespace Negosud.MVCWeb.Controllers
 			this.model = model;
 		}
 
-		public async Task<ViewResult> Index()
+		[Route("Item")]
+        public async Task<ViewResult> Index()
 		{
-			List<Item> items = await GetItems();
+			List<Item> items = await model.GetItems();
 
-            return View(items);
-		}
+			return View(items);
+        }
 
-		private async Task<List<Item>> GetItems()
+        [Route("Item/{id}")]
+		public async Task<ViewResult> Details(int id)
 		{
-			return await model.GetItems();
-		}
+            Item? item = await model.GetItemById(id);
+
+            return View(item);
+        }
 	}
 }
