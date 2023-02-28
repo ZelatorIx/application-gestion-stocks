@@ -1,4 +1,4 @@
-﻿using Negosud.MVCWeb.Services.Model.Types;
+﻿using Negosud.MVCWeb.Types;
 
 namespace Negosud.MVCWeb.Services.Model
 {
@@ -11,14 +11,14 @@ namespace Negosud.MVCWeb.Services.Model
             this.api = api;
         }
 
-        public async Task<List<ModelFamily>> GetFamilies()
+        public async Task<List<Family>> GetFamilies()
         {
-            return await api.Get<List<ModelFamily>>("families");
+            return await api.Get<List<Family>>("families");
         }
 
-        public async Task<List<ModelItem>> GetItems()
+        public async Task<List<Item>> GetItems()
         {
-            return await api.Get<List<ModelItem>>("items");
+            return await api.Get<List<Item>>("items");
         }
     }
 }
