@@ -1,8 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Negosud.MVCWeb.Types
+﻿namespace Negosud.MVCWeb.Types
 {
-    public interface StockMovement
+    public class StockMovement
     {
         public int Id { get; set; }
         public int Quantity { get; set; }

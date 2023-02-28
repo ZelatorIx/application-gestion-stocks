@@ -1,8 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Negosud.MVCWeb.Types
+﻿namespace Negosud.MVCWeb.Types
 {
-    public interface Supplier
+    public class Supplier
     {
         public int Id { get; set; }
         public string Name { get; set; }

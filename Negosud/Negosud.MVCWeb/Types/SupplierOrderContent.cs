@@ -1,6 +1,6 @@
 ﻿namespace Negosud.MVCWeb.Types
 {
-    public interface SupplierOrderContent
+    public class SupplierOrderContent
     {
         public int Id { get; set; }
         public int Quantity { get; set; }
