@@ -19,9 +19,9 @@
             <tr>
                 <td>@item.Name</td>
                 <td>@item.Description</td>
-                <td>@item.Family</td>
+                <td>@item.Family.Name</td>
                 <td>@item.YearItem</td>
-                <td>@(item.SellingPriceBT * item.Vat)</td>
+                <td>@(item.SellingPriceBT * item.Vat)&euro;</td>
             </tr>
         }
     </tbody>

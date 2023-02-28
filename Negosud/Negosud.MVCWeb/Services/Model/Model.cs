@@ -13,12 +13,12 @@ namespace Negosud.MVCWeb.Services.Model
 
         public async Task<List<Family>> GetFamilies()
         {
-            return await api.Get<List<Family>>("families");
+            return await api.Get<List<Family>>("families") ?? new List<Family>();
         }
 
         public async Task<List<Item>> GetItems()
         {
-            return await api.Get<List<Item>>("items");
+            return await api.Get<List<Item>>("items") ?? new List<Item>();
         }
     }
 }
