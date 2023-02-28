@@ -30,7 +30,7 @@ internal class Program
 
 		app.UseAuthorization();
 
-		Routing.GenerateRoutes(app);
+		Routing.GetInstance().GenerateRoutes(app);
 
 		app.Run();
 	}
