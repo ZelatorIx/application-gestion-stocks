@@ -6,10 +6,12 @@
 
 <a asp-action="Index">Retour</a>
 
-<div>Nom : @item.Name</div>
-<div>Description : @item.Description</div>
-<div>Famille : @item.Family.Name</div>
-<div>Année : @item.YearItem</div>
-<div>Prix : @(item.SellingPriceBT * item.Vat)&euro;</div>
+<h1>@item.Name</h1>
+<h2>@item.Description</h2>
+<div>
+    <p>Famille : @item.Family.Name</p>
+    <p>Année : @item.YearItem</p>
+    <p>Prix : @(item.SellingPriceBT * item.Vat)&euro;</p>
+</div>
 
 <a>Ajouter au panier</a>
