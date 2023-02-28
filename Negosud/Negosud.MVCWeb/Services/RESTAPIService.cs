@@ -17,6 +17,7 @@ namespace Negosud.MVCWeb.Services
         {
             string url = $"{backendUrl}/${route}";
             string json = await httpClient.GetStringAsync(url);
+
             return JsonSerializer.Deserialize<T>(json);
         }
 

@@ -1,5 +1,28 @@
-﻿@{
-    ViewData["Title"] = "Item";
+﻿@using Negosud.MVCWeb.Types;
+@{
+    ViewData["Title"] = "Articles";
 }
 
-<div>Var toto: @(toto)</div>
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Famille</th>
+            <th>Année</th>
+            <th>Prix</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Item item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Family</td>
+                <td>@item.YearItem</td>
+                <td>@(item.SellingPriceBT * item.Vat)</td>
+            </tr>
+        }
+    </tbody>
+</table>
