@@ -3,20 +3,24 @@
     ViewData["Title"] = "Panier";
     Dictionary<int, ShoppingCart> items = (Dictionary<int, ShoppingCart>)Model;
     int quantity = 0;
+    float price = 0;
 
     foreach (KeyValuePair<int, ShoppingCart> item in items)
     {
         quantity += item.Value.Quantity;
+        price += item.Value.Price * item.Value.Quantity;
     }
 }
 
 <div>Nombre total d'articles dans le panier : @quantity</div>
+<div>Prix total : @(price)&euro;</div>
 
 <table>
     <thead>
         <tr>
             <th>Article</th>
             <th>Quantité</th>
+            <th>Prix</th>
         </tr>
     </thead>
     <tbody>
@@ -25,7 +29,8 @@
             <tr asp-action="Item" asp-route-id="@item.Key">
                 <td><a asp-controller="Item" asp-action="Details" asp-route-id="@item.Key">@item.Value.Name</a></td>
                 <td>@item.Value.Quantity</td>
-                <td><a asp-action="Add" asp-route-id="@item.Key" asp-route-name="@item.Value.Name">+</a></td>
+                <td>@(item.Value.Price * item.Value.Quantity)&euro;</td>
+                <td><a asp-action="Add" asp-route-id="@item.Key" asp-route-name="@item.Value.Name" asp-route-price="@item.Value.Price">+</a></td>
                 <td><a asp-action="Minus" asp-route-id="@item.Key" asp-route-name="@item.Value.Name">-</a></td>
                 <td><a asp-action="Delete" asp-route-id="@item.Key">Retirer</a></td>
             </tr>

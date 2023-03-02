@@ -32,13 +32,13 @@ namespace Negosud.MVCWeb.Controllers
         /// <param name="name">Nom de l'article</param>
         /// <param name="redirect">Indique s'il doit y avoir une redirection vers la page des articles</param>
         /// <returns>Retourne à la page principale</returns>
-        public RedirectToActionResult Add(int id, string name, bool? redirect)
+        public RedirectToActionResult Add(int id, string name, float price, bool? redirect)
         {
             Dictionary<int, ShoppingCart> items = GetShoppingCart();
 
             if (!items.ContainsKey(id))
             {
-                items.Add(id, new ShoppingCart() { Name = name, Quantity = 0 });
+                items.Add(id, new ShoppingCart() { Name = name, Quantity = 0, Price = price });
             }
 
             items[id].Quantity++;
