@@ -1,6 +1,7 @@
-﻿using Negosud.MVCWeb.Types;
+﻿using Negosud.MVCWeb.Services;
+using Negosud.MVCWeb.Types;
 
-namespace Negosud.MVCWeb.Services.Model
+namespace Negosud.MVCWeb.Models
 {
     public class Model
     {

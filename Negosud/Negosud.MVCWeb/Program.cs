@@ -1,7 +1,7 @@
 using Negosud.MVCWeb;
 using Negosud.MVCWeb.Controllers;
+using Negosud.MVCWeb.Models;
 using Negosud.MVCWeb.Services;
-using Negosud.MVCWeb.Services.Model;
 
 internal class Program
 {
@@ -13,7 +13,7 @@ internal class Program
 		builder.Services.AddControllersWithViews();
         builder.Services.AddSingleton<RESTAPIService>();
         builder.Services.AddSingleton<Model>();
-		builder.Services.AddSingleton<BasketController>();
+		builder.Services.AddSingleton<ShoppingCartController>();
 
         WebApplication app = builder.Build();
 

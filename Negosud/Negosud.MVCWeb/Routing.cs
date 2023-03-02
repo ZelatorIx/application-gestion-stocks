@@ -28,7 +28,7 @@
 			);
 
 			MapItems();
-			MapBasket();
+			MapShoppingCart();
 		}
 
 		private void MapItems()
@@ -45,11 +45,11 @@
             );
         }
 
-		private void MapBasket()
+		private void MapShoppingCart()
 		{
 			app?.MapControllerRoute(
-				name: "Basket",
-                pattern: "{controller=Basket}/{action=Index}"
+				name: "ShoppingCart",
+                pattern: "{controller=ShoppingCart}/{action=Index}"
             );
 		}
 	}

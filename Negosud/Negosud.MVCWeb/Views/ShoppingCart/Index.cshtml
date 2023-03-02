@@ -4,10 +4,10 @@
 *@
 @{
     ViewData["Title"] = "Panier";
-    Dictionary<int, BasketItem> items = (Dictionary<int, BasketItem>)Model;
+    Dictionary<int, ShoppingCart> items = (Dictionary<int, ShoppingCart>)Model;
     int quantity = 0;
 
-    foreach (KeyValuePair<int, BasketItem> item in items)
+    foreach (KeyValuePair<int, ShoppingCart> item in items)
     {
         quantity += item.Value.Quantity;
     }
@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (KeyValuePair<int, BasketItem> item in items)
+        @foreach (KeyValuePair<int, ShoppingCart> item in items)
         {
             <tr asp-action="Item" asp-route-id="@item.Key">
                 <td><a asp-controller="Item" asp-action="Details" asp-route-id="@item.Key">@item.Value.Name</a></td>
