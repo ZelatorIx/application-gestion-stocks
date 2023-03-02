@@ -16,63 +16,96 @@ namespace Negosud.MVCWeb.Controllers
             SHOPPING_CART_COOKIE = "shopping_cart";
         }
 
+        /// <summary>
+        /// Affiche la page principale du panier
+        /// </summary>
+        /// <returns>Page principale</returns>
         public IActionResult Index()
         {
             return View(GetShoppingCart());
         }
 
         /// <summary>
-        /// Ajouter un article dans le panier
+        /// Ajoute un article dans le panier
         /// </summary>
         /// <param name="id">Identifiant de l'article</param>
         /// <param name="name">Nom de l'article</param>
-        /// <returns>Redirection de la vue</returns>
-        public RedirectToActionResult Add(int id, string name)
+        /// <param name="redirect">Indique s'il doit y avoir une redirection vers la page des articles</param>
+        /// <returns>Retourne à la page principale</returns>
+        public RedirectToActionResult Add(int id, string name, float price, bool? redirect)
         {
             Dictionary<int, ShoppingCart> items = GetShoppingCart();
 
             if (!items.ContainsKey(id))
             {
-                items.Add(id, new ShoppingCart() { Name = name, Quantity = 0 });
+                items.Add(id, new ShoppingCart() { Name = name, Quantity = 0, Price = price });
             }
 
             items[id].Quantity++;
-
             SaveShoopingCart(items);
-            return RedirectToAction("Index", "Item");
+
+            if (redirect == true)
+            {
+                return RedirectToAction("Index", "Item");
+            } else
+            {
+                return RedirectToAction("Index");
+            }
         }
 
-        public void Minus(int id, string name)
+        /// <summary>
+        /// Retire un article du panier
+        /// </summary>
+        /// <param name="id">Identifiant de l'article</param>
+        /// <param name="name">Nom de l'article</param>
+        /// <returns>Retourne à la page principale</returns>
+        public RedirectToActionResult Minus(int id, string name)
         {
             Dictionary<int, ShoppingCart> items = GetShoppingCart();
 
             if (!items.ContainsKey(id))
             {
-                return;
+                return RedirectToAction("Index");
             }
 
             if (items[id].Quantity > 1)
             {
                 items[id].Quantity--;
-            } else
-            {
-                Delete(id);
             }
+            else
+            {
+                return Delete(id);
+            }
+
+            SaveShoopingCart(items);
+            return RedirectToAction("Index");
         }
 
-        public void Delete(int id)
+        /// <summary>
+        /// Supprime un article du panier
+        /// </summary>
+        /// <param name="id">Identifiant de l'article</param>
+        /// <returns>Retourne à la page principale</returns>
+        public RedirectToActionResult Delete(int id)
         {
             Dictionary<int, ShoppingCart> items = GetShoppingCart();
 
             if (!items.ContainsKey(id))
             {
-                return;
+                return RedirectToAction("Index");
             }
 
             items.Remove(id);
+            SaveShoopingCart(items);
+
+            return RedirectToAction("Index");
         }
 
-        public void DeleteShoppingCart()
+        /// <summary>
+        /// Supprime le panier
+        /// </summary>
+        /// <param name="actualize">Indique que la page ne doit pas être actualisée</param>
+        private void DeleteShoppingCart(bool actualize = false)
         {
             string? cookie = Request.Cookies[SHOPPING_CART_COOKIE];
 
@@ -83,20 +116,33 @@ namespace Negosud.MVCWeb.Controllers
         }
 
         /// <summary>
-        /// Sauvegarde le panier d'articles
+        /// Supprime le panier
         /// </summary>
-        /// <param name="data">Panier d'articles</param>
-        private void SaveShoopingCart(Dictionary<int, ShoppingCart> data)
+        /// <returns>Retourne à la page principale</returns>
+        public RedirectToActionResult DeleteShoppingCart()
         {
-            DeleteShoppingCart();
-            string stringCookie = JsonConvert.SerializeObject(data);
-            HttpContext.Response.Cookies.Append(SHOPPING_CART_COOKIE, stringCookie);
+            DeleteShoppingCart(false);
+
+            return RedirectToAction("Index");
         }
 
         /// <summary>
-        /// Retourne le panier d'articles
+        /// Sauvegarde le panier d'articles
         /// </summary>
-        /// <returns>Panier des articles</returns>
+        /// <param name="data">Panier d'articles</param>
+        private RedirectToActionResult SaveShoopingCart(Dictionary<int, ShoppingCart> data)
+        {
+            DeleteShoppingCart(false);
+            string stringCookie = JsonConvert.SerializeObject(data);
+            HttpContext.Response.Cookies.Append(SHOPPING_CART_COOKIE, stringCookie);
+
+            return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// Récupère le panier d'articles
+        /// </summary>
+        /// <returns>Retourne à la page des articles</returns>
         private Dictionary<int, ShoppingCart> GetShoppingCart()
         {
             string? cookie = Request.Cookies[SHOPPING_CART_COOKIE];
@@ -108,6 +154,13 @@ namespace Negosud.MVCWeb.Controllers
             }
 
             return shoppingCart ?? new Dictionary<int, ShoppingCart>();
+        }
+
+        public RedirectToActionResult Command()
+        {
+            DeleteShoppingCart(false);
+
+            return RedirectToAction("Index", "Item");
         }
     }
 }

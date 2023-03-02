@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Articles";
     Item item = Model;
+    float price = item.SellingPriceBT * item.Vat;
 }
 
 <a asp-action="Index">Retour</a>
@@ -11,7 +12,14 @@
 <div>
     <p>Famille : @item.Family.Name</p>
     <p>Année : @item.YearItem</p>
-    <p>Prix : @(item.SellingPriceBT * item.Vat)&euro;</p>
+    <p>Prix : @price&euro;</p>
 </div>
 
-<a asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@item.Id", asp-route-name="@item.Name" class="btn btn-success">Ajouter au panier</a>
+<a
+    asp-controller="ShoppingCart"
+    asp-action="Add"
+    asp-route-id="@item.Id"
+    asp-route-name="@item.Name"
+    asp-route-price="@price"
+    asp-route-redirect="true"
+>Ajouter au panier</a>
