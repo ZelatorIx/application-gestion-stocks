@@ -42,13 +42,13 @@ namespace Negosud.MVCWeb.Controllers
             return RedirectToAction("Index", "Item");
         }
 
-        public void Minus(int id, string name)
+        public RedirectToActionResult Minus(int id, string name)
         {
             Dictionary<int, ShoppingCart> items = GetShoppingCart();
 
             if (!items.ContainsKey(id))
             {
-                return;
+                return RedirectToAction("Index");
             }
 
             if (items[id].Quantity > 1)
@@ -58,21 +58,24 @@ namespace Negosud.MVCWeb.Controllers
             {
                 Delete(id);
             }
+
+            return RedirectToAction("Index");
         }
 
-        public void Delete(int id)
+        public RedirectToActionResult Delete(int id)
         {
             Dictionary<int, ShoppingCart> items = GetShoppingCart();
 
             if (!items.ContainsKey(id))
             {
-                return;
+                return RedirectToAction("Index");
             }
 
             items.Remove(id);
+            return RedirectToAction("Index");
         }
 
-        public void DeleteShoppingCart()
+        public void DeleteShoppingCart(bool actualize = false)
         {
             string? cookie = Request.Cookies[SHOPPING_CART_COOKIE];
 
@@ -83,14 +86,27 @@ namespace Negosud.MVCWeb.Controllers
         }
 
         /// <summary>
+        /// Supprime le panier
+        /// </summary>
+        /// <returns>Retourne</returns>
+        public RedirectToActionResult DeleteShoppingCart()
+        {
+            DeleteShoppingCart(false);
+
+            return RedirectToAction("Index");
+        }
+
+        /// <summary>
         /// Sauvegarde le panier d'articles
         /// </summary>
         /// <param name="data">Panier d'articles</param>
-        private void SaveShoopingCart(Dictionary<int, ShoppingCart> data)
+        private RedirectToActionResult SaveShoopingCart(Dictionary<int, ShoppingCart> data)
         {
-            DeleteShoppingCart();
+            DeleteShoppingCart(false);
             string stringCookie = JsonConvert.SerializeObject(data);
             HttpContext.Response.Cookies.Append(SHOPPING_CART_COOKIE, stringCookie);
+
+            return RedirectToAction("Index");
         }
 
         /// <summary>
