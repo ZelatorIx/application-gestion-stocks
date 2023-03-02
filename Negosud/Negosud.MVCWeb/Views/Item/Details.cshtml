@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Articles";
     Item item = Model;
-    float price = item.SellingPriceBT * item.Vat;
+    float price = int.Parse(System.Math.Round(item.SellingPriceBT * ( 1 + item.Vat / 100), 2).ToString());
 }
 
 <a asp-action="Index">Retour</a>

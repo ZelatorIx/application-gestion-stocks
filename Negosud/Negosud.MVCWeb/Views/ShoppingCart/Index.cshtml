@@ -3,7 +3,7 @@
     ViewData["Title"] = "Panier";
     Dictionary<int, ShoppingCart> items = (Dictionary<int, ShoppingCart>)Model;
     int quantity = 0;
-    float price = 0;
+    float price = 0.0f;
 
     foreach (KeyValuePair<int, ShoppingCart> item in items)
     {

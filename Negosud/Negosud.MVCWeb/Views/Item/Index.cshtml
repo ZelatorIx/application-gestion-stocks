@@ -1,7 +1,28 @@
 ﻿@using Negosud.MVCWeb.Types;
 @{
     ViewData["Title"] = "Articles";
+    List<Item> items = (List<Item>)Model.items;
+    List<Family> families = (List<Family>)Model.families;
+
+    string familyId = "";
+    string researchText = "";
 }
+
+<form method="get" asp-action="Search">
+    <label for="ResearchText">Recherche</label>
+    <input type="text" asp-for="@researchText" name="ResearchText" id="ResearchText" placeholder="Entrez votre recherche">
+
+    <label for="FamilySelector">Familles</label><br />
+    <select asp-for="@familyId" id="FamilySelector">
+        @foreach (Family family in families)
+        {
+            <option id="@family.Id" value="@family.Id">@family.Name</option>
+        }
+    </select>
+
+    <button class="btn btn-primary" type="submit">Chercher</button>
+    <a class="btn btn-warning" asp-action="Index">Réinitialiser</a>
+</form>
 
 <table>
     <thead>
@@ -13,13 +34,13 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Item item in Model)
+        @foreach (Item item in items)
         {
-            <tr asp-action="Item" asp-route-id="@item.Id">
+            <tr>
                 <td>@item.Name</td>
                 <td>@item.Family.Name</td>
                 <td>@item.YearItem</td>
-                <td>@(item.SellingPriceBT + (item.SellingPriceBT * item.Vat))&euro;</td>
+                <td>@(int.Parse(System.Math.Round(item.SellingPriceBT * (1 + item.Vat / 100), 2).ToString()))&euro;</td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Détails</a>
                 </td>
