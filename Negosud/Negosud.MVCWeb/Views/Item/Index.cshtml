@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(Item item in Model)
+        @foreach (Item item in Model)
         {
             <tr asp-action="Item" asp-route-id="@item.Id">
                 <td>@item.Name</td>

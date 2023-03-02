@@ -13,7 +13,7 @@ namespace Negosud.MVCWeb.Services
             backendUrl = "https://localhost:7049";
         }
 
-        public async Task<T?> Get<T>(string route)
+        public async Task<T> Get<T>(string route)
         {
             string url = $"{backendUrl}/{route}";
             string json = await httpClient.GetStringAsync(url);

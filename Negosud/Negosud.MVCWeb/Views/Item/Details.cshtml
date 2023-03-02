@@ -14,4 +14,4 @@
     <p>Prix : @(item.SellingPriceBT * item.Vat)&euro;</p>
 </div>
 
-<a>Ajouter au panier</a>
+<a asp-controller="Basket" asp-action="Add" asp-route-id="@item.Id", asp-route-name="@item.Name">Ajouter au panier</a>

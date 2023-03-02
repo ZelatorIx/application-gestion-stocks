@@ -28,6 +28,7 @@
 			);
 
 			MapItems();
+			MapBasket();
 		}
 
 		private void MapItems()
@@ -43,5 +44,13 @@
                 pattern: "{controller=Item}/{action=Details}/{id}"
             );
         }
+
+		private void MapBasket()
+		{
+			app?.MapControllerRoute(
+				name: "Basket",
+                pattern: "{controller=Basket}/{action=Index}"
+            );
+		}
 	}
 }

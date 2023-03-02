@@ -1,6 +1,36 @@
-﻿@*
+﻿@using Negosud.MVCWeb.Data;
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
     ViewData["Title"] = "Panier";
+    Dictionary<int, BasketItem> items = (Dictionary<int, BasketItem>)Model;
+    int quantity = 0;
+
+    foreach (KeyValuePair<int, BasketItem> item in items)
+    {
+        quantity += item.Value.Quantity;
+    }
 }
+
+<div>Nombre total d'articles dans le panier : @quantity</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Article</th>
+            <th>Quantité</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (KeyValuePair<int, BasketItem> item in items)
+        {
+            <tr asp-action="Item" asp-route-id="@item.Key">
+                <td><a asp-controller="Item" asp-action="Details" asp-route-id="@item.Key">@item.Value.Name</a></td>
+                <td>@item.Value.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button>Commander</button>

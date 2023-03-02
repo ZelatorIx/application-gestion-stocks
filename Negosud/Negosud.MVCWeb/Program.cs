@@ -1,4 +1,5 @@
 using Negosud.MVCWeb;
+using Negosud.MVCWeb.Controllers;
 using Negosud.MVCWeb.Services;
 using Negosud.MVCWeb.Services.Model;
 
@@ -10,8 +11,9 @@ internal class Program
 
 		// Add services to the container.
 		builder.Services.AddControllersWithViews();
-        builder.Services.AddScoped<RESTAPIService>();
-        builder.Services.AddScoped<Model>();
+        builder.Services.AddSingleton<RESTAPIService>();
+        builder.Services.AddSingleton<Model>();
+		builder.Services.AddSingleton<BasketController>();
 
         var app = builder.Build();
 

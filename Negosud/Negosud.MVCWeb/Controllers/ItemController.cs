@@ -7,10 +7,12 @@ namespace Negosud.MVCWeb.Controllers
     public class ItemController : Controller
 	{
 		private readonly Model model;
+        private readonly BasketController basket;
 
-		public ItemController(Model model)
+        public ItemController(Model model, BasketController basket)
 		{
 			this.model = model;
+			this.basket = basket;
 		}
 
 		[Route("Item")]
