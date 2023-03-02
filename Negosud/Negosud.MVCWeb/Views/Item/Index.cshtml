@@ -21,7 +21,7 @@
                 <td>@item.YearItem</td>
                 <td>@(item.SellingPriceBT + (item.SellingPriceBT * item.Vat))&euro;</td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Détails</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Détails</a>
                 </td>
             </tr>
         }

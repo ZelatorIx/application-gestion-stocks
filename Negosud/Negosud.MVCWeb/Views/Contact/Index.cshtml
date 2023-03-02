@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Negosud.MVCWeb.Models.ContactViewModel
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<div>
+    <h1>Contact</h1>
+    <form asp-controller="ContactController" asp-action="Submit" method="post">
+        <div class="mb-2">
+            <label for="" class="form-label">Adresse Email</label>
+            <input type="email" name="from" class="form-control" id="from" placeholder="name@example.com" asp-for="from" required>
+        </div>
+
+        <div class="mb-2">
+            <label for="" class="form-label">Votre Message</label>
+            <textarea class="form-control" id="body" rows="3" asp-for="body"></textarea>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Envoyer" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
