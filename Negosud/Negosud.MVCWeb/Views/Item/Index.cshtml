@@ -19,7 +19,7 @@
                 <td>@item.Name</td>
                 <td>@item.Family.Name</td>
                 <td>@item.YearItem</td>
-                <td>@(item.SellingPriceBT * item.Vat)&euro;</td>
+                <td>@(item.SellingPriceBT + (item.SellingPriceBT * item.Vat))&euro;</td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id">Détails</a>
                 </td>

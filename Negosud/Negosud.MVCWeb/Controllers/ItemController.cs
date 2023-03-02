@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Negosud.MVCWeb.Services.Model;
+using Negosud.MVCWeb.Models;
 using Negosud.MVCWeb.Types;
 
 namespace Negosud.MVCWeb.Controllers
@@ -7,9 +7,9 @@ namespace Negosud.MVCWeb.Controllers
     public class ItemController : Controller
 	{
 		private readonly Model model;
-        private readonly BasketController basket;
+        private readonly ShoppingCartController basket;
 
-        public ItemController(Model model, BasketController basket)
+        public ItemController(Model model, ShoppingCartController basket)
 		{
 			this.model = model;
 			this.basket = basket;
