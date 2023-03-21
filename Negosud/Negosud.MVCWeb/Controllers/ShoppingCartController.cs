@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
 using Negosud.MVCWeb.Data;
+using Negosud.MVCWeb.Models;
 using Negosud.MVCWeb.Types;
 using Newtonsoft.Json;
 using System.Net;
@@ -9,10 +10,12 @@ namespace Negosud.MVCWeb.Controllers
 {
     public class ShoppingCartController : Controller
     {
+        private readonly Model model;
         private readonly string SHOPPING_CART_COOKIE;
 
-        public ShoppingCartController()
+        public ShoppingCartController(Model model)
         {
+            this.model = model;
             SHOPPING_CART_COOKIE = "shopping_cart";
         }
 
@@ -156,10 +159,42 @@ namespace Negosud.MVCWeb.Controllers
             return shoppingCart ?? new Dictionary<int, ShoppingCart>();
         }
 
-        public RedirectToActionResult Command()
+        public async Task<RedirectToActionResult> Command()
         {
-            DeleteShoppingCart(false);
+            string? cookie = Request.Cookies[SHOPPING_CART_COOKIE];
+            Dictionary<int, ShoppingCart>? shoppingCart = null;
 
+            if (cookie == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            shoppingCart = JsonConvert.DeserializeObject<Dictionary<int, ShoppingCart>>(cookie);
+
+            if (shoppingCart != null)
+            {
+                shoppingCart.Select(async (KeyValuePair<int, ShoppingCart> shoppingCart) =>
+                {
+                    CommandCustomer commandCustomer = new CommandCustomer()
+                    {
+                        Number = 0,
+                        Date = new DateTime(),
+                        Status = "En préparation",
+                        CustomerId = 1
+                    };
+                    CustomerOrderContent customerOrderContent = new CustomerOrderContent()
+                    {
+                        Quantity = shoppingCart.Value.Quantity,
+                        BeforePriceTax = shoppingCart.Value.Price,
+                        ItemId = shoppingCart.Key,
+                        CommandCustomer = commandCustomer
+                    };
+
+                    await model.CreateCommand(commandCustomer, customerOrderContent);
+                });
+            }
+
+            DeleteShoppingCart(false);
             return RedirectToAction("Index", "Item");
         }
     }

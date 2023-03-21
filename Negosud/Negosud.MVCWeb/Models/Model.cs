@@ -26,5 +26,13 @@ namespace Negosud.MVCWeb.Models
         {
             return await api.Get<Item>($"items/{id}");
         }
+
+        public async Task<string> CreateCommand(CommandCustomer commandCustomer, CustomerOrderContent customerOrderContent)
+        {
+            await api.Post<CommandCustomer>("commands-customer", commandCustomer);
+            await api.Post<CustomerOrderContent>("commands-order-content", customerOrderContent);
+
+            return "";
+        }
     }
 }
