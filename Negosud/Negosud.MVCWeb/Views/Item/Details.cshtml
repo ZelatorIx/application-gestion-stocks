@@ -1,7 +1,8 @@
 ﻿@using Negosud.MVCWeb.Types;
+@using Negosud.webapi.Models;
 @{
     ViewData["Title"] = "Articles";
-    Item item = Model;
+    ItemDTO item = Model;
     float price = int.Parse(System.Math.Round(item.SellingPriceBT * ( 1 + item.Vat / 100), 2).ToString());
 }
 

@@ -1,8 +1,9 @@
 ﻿@using Negosud.MVCWeb.Types;
+@using Negosud.webapi.Models;
 @{
     ViewData["Title"] = "Articles";
-    List<Item> items = (List<Item>)Model.items;
-    List<Family> families = (List<Family>)Model.families;
+    List<ItemDTO> items = (List<ItemDTO>)Model.items;
+    List<FamilyDTO> families = (List<FamilyDTO>)Model.families;
 
     string familyId = "";
     string researchText = "";
@@ -14,7 +15,7 @@
 
     <label for="FamilySelector">Familles</label><br />
     <select asp-for="@familyId" id="FamilySelector">
-        @foreach (Family family in families)
+        @foreach (FamilyDTO family in families)
         {
             <option id="@family.Id" value="@family.Id">@family.Name</option>
         }
@@ -34,7 +35,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Item item in items)
+        @foreach (ItemDTO item in items)
         {
             <tr>
                 <td>@item.Name</td>

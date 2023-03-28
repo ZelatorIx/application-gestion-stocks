@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Negosud.MVCWeb.Models;
 using Negosud.MVCWeb.Types;
+using Negosud.webapi.Models;
 
 namespace Negosud.MVCWeb.Controllers
 {
@@ -15,30 +16,30 @@ namespace Negosud.MVCWeb.Controllers
 
         public async Task<IActionResult> Index()
 		{
-			List<Item> items = await model.GetItems();
-			List<Family> families = await model.GetFamilies();
+			List<ItemDTO> items = await model.GetItems();
+			List<FamilyDTO> families = await model.GetFamilies();
 
 			return View(new { items, families });
         }
 
 		public async Task<IActionResult> Details(int id)
 		{
-            Item? item = await model.GetItemById(id);
+            ItemDTO? item = await model.GetItemById(id);
 
             return View(item);
         }
 
 		public async Task<IActionResult> Search([FromForm] string form)
 		{
-			List<Item> allItems = await model.GetItems();
-			List<Family> allFamilies = await model.GetFamilies();
+			List<ItemDTO> allItems = await model.GetItems();
+			List<FamilyDTO> allFamilies = await model.GetFamilies();
 
             int familyId = 0;
 			string research = "";
 
-			List<Item> items = allItems
-				.Where((Item item, int index) => item.FamilyId == familyId)
-				.Where((Item item, int index) => allItems[index].Name.Contains(research))
+			List<ItemDTO> items = allItems
+				.Where((ItemDTO item, int index) => item.Family.Id == familyId)
+				.Where((ItemDTO item, int index) => allItems[index].Name.Contains(research))
 				.ToList();
 
             return View(new { items, families = allFamilies });
